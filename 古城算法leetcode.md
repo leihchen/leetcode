@@ -646,6 +646,26 @@ def inorderSuccessor(self, root, p):
 
 ## Sliding Windows
 
+Sliding Windows? Yes & No: 209 <=> 862
+
+https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/ 
+
+Sliding windows/ two ptr is incorrect:
+
+[84,-37,32,40,95] k=167 : **Right ptr goes to end to find the first valid interval.** right ptr can never reach a valid interval if too much negative exist, Expected: [32, 40, 95], Actual: None
+
+[-28,81,-20,28,-29] k=89 : can we discard negative values? No, [81, -20, 28] is a valid interval
+
+==> "we want to include negative numbers as long as we can know for sure that in future we have enough positive number(s) that can overcome the deficit"  => Monotonic Deque of PrefixSums
+
+
+
+
+
+Nature of sliding windows is two ptr, where one part don';'t need to reset to 0 index
+
+can we safely remove the left ptr and continue? The left element is not part of future correct answer
+
 [386. Longest Substring with At Most K Distinct Characters](https://www.lintcode.com/problem/longest-substring-with-at-most-k-distinct-characters/description)
 
 ```python
@@ -777,15 +797,42 @@ Lint 834. Remove Duplicate Letters (unique lexicographical order of a string). L
 ## Mononotic double ended queue
 
 ```python
-def monotonicQueue(nums, k):
-  n = len(nums)
-  q = deque([])
-  res = [0] * (n - k + 1)
-  for i in range(n):
-    while q and i - q[0] >= k: q.popright()
-    while q and nums[q[-1]] <= nums[i]: q.popleft()
-    q.
+# 239 Sliding window maximum 
+# https://www.lintcode.com/problem/362/
+# Optimization 1: Heap, lazy removal sliding window  O(nlogn)
+# keep a maxheap to keep track of the maximum value of scanned windows
+# instead of removing left ptr element, we discard head of max heap if it's too far away
+def maxSlidingWindow(nums, k):
+    heap = []
+    res = []
+    for i in range(k):
+        heapq.heappush(heap, (nums[i], i))
+    res.append(heap[-1][0])
+    for i in range(k, len(nums)):
+        heapq.heappush(heap, (nums[i], i))
+        while heapq[-1][1] <= i - k:
+        	heapq.pop(-1)
+        res.append(heap[-1][0])
+        
+# consider case: [1, 2, 3, 4]; k = 3, 
+# [1, 2, 3] => 3
+# [2, 3, 4] => 4, notice that '2' don't need to be checked
+# consider case: [1, 1, 1, 1, 1, 4, 5], k = 6
+# [1, 1, 1, 1, 1, 4] => 4
+# [1, 1, 1, 1, 4, 5] => 5, notice that smaller elements can be thrown away ==> DESC Montonic Deque
+	def maxSlidingWindow(nums, k):
+            n = len(nums)
+            q = collections.deque([])  # index
+            res = []
+            for i in range(n):
+                while q and i - q[0] >= k: q.pop()  # lazy remove
+                while q and nums[q[-1]] <= nums[i]: q.popleft()
+                q.append(i)
+                if i - k + 1 >= 0: res.append(nums[q[0]])
+            return res
 ```
+
+
 
 ## interval overlap 扫描线、数飞机
 
@@ -1253,6 +1300,48 @@ Kruscal (; UnionFind)
 Sort all edges. Add edges from smallest weight. Ignore unnecessary edges (ie edges that connects node in the same Union Set)
 
 
+
+## Prefix Sum
+
+### 2sum
+
+```python
+## https://leetcode.com/problems/subarray-sum-equals-k/
+def subarraySum(self, nums: List[int], k: int) -> int:
+    n = len(nums)
+    sum_ = 0  # prefix sum takes sum of 0-i
+    hashmap = defaultdict(int)  # hashmap[0] = (prefix_j, freq), prefix_j where j < i, freq appearance
+    hashmap[0] += 1  # account for subarrays nums[0:x]
+    res = 0
+    for num in nums:
+        sum_ += num
+        res += hashmap[sum_ - k]
+        hashmap[sum_] += 1
+	return res
+```
+
+### rangeSum
+
+```python
+## https://www.lintcode.com/problem/range-addition/discuss
+# lazy propagation
+def getModifiedArray(self, length, updates):
+        # Write your code here
+        action = [0] * length
+        for (start, end, val) in updates:
+            action[start] += val
+            if end + 1 < length: action[end+1] -= val
+        rolling = 0
+        res = []
+        for i in action:
+            rolling += i
+            res.append(rolling)
+        return res
+```
+
+### sliding window
+
+### monotonic queue
 
 
 
