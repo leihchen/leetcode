@@ -656,7 +656,19 @@ Sliding windows/ two ptr is incorrect:
 
 [-28,81,-20,28,-29] k=89 : can we discard negative values? No, [81, -20, 28] is a valid interval
 
-==> "we want to include negative numbers as long as we can know for sure that in future we have enough positive number(s) that can overcome the deficit"  => Monotonic Deque of PrefixSums
+==> "we want to include negative numbers as long as we can know for sure that in future we have enough positive number(s) that can overcome the deficit" 
+
+sum of subarray => focus on prefix sum of the original array
+
+ why Monotonic Deque: we want to find P[y] - P[z] >= k while minimize y - z
+
+Assert we only need to keep track of increasing indices: i1, i2, ..., in s.t. P[i1] < P[i2] < ... < P[in]
+
+Consider a contradiction (non-increasing index x s.t. x < in but P[x] >= P[in]). We need to show that x can never be a optimal soln':
+
+If P[y] - P[x] >= k, then P[y] - P[in] also >= k. But min(y-x, y-in) = y-in, therefore maintaining non-increasing x is useless.
+
+Situation 
 
 
 
@@ -1352,6 +1364,8 @@ def getModifiedArray(self, length, updates):
 quickselect 215 largest Kth element
 
 bucket sort 451 
+
+dijkstra algo
 
 ## Ignored Hard
 
