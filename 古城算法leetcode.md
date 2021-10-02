@@ -225,7 +225,13 @@ while(s <= e):
 
 ## Basic Calculator 
 
+**Only + -**: Push all into stack with sign, sum up to answer
 
+**All + - * /**: Since * / have higher level, do calculator when pushing. Ex: stack.push(stack.pop() * num). And then reduced to **only + -** case.
+
+**With ( )**: Recursion in **all + - * /**
+
+#### Caveat: in py, -4 // 3 = -2 , int(-4 / 3) = -1. `//` is FLOOR division not integer division
 
 
 
@@ -1356,6 +1362,14 @@ def getModifiedArray(self, length, updates):
 ### monotonic queue
 
 
+
+## Parentheses
+
+Basic: Rolling state
+
+[1249](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/): Two pass 正反向 Rolling state
+
+[856](https://leetcode.com/problems/score-of-parentheses/submissions/): parentheses + calculator -> stack
 
 
 
