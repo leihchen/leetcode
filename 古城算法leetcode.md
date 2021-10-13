@@ -201,129 +201,9 @@ def subsetSum(nums, S):
 
 [494. Target Sum](https://leetcode.com/problems/target-sum/)
 
-## Binary Search 基础算法II
-
-$mid = left + (right - left) / 2$: avoid overflow
-
-```python
-s = 0
-e = len - 1
-while(s <= e):
-    mid = s + (e - s) // 2
-    if(nums[mid] < target):
-        start = mid + 1
-    else:
-        end = mid - 1
-# after termination end and start ptr are swapped, end = start - 1
-```
-
-[278. First Bad Version](https://leetcode.com/problems/first-bad-version/)
-
-[4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) **HARD**
-
-[410. Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum/) **HARD** 二分法猜答案
-
-## Basic Calculator 
-
-**Only + -**: Push all into stack with sign, sum up to answer
-
-**All + - * /**: Since * / have higher level, do calculator when pushing. Ex: stack.push(stack.pop() * num). And then reduced to **only + -** case.
-
-**With ( )**: Recursion in **all + - * /**
-
-#### Caveat: in py, -4 // 3 = -2 , int(-4 / 3) = -1. `//` is FLOOR division not integer division
 
 
-
-## BFS
-
-```python
-def bfs(start: Node, target: Node) -> int:
-    q, visited, step = deque([start]), set([start]), 0
-   	while q:
-        sz = len(q)
-        for i in range(sz):
-            cur = q.popleft()
-            if cur == target:
-                return step
-            for x in cur.neighbor():
-                if not x in visited:
-                    q.append(x)
-                    visited.add(x)
-         step += 1
-```
-
-Bidirectional BFS in search graph:
-
-```python
-def twoEndBfs(start: Node, target: Node) -> int:
-    beginQ, endQ, visited, step = deque([start]), deque([end]), set([start]), 0
-    while beginQ and endQ:
-        nextQ = deque([])
-        sz = len(beginQ)
-        for i in range(sz):  # 展开
-            cur = beginQ.popleft()
-            for x in cur.neighbor():
-                if x in endQ:  # endQ and startQ intersects
-                    return step + 1
-                if not x in visited:
-                    nextQ.append(x)
-        if len(endQ) < len(nextQ):  # performe reverse BFS from end if it's better
-        	beginQ = endQ
-            endQ = nextQ
-        else:
-            beginQ = endQ
-        step += 1
-    return 0
-```
-
-Topological Sort:
-
-```python
-def topologicalSort(graph dag):
-    t = []  # dag in topo order
-    q, indegree = deque([]), dict()  # stack, queue, whatever order
-    for u, v in dag.edge():
-    	indegree[v] += 1
-    q.add([i for i in indegree if indegree[i] == 0])
-    while q:
-        cur = q.popleft()
-        for nei in cur.n eighbor():
-            indegree[nei] -= 1
-            if indegree[nei] == 0:
-            	t.append(nei)
-	return t  # if len(t) != dag.vertex() then some cycle of isolated component exists
-```
-
-$\$ graph representation adj list
-
-```python
-# adjcency list easy way
-graph = defaultdict(list)  # Map<Node, List<Node>>
-for u, v in edge:
-    graph[u].append(v)
-# adjcency list formal way
-class AdjNode:
-    def __int__(self, data):
-        self.vertex = data
-        self.next = None
-class Graph:
-    def __init__(self, vertices):
-        self.V = vertices
-        self.graph = [None] * self.V
-    def add_edge(self, src, dest):
-        node = AdjNode(dest)
-        node.next = self.graph[src]
-        self.graph[src] = node
-        ## if undirected         
-        # node = AdjNode(src) 
-        # node.next = self.graph[dest] 
-        # self.graph[dest] = node 
-```
-
-
-
-## back tracing
+## Back Tracking
 
 ```python
 # backtracking
@@ -650,135 +530,253 @@ def inorderSuccessor(self, root, p):
 
 
 
-## Sliding Windows
-
-Sliding Windows? Yes & No: 209 <=> 862
-
-https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/ 
-
-Sliding windows/ two ptr is incorrect:
-
-[84,-37,32,40,95] k=167 : **Right ptr goes to end to find the first valid interval.** right ptr can never reach a valid interval if too much negative exist, Expected: [32, 40, 95], Actual: None
-
-[-28,81,-20,28,-29] k=89 : can we discard negative values? No, [81, -20, 28] is a valid interval
-
-==> "we want to include negative numbers as long as we can know for sure that in future we have enough positive number(s) that can overcome the deficit" 
-
-sum of subarray => focus on prefix sum of the original array
-
- why Monotonic Deque: we want to find P[y] - P[z] >= k while minimize y - z
-
-Assert we only need to keep track of increasing indices: i1, i2, ..., in s.t. P[i1] < P[i2] < ... < P[in]
-
-Consider a contradiction (non-increasing index x s.t. x < in but P[x] >= P[in]). We need to show that x can never be a optimal soln':
-
-If P[y] - P[x] >= k, then P[y] - P[in] also >= k. But min(y-x, y-in) = y-in, therefore maintaining non-increasing x is useless.
-
-Situation 
-
-
-
-
-
-Nature of sliding windows is two ptr, where one part don';'t need to reset to 0 index
-
-can we safely remove the left ptr and continue? The left element is not part of future correct answer
-
-[386. Longest Substring with At Most K Distinct Characters](https://www.lintcode.com/problem/longest-substring-with-at-most-k-distinct-characters/description)
+## BFS
 
 ```python
-def lengthOfLongestSubstringKDistinct(s: str, k: int) -> int:
-  def invalid(hashmap, k):
-    # valid or invalid, determine if hashmap defines a valid window
-    # valid: trim left to find a smallest window that is still valid
-    # invalid: trim left to find a largest sub-window that is valid 
-    # Valid Ex: len(hashmap.keys()) == k; each all(haspmap.values() >= k); etc 
-    return len(hashmap) > k
-  hashmap = dict()
-  left, res = 0, 0
-  for i in range(len(s)):  
-    # <- record the result here 'while valid trim to minimize'
-    c = s[i]
-    if c in hashmap: hashmap[c] += 1
-    else: hashmap[c] = 1
-    while invalid(hashmap, k):
-      left_c = s[left]
-      hashmap[left_c] -= 1
-      if hashmap[left_c] == 0:
-        del hashmap[left_c]
-      left += 1
-    res = max(res, i - left + 1)  # <- record the result here 'while invalid trim'
+def bfs(start: Node, target: Node) -> int:
+    q, visited, step = deque([start]), set([start]), 0
+   	while q:
+        sz = len(q)
+        for i in range(sz):
+            cur = q.popleft()
+            if cur == target:
+                return step
+            for x in cur.neighbor():
+                if not x in visited:
+                    q.append(x)
+                    visited.add(x)
+         step += 1
+```
+
+Bidirectional BFS in search graph:
+
+```python
+def twoEndBfs(start: Node, target: Node) -> int:
+    beginQ, endQ, visited, step = deque([start]), deque([end]), set([start]), 0
+    while beginQ and endQ:
+        nextQ = deque([])
+        sz = len(beginQ)
+        for i in range(sz):  # 展开
+            cur = beginQ.popleft()
+            for x in cur.neighbor():
+                if x in endQ:  # endQ and startQ intersects
+                    return step + 1
+                if not x in visited:
+                    nextQ.append(x)
+        if len(endQ) < len(nextQ):  # performe reverse BFS from end if it's better
+        	beginQ = endQ
+            endQ = nextQ
+        else:
+            beginQ = endQ
+        step += 1
+    return 0
+```
+
+Topological Sort:
+
+```python
+def topologicalSort(graph dag):
+    t = []  # dag in topo order
+    q, indegree = deque([]), dict()  # stack, queue, whatever order
+    for u, v in dag.edge():
+    	indegree[v] += 1
+    q.add([i for i in indegree if indegree[i] == 0])
+    while q:
+        cur = q.popleft()
+        for nei in cur.n eighbor():
+            indegree[nei] -= 1
+            if indegree[nei] == 0:
+            	t.append(nei)
+	return t  # if len(t) != dag.vertex() then some cycle of isolated component exists
+```
+
+$\$ graph representation adj list
+
+```python
+# adjcency list easy way
+graph = defaultdict(list)  # Map<Node, List<Node>>
+for u, v in edge:
+    graph[u].append(v)
+# adjcency list formal way
+class AdjNode:
+    def __int__(self, data):
+        self.vertex = data
+        self.next = None
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = [None] * self.V
+    def add_edge(self, src, dest):
+        node = AdjNode(dest)
+        node.next = self.graph[src]
+        self.graph[src] = node
+        ## if undirected         
+        # node = AdjNode(src) 
+        # node.next = self.graph[dest] 
+        # self.graph[dest] = node 
+```
+
+
+
+3.  
+
+
+
+
+
+## Binary Search 基础算法II
+
+$mid = left + (right - left) / 2$: avoid overflow
+
+```python
+s = 0
+e = len - 1
+while(s <= e):
+    mid = s + (e - s) // 2
+    if(nums[mid] < target):
+        start = mid + 1
+    else:
+        end = mid - 1
+# after termination end and start ptr are swapped, end = start - 1
+```
+
+[278. First Bad Version](https://leetcode.com/problems/first-bad-version/)
+
+[4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) **HARD**
+
+[410. Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum/) **HARD** 二分法猜答案
+
+## Disjoint set/union find
+
+Tree like structure that only cares about parent (group).
+
+Used in dynamic connectivity problem.
+
+```python
+# easy
+class DisjointSet():
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+    def find(x):
+        if self.parent[x] != x:
+            # simple path compression
+            self.parent[x] = self.find(self.parent[x])
+        return x
+   	def union(x, y):   
+        parent[self.find(x)] = self.find(y)
+        
+class DisjointSet():
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+        self.size = [1] * n  
+    def find(self, x):
+        if self.parent[x] != x:
+            # simple path compression
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+   	def union(self, x, y):   
+        # weight optimized: to reduce the number of parent changing in path compression, always merge small subtree into large one
+        self.parent[self.find(x)] = self.find(y)
+        rootx , rooty = self.find(x), self.find(y)
+        if rootx == rooty: return
+        if self.size[rooty] <= self.size[rootx]:
+            self.parent[rooty] = rootx
+            self.size[rootx] += self.size[rooty]
+        else:
+            self.parent[rootx] = rooty
+            self.size[rooty] += self.size[rootx]
+```
+
+Each Find and Union has O(log* n) runtime, where n is the size of union find. Log* is iterative logarithm, which is close to amortized O(1). 
+
+[Number of Provinces](https://leetcode.com/problems/number-of-provinces)  
+
+```python
+# Amortized O(n^2). Each element in isConnected call union/find.
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
+        dsu = DSU(n)
+        for i in range(n):
+            for j in range(i):
+                if i == j or isConnected[i][j] == 0: continue
+                dsu.union(i, j)
+        res = 0 
+        for i in range(n): 
+            if dsu.find(i) == i: 
+                res += 1
+        return res
+                
+class DSU: 
+    def __init__(self, n):
+        self.p = [i for i in range(n)]
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+    def union(self,x , y):
+        self.p[self.find(x)] = self.find(y)
+    
+```
+
+
+
+## interval overlap 扫描线、数飞机
+
+use a number (or PQ) to keep track of number of planes on sky
+
+sort airplanes based on start time (in some problem end time/ start ASC end DESC) 
+
+zigzag traverse the up/down list
+
+```
+# https://www.lintcode.com/problem/number-of-airplanes-in-the-sky/
+def countOfAirplanes(self, airplanes):
+    # write your code here
+    up, down = [], []
+    for i in airplanes:
+        up.append(i.start)
+        down.append(i.end)
+    up.sort()
+    down.sort()
+    i, j = 0, 0
+    plane = res = 0
+    while i < len(up) and j < len(down):
+        if up[i] >= down[j]:
+            plane -= 1 
+            j += 1
+        else:
+            plane += 1
+            res = max(res, plane)
+            i += 1
+    return res
+# https://leetcode.com/problems/insert-interval/
+# https://leetcode.com/problems/merge-intervals/
+```
+
+![lc1272-3](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/lc1272-3-4097246.png)
+
+![lc1272-2](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/lc1272-2-4097246.png)
+
+![lc1272-1](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/lc1272-1-4097246.png)
+
+```
+# VIP 1272 remove interval
+def removeInterval(intervals, toBeRemoved):
+  res = []
+  for i in intervals:
+    if i[1] <= toBeRemoved[0] or i[0] >= toBeRemoved[1]:  # no overlap
+      res.append(i)
+    else:
+      if i[0] < toBeRemoved[0]:  # left end extra remaining
+        res.append([i[0], toBeRemoved[0]])
+      if i[1] > toBeRemoved[1]:  # right end extra remaining
+        res.append([toBeRemoved[1], i[1]])
   return res
+#https://leetcode.com/problems/the-skyline-problem/
 ```
 
-1.  exact K -> atMost(K) - atMost(K-1), handles duplicates well
-
-2.  字母类可以尝试枚举 # of distinct = 1, 2, 3, ...., 26
-
-3.  hard 考虑 单调队列 (unseen)
-
-
-
-## Catches
-
-if two string has the same length -> sum of Counter is the same. If the Counter is different, then some element must be negative. 242
-
-a string with n pair of balanced parentheses: as we add new char into the str, #(lp) is always < n AND #(rp) is always < #(lp)
-
-KMP is a plus
-
-[Dutch National Flag Algo](https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/) 75
-
-```python
-# eratosthenes prime finding
-def eratosthenes(n):
-    IsPrime = [True] * (n + 1)
-    for i in range(2, int(n ** 0.5) + 1):
-        if IsPrime[i]:
-            for j in range(i * i, n + 1, i):
-                IsPrime[j] = False
-    return [x for x in range(2, n + 1) if IsPrime[x]]
-if __name__ == "__main__":
-    print(eratosthenes(120))
-```
-
-```java
-// find the lead of array
-public class Solution {
-    public int majorityElement(int[] num) {
-
-        int major=num[0], count = 1;
-        for(int i=1; i<num.length;i++){
-            if(count==0){
-                count++;
-                major=num[i];
-            }else if(major==num[i]){
-                count++;
-            }else count--;
-            
-        }
-        return major;
-    }
-}
-```
-
-Inorder traveral of a BST is an ASC sorted array
-
-```python
-# inorder iterative
-```
-
-Magic: 334. [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/) https://leetcode-cn.com/problems/increasing-triplet-subsequence/solution/pou-xi-ben-zhi-yi-wen-bang-ni-kan-qing-t-3ye2/
-
-## Greedy Examples
-
-gas station: starting point should be the next of the one that's hardest to reach
-
-interval scheduling problem: given an array of meeting start and end time, find the max number of meeting to hold with one meeting room.  Sort end time, pick earlies end time meetings.
-
-https://leetcode.com/problems/non-overlapping-intervals/
-
-Suppose current earliest end time of the rest intervals is `x`. Then available time slot left for other intervals is `[x:]`. If we choose another interval with end time `y`, then available time slot would be `[y:]`. Since `x ≤ y`, there is no way `[y:]` can hold more intervals then `[x:]`. 
+TODO: 1229, 986, 759
 
 ## Monotonic Stack
 
@@ -852,68 +850,229 @@ def maxSlidingWindow(nums, k):
 
 
 
-## interval overlap 扫描线、数飞机
 
-use a number (or PQ) to keep track of number of planes on sky
 
-sort airplanes based on start time (in some problem end time/ start ASC end DESC) 
-
-zigzag traverse the up/down list
+## Sort
 
 ```python
-# https://www.lintcode.com/problem/number-of-airplanes-in-the-sky/
-def countOfAirplanes(self, airplanes):
-    # write your code here
-    up, down = [], []
-    for i in airplanes:
-        up.append(i.start)
-        down.append(i.end)
-    up.sort()
-    down.sort()
-    i, j = 0, 0
-    plane = res = 0
-    while i < len(up) and j < len(down):
-        if up[i] >= down[j]:
-            plane -= 1 
-            j += 1
-        else:
-            plane += 1
-            res = max(res, plane)
-            i += 1
-    return res
+# quicksort, best case T(n) = O(n) + 2 O(n/2) + ...= nlgn
+# worst case T(n) = T(n) + T(n-1) + ... = n^2
+def quickSort(arr, low, high):
+    if low >= high: return
+    pv = partition(arr, low, high)
+    quickSort(arr, low, pv-1)
+    quickSort(arr, pv+1, high)
+
+def partition(arr, low, high):
+    wall = low
+    pivot = arr[high]
+    for i in range(low, high):
+        # make sure left of wall is nonstrictly smaller than pivot
+        if arr[i] <= pivot:
+            arr[wall], arr[i] = arr[i], arr[wall]
+            wall += 1
+    arr[high], arr[wall] = arr[wall], arr[high]
+
 ```
 
-```python
-# https://leetcode.com/problems/insert-interval/
-# https://leetcode.com/problems/merge-intervals/
-```
-
-![lc1272-3](file:///Users/harddrive/Desktop/%E5%8F%A4%E5%9F%8E%E7%AE%97%E6%B3%95leetcode.assets/lc1272-3.png?lastModify=1624568391)
-
-![lc1272-2](file:///Users/harddrive/Desktop/%E5%8F%A4%E5%9F%8E%E7%AE%97%E6%B3%95leetcode.assets/lc1272-2.png?lastModify=1624568391)
-
-![lc1272-1](file:///Users/harddrive/Desktop/%E5%8F%A4%E5%9F%8E%E7%AE%97%E6%B3%95leetcode.assets/lc1272-1.png?lastModify=1624568391)
+## Divide and conquer
 
 ```python
-# VIP 1272 remove interval
-def removeInterval(intervals, toBeRemoved):
-  res = []
-  for i in intervals:
-    if i[1] <= toBeRemoved[0] or i[0] >= toBeRemoved[1]:  # no overlap
-      res.append(i)
+# inversion pairs: 
+# find all the pairs st. nums[i] > num[j] and i < j
+# a large number that has a small index
+# 3 1 2 -> 31, 32 
+# 8 4 2 1 -> 84, 82, 81, 42, 41, 21
+# start with merge sort, we count the number of such pairs in the merging step
+def mergesortCount(arr, l, r):
+	cnt = 0
+  if l < r:
+    m = (l + r) // 2
+    count += mergesortCount(arr, l, m)
+    count += mergesortCount(arr, m+1, r)
+    count += mergeCount(arr, l, m, r)
+def mergeCount(arr, l, m, r):
+  left = arr[l:m+1]
+  right = arr[m+1:r+1]
+  i = j = k = 0
+ 	swap = 0
+  while i < len(left) and j < len(right):
+    if left[i] <= right[j]:
+      arr[k] = left[i]
+      k += 1; i += 1
     else:
-      if i[0] < toBeRemoved[0]:  # left end extra remaining
-        res.append([i[0], toBeRemoved[0]])
-      if i[1] > toBeRemoved[1]:  # right end extra remaining
-        res.append([toBeRemoved[1], i[1]])
+      arr[k] = right[j]
+      k += 1; j += 1
+      swap += m - (l + r) + 1
+  return swap
+# master theorem
+T(n) = a T(n/b) + O(n^c)
+c^crit = log_b(a)
+1. c < c_crit, leaf-heavy => O(n^c_crit)
+2. c = c_crit, comparable -> rewrite f(n) part into O(n^c log^k n) => O(n^crit log^(k+1) n)
+3. c > c_crit, root_heavy => O(n^c)
+
+1.T(n) = 8T(n/2) + 1000n^2 => O(n^3)
+2.T(n) = 2(T/2) + 10n => O(nlogn)
+3.T(n) = 2(T/2) + n^2 => O(n^2)
+```
+
+
+
+## Sliding Windows
+
+Sliding Windows? Yes & No: 209 <=> 862
+
+https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/ 
+
+Sliding windows/ two ptr is incorrect:
+
+[84,-37,32,40,95] k=167 : **Right ptr goes to end to find the first valid interval.** right ptr can never reach a valid interval if too much negative exist, Expected: [32, 40, 95], Actual: None
+
+[-28,81,-20,28,-29] k=89 : can we discard negative values? No, [81, -20, 28] is a valid interval
+
+==> "we want to include negative numbers as long as we can know for sure that in future we have enough positive number(s) that can overcome the deficit" 
+
+sum of subarray => focus on prefix sum of the original array
+
+ why Monotonic Deque: we want to find P[y] - P[z] >= k while minimize y - z
+
+Assert we only need to keep track of increasing indices: i1, i2, ..., in s.t. P[i1] < P[i2] < ... < P[in]
+
+Consider a contradiction (non-increasing index x s.t. x < in but P[x] >= P[in]). We need to show that x can never be a optimal soln':
+
+If P[y] - P[x] >= k, then P[y] - P[in] also >= k. But min(y-x, y-in) = y-in, therefore maintaining non-increasing x is useless.
+
+Situation 
+
+
+
+
+
+Nature of sliding windows is two ptr, where one part don';'t need to reset to 0 index
+
+can we safely remove the left ptr and continue? The left element is not part of future correct answer
+
+[386. Longest Substring with At Most K Distinct Characters](https://www.lintcode.com/problem/longest-substring-with-at-most-k-distinct-characters/description)
+
+```python
+def lengthOfLongestSubstringKDistinct(s: str, k: int) -> int:
+  def invalid(hashmap, k):
+    # valid or invalid, determine if hashmap defines a valid window
+    # valid: trim left to find a smallest window that is still valid
+    # invalid: trim left to find a largest sub-window that is valid 
+    # Valid Ex: len(hashmap.keys()) == k; each all(haspmap.values() >= k); etc 
+    return len(hashmap) > k
+  hashmap = dict()
+  left, res = 0, 0
+  for i in range(len(s)):  
+    # <- record the result here 'while valid trim to minimize'
+    c = s[i]
+    if c in hashmap: hashmap[c] += 1
+    else: hashmap[c] = 1
+    while invalid(hashmap, k):
+      left_c = s[left]
+      hashmap[left_c] -= 1
+      if hashmap[left_c] == 0:
+        del hashmap[left_c]
+      left += 1
+    res = max(res, i - left + 1)  # <- record the result here 'while invalid trim'
   return res
 ```
 
+1.  exact K -> atMost(K) - atMost(K-1), handles duplicates well
+
+2.  字母类可以尝试枚举 # of distinct = 1, 2, 3, ...., 26
+
+3.  hard 考虑 单调队列 (unseen)
+
+## Prefix Sum
+
+### 2sum
+
 ```python
-#https://leetcode.com/problems/the-skyline-problem/
+## https://leetcode.com/problems/subarray-sum-equals-k/
+def subarraySum(self, nums: List[int], k: int) -> int:
+    n = len(nums)
+    sum_ = 0  # prefix sum takes sum of 0-i
+    hashmap = defaultdict(int)  # hashmap[0] = (prefix_j, freq), prefix_j where j < i, freq appearance
+    hashmap[0] += 1  # account for subarrays nums[0:x]
+    res = 0
+    for num in nums:
+        sum_ += num
+        res += hashmap[sum_ - k]
+        hashmap[sum_] += 1
+	return res
 ```
 
-TODO: 1229, 986, 759
+### rangeSum
+
+```python
+## https://www.lintcode.com/problem/range-addition/discuss
+# lazy propagation
+def getModifiedArray(self, length, updates):
+        # Write your code here
+        action = [0] * length
+        for (start, end, val) in updates:
+            action[start] += val
+            if end + 1 < length: action[end+1] -= val
+        rolling = 0
+        res = []
+        for i in action:
+            rolling += i
+            res.append(rolling)
+        return res
+```
+
+### sliding window
+
+### monotonic queue
+
+## 
+
+## Tree
+
+### Lowest Common Ancestor
+
+### Serialize and Deserialize
+
+```python
+# 297 
+# Use preorder traversal to do the serialization step
+# The resulting string has the form
+# | Root | Left Subtree | Right Subtree |
+# Use recursion to deserialize that string
+
+class Codec:
+
+    def serialize(self, root):
+        """Encodes a tree to a single string.
+        
+        :type root: TreeNode
+        :rtype: str
+        """
+        # preorder traversal
+        if not root: return "#" 
+        return str(root.val) + "," + self.serialize(root.left) + "," + self.serialize(root.right)
+        
+
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+        
+        :type data: str
+        :rtype: TreeNode
+        """
+        def helper(data):
+            s = data.popleft()
+            if s == "#": return None
+            root = TreeNode(int(s))
+            root.left = helper(data)
+            root.right = helper(data)
+            return root
+        return helper(collections.deque(data.split(',')))
+```
+
+## BST
 
 ## Trie 字典树
 
@@ -1000,78 +1159,11 @@ class HashMapAddable{
 }
 ```
 
-## Disjoint set/union find
 
-Tree like structure that only cares about parent (group).
 
-Used in dynamic connectivity problem.
 
-```python
-# easy
-class DisjointSet():
-    def __init__(self, n):
-        self.parent = [i for i in range(n)]
-    def find(x):
-        if self.parent[x] != x:
-            # simple path compression
-            self.parent[x] = self.find(self.parent[x])
-        return x
-   	def union(x, y):   
-        parent[self.find(x)] = self.find(y)
-        
-class DisjointSet():
-    def __init__(self, n):
-        self.parent = [i for i in range(n)]
-        self.size = [1] * n  
-    def find(self, x):
-        if self.parent[x] != x:
-            # simple path compression
-            self.parent[x] = self.find(self.parent[x])
-        return self.parent[x]
-   	def union(self, x, y):   
-        # weight optimized: to reduce the number of parent changing in path compression, always merge small subtree into large one
-        self.parent[self.find(x)] = self.find(y)
-        rootx , rooty = self.find(x), self.find(y)
-        if rootx == rooty: return
-        if self.size[rooty] <= self.size[rootx]:
-            self.parent[rooty] = rootx
-            self.size[rootx] += self.size[rooty]
-        else:
-            self.parent[rootx] = rooty
-            self.size[rooty] += self.size[rootx]
-```
 
-Each Find and Union has O(log* n) runtime, where n is the size of union find. Log* is iterative logarithm, which is close to amortized O(1). 
 
-[Number of Provinces](https://leetcode.com/problems/number-of-provinces)  
-
-```python
-# Amortized O(n^2). Each element in isConnected call union/find.
-class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        n = len(isConnected)
-        dsu = DSU(n)
-        for i in range(n):
-            for j in range(i):
-                if i == j or isConnected[i][j] == 0: continue
-                dsu.union(i, j)
-        res = 0 
-        for i in range(n): 
-            if dsu.find(i) == i: 
-                res += 1
-        return res
-                
-class DSU: 
-    def __init__(self, n):
-        self.p = [i for i in range(n)]
-    def find(self, x):
-        if self.p[x] != x:
-            self.p[x] = self.find(self.p[x])
-        return self.p[x]
-    def union(self,x , y):
-        self.p[self.find(x)] = self.find(y)
-    
-```
 
 ## Number of Islands
 
@@ -1118,113 +1210,6 @@ def numIslands(grid: List[List[str]]) -> int:
 
 
 
-## Sort
-
-```python
-# quicksort, best case T(n) = O(n) + 2 O(n/2) + ...= nlgn
-# worst case T(n) = T(n) + T(n-1) + ... = n^2
-def quickSort(arr, low, high):
-    if low >= high: return
-    pv = partition(arr, low, high)
-    quickSort(arr, low, pv-1)
-    quickSort(arr, pv+1, high)
-
-def partition(arr, low, high):
-    wall = low
-    pivot = arr[high]
-    for i in range(low, high):
-        # make sure left of wall is nonstrictly smaller than pivot
-        if arr[i] <= pivot:
-            arr[wall], arr[i] = arr[i], arr[wall]
-            wall += 1
-    arr[high], arr[wall] = arr[wall], arr[high]
-
-```
-
-## Divide and conquer
-
-```python
-# inversion pairs: 
-# find all the pairs st. nums[i] > num[j] and i < j
-# a large number that has a small index
-# 3 1 2 -> 31, 32 
-# 8 4 2 1 -> 84, 82, 81, 42, 41, 21
-# start with merge sort, we count the number of such pairs in the merging step
-def mergesortCount(arr, l, r):
-	cnt = 0
-  if l < r:
-    m = (l + r) // 2
-    count += mergesortCount(arr, l, m)
-    count += mergesortCount(arr, m+1, r)
-    count += mergeCount(arr, l, m, r)
-def mergeCount(arr, l, m, r):
-  left = arr[l:m+1]
-  right = arr[m+1:r+1]
-  i = j = k = 0
- 	swap = 0
-  while i < len(left) and j < len(right):
-    if left[i] <= right[j]:
-      arr[k] = left[i]
-      k += 1; i += 1
-    else:
-      arr[k] = right[j]
-      k += 1; j += 1
-      swap += m - (l + r) + 1
-  return swap
-# master theorem
-T(n) = a T(n/b) + O(n^c)
-c^crit = log_b(a)
-1. c < c_crit, leaf-heavy => O(n^c_crit)
-2. c = c_crit, comparable -> rewrite f(n) part into O(n^c log^k n) => O(n^crit log^(k+1) n)
-3. c > c_crit, root_heavy => O(n^c)
-
-1.T(n) = 8T(n/2) + 1000n^2 => O(n^3)
-2.T(n) = 2(T/2) + 10n => O(nlogn)
-3.T(n) = 2(T/2) + n^2 => O(n^2)
-```
-
-
-
-## Serialize and Deserialize
-
-```python
-# 297 
-# Use preorder traversal to do the serialization step
-# The resulting string has the form
-# | Root | Left Subtree | Right Subtree |
-# Use recursion to deserialize that string
-
-class Codec:
-
-    def serialize(self, root):
-        """Encodes a tree to a single string.
-        
-        :type root: TreeNode
-        :rtype: str
-        """
-        # preorder traversal
-        if not root: return "#" 
-        return str(root.val) + "," + self.serialize(root.left) + "," + self.serialize(root.right)
-        
-
-    def deserialize(self, data):
-        """Decodes your encoded data to tree.
-        
-        :type data: str
-        :rtype: TreeNode
-        """
-        def helper(data):
-            s = data.popleft()
-            if s == "#": return None
-            root = TreeNode(int(s))
-            root.left = helper(data)
-            root.right = helper(data)
-            return root
-        return helper(collections.deque(data.split(',')))
-```
-
-
-
 ## Jump Game
 
 双向跳，BFS或双向BFS
@@ -1248,7 +1233,66 @@ num & (num - 1): 将二进制num中最右的 ‘1’ 变为 ‘0’ (eg: 011 => 
 
 sort query + active region
 
+## Catches
 
+if two string has the same length -> sum of Counter is the same. If the Counter is different, then some element must be negative. 242
+
+a string with n pair of balanced parentheses: as we add new char into the str, #(lp) is always < n AND #(rp) is always < #(lp)
+
+KMP is a plus
+
+[Dutch National Flag Algo](https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/) 75
+
+```python
+# eratosthenes prime finding
+def eratosthenes(n):
+    IsPrime = [True] * (n + 1)
+    for i in range(2, int(n ** 0.5) + 1):
+        if IsPrime[i]:
+            for j in range(i * i, n + 1, i):
+                IsPrime[j] = False
+    return [x for x in range(2, n + 1) if IsPrime[x]]
+if __name__ == "__main__":
+    print(eratosthenes(120))
+```
+
+```java
+// find the lead of array
+public class Solution {
+    public int majorityElement(int[] num) {
+
+        int major=num[0], count = 1;
+        for(int i=1; i<num.length;i++){
+            if(count==0){
+                count++;
+                major=num[i];
+            }else if(major==num[i]){
+                count++;
+            }else count--;
+            
+        }
+        return major;
+    }
+}
+```
+
+Inorder traveral of a BST is an ASC sorted array
+
+```python
+# inorder iterative
+```
+
+Magic: 334. [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/) https://leetcode-cn.com/problems/increasing-triplet-subsequence/solution/pou-xi-ben-zhi-yi-wen-bang-ni-kan-qing-t-3ye2/
+
+## Greedy Examples
+
+gas station: starting point should be the next of the one that's hardest to reach
+
+interval scheduling problem: given an array of meeting start and end time, find the max number of meeting to hold with one meeting room.  Sort end time, pick earlies end time meetings.
+
+https://leetcode.com/problems/non-overlapping-intervals/
+
+Suppose current earliest end time of the rest intervals is `x`. Then available time slot left for other intervals is `[x:]`. If we choose another interval with end time `y`, then available time slot would be `[y:]`. Since `x ≤ y`, there is no way `[y:]` can hold more intervals then `[x:]`. 
 
 ## 信息传递
 
@@ -1319,47 +1363,7 @@ Sort all edges. Add edges from smallest weight. Ignore unnecessary edges (ie edg
 
 
 
-## Prefix Sum
 
-### 2sum
-
-```python
-## https://leetcode.com/problems/subarray-sum-equals-k/
-def subarraySum(self, nums: List[int], k: int) -> int:
-    n = len(nums)
-    sum_ = 0  # prefix sum takes sum of 0-i
-    hashmap = defaultdict(int)  # hashmap[0] = (prefix_j, freq), prefix_j where j < i, freq appearance
-    hashmap[0] += 1  # account for subarrays nums[0:x]
-    res = 0
-    for num in nums:
-        sum_ += num
-        res += hashmap[sum_ - k]
-        hashmap[sum_] += 1
-	return res
-```
-
-### rangeSum
-
-```python
-## https://www.lintcode.com/problem/range-addition/discuss
-# lazy propagation
-def getModifiedArray(self, length, updates):
-        # Write your code here
-        action = [0] * length
-        for (start, end, val) in updates:
-            action[start] += val
-            if end + 1 < length: action[end+1] -= val
-        rolling = 0
-        res = []
-        for i in action:
-            rolling += i
-            res.append(rolling)
-        return res
-```
-
-### sliding window
-
-### monotonic queue
 
 
 
@@ -1370,6 +1374,31 @@ Basic: Rolling state
 [1249](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/): Two pass 正反向 Rolling state
 
 [856](https://leetcode.com/problems/score-of-parentheses/submissions/): parentheses + calculator -> stack
+
+## DFS Pruning
+
+Assignment emuneration:
+
+[1986](https://leetcode.com/problems/minimum-number-of-work-sessions-to-finish-the-tasks/submissions/), [1723](https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/)
+
+**Caveat** **1**: The 'assignments array' to keep track of assignments is not necessary. In dfs, the array will grow and shrink but only one array is used at execution. So we can modify the array -> do dfs -> undo array. **Without** including array as variable of func dfs. 
+
+**Caveat** **2**: common pruning:
+
+1.  Discard invalid result when detected, Ex: `if len > res: return`
+2.  In assignment for-loop, don't differentiate assignment with save value. Ex: `if j >= 1 and assignment[j] == assignment[j-1]: continue`. 
+3.  Skip same value, Ex: premutation II
+4.  Sort tasks in desc order. Assign large tasks first. 
+
+## Basic Calculator 
+
+**Only + -**: Push all into stack with sign, sum up to answer
+
+**All + - * /**: Since * / have higher level, do calculator when pushing. Ex: stack.push(stack.pop() * num). And then reduced to **only + -** case.
+
+**With ( )**: Recursion in **all + - * /**
+
+Caveat: in py, -4 // 3 = -2 , int(-4 / 3) = -1. `//` is FLOOR division not integer division
 
 
 
