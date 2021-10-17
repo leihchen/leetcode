@@ -1298,7 +1298,11 @@ Suppose current earliest end time of the rest intervals is `x`. Then available t
 
 backtracking is similar to DFS, one kind of brute force. (ex Nqueen problem). Usually its helper function returns void (no early quit in order to brute force all); and stores information in nonlocal variables.
 
- 257 
+257 
+
+**Pure recursion** (bottom up)
+
+**Backtracking** (top down) 信息简单地自上而下传递
 
 ## Graph
 
