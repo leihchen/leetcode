@@ -1132,6 +1132,34 @@ class Trie:
 
 
 
+## Tree
+
+Inorder traversal (left first) of BST is sorted ASC; Reversed inorder traversal (right first) of BST is sorted DESC
+
+173 in-order iterator: 
+
+```python
+class BSTIterator:
+    def __init__(self, root: Optional[TreeNode]):
+        self.stack = []
+        while root:
+            self.stack.append(root)
+            root = root.left
+
+    def next(self) -> int:
+        node = self.stack.pop()
+        cur = node.right
+        while cur:
+            self.stack.append(cur)
+            cur = cur.left
+        return node.val
+
+    def hasNext(self) -> bool:
+        return bool(self.stack)
+```
+
+
+
 ## Stack and queue
 
 stack: dequeue interface; queue: LinkedList interface 
@@ -1206,6 +1234,70 @@ def numIslands(grid: List[List[str]]) -> int:
         dfs(i, j)  / bfs(i, j)
       	cnt += 1
   return cnt
+```
+
+
+
+## 2Sum/3Sum/kSum
+
+```python
+# sort to sovle duplicates
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # faster than hashset, easier to deduplicate
+        res = []
+        nums.sort()
+        n = len(nums)
+        for i in range(n - 2):
+            if i > 0 and nums[i-1] == nums[i]: continue  # deduplicate
+            s, e = i+1, n-1
+            target = -nums[i]
+            while s<e:
+                if nums[s] + nums[e] == target:
+                    res.append([nums[i], nums[s], nums[e]])
+                    s += 1
+                    while s<e and nums[s] == nums[s-1]:  # deduplicate
+                        s += 1
+                elif nums[s] + nums[e] < target:
+                    s += 1
+                else:
+                    e -= 1
+        return res
+```
+
+3sum-closest: https://leetcode.com/problems/3sum-closest/submissions/ Two pointer can find closest. Hashset can't.
+
+[923. 3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/) 3SUM + combinatorics: 
+
+![Screen Shot 2021-10-18 at 11.47.56 PM](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/Screen Shot 2021-10-18 at 11.47.56 PM.png)
+
+4SUM, depulicate is tricky
+
+```python
+class Solution:
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+        # 4sum -> enumerate (i, j) * 2sum
+        n = len(nums)
+        nums.sort()
+        res = []
+        for i in range(n - 3):
+            if i > 0 and nums[i] == nums[i-1]: continue  # deduplicate: prev round is the same i
+            for j in range(i + 1, n - 2):
+                if j > i + 1 and nums[j] == nums[j-1]: continue  # deduplicate: prev round is the same j
+                sum2 = target - nums[i] - nums[j]
+                s, e = j + 1, n - 1
+                while s < e:
+                    if nums[s] + nums[e] == sum2:
+                        res.append([nums[i], nums[j], nums[s], nums[e]])
+                        s += 1  # move both ptr
+                        e -= 1
+                        while s < e and nums[s] == nums[s-1]: s += 1  # move till not equal
+                        while s < e and nums[e] == nums[e+1]: e -= 1
+                    elif nums[s] + nums[e] > sum2:
+                        e -= 1
+                    else:
+                        s += 1
+        return  res
 ```
 
 
