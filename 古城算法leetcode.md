@@ -1240,6 +1240,8 @@ def numIslands(grid: List[List[str]]) -> int:
 
 ## 2Sum/3Sum/kSum
 
+**3Sum**
+
 ```python
 # sort to sovle duplicates
 class Solution:
@@ -1265,13 +1267,13 @@ class Solution:
         return res
 ```
 
-3sum-closest: https://leetcode.com/problems/3sum-closest/submissions/ Two pointer can find closest. Hashset can't.
+**3sum-closest**: https://leetcode.com/problems/3sum-closest/submissions/ Two pointer can find closest. Hashset can't.
 
-[923. 3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/) 3SUM + combinatorics: 
+**[923. 3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/)** 3SUM + combinatorics: 
 
 ![Screen Shot 2021-10-18 at 11.47.56 PM](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/Screen Shot 2021-10-18 at 11.47.56 PM.png)
 
-4SUM, depulicate is tricky
+**4SUM**, depulicate is tricky
 
 ```python
 class Solution:
@@ -1300,7 +1302,140 @@ class Solution:
         return  res
 ```
 
+**4 SUM II. Loop unrolling**
 
+```python
+    # Brute force
+    for (int a = 0; a < A.size(); a++) 
+        for (int b = 0; b < B.size(); b++)
+            for (int c = 0; c < C.size(); c++)
+                for (int d = 0; d < D.size(); d++)    
+                     if (A[a] + B[b] = - C[c] - D[d])
+                        ...
+```
+
+it's comparing every sum of `A[a]` and `B[b]` with `C[c]` and `D[d]`. Since it's comparing every `A[a] + B[b]` with every `C[c] + D[d]`, why don't we just precompute every `A[a] + B[b]` and store those results? This'll save us a lot of time.
+
+```python
+class Solution:
+    def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
+        n = len(nums1)
+        ab = defaultdict(int)
+        for i in nums1:
+            for j in nums2:
+                ab[i + j] += 1
+        res = 0
+        for m in nums3:
+            for n in nums4:
+                res += ab[- m - n] 
+        return res
+```
+
+**[k-sum](https://www.lintcode.com/problem/89/): find number of ways only**
+
+ways to select k elements from array to sum up to target
+
+```python
+# only find the number of ways
+class Solution:
+    """
+    @param A: An integer array
+    @param k: A positive integer (k <= length(A))
+    @param target: An integer
+    @return: An integer
+    """
+    def kSum(self, A, k, target):
+        # write your code here
+        n = len(A)
+        # dp[m][n][q]: number of ways to get a sum of q when chosing n element from A[:m]
+        dp = [[[0 for _ in range(target+1)] for _ in range(k+1)] for _ in range(n+1)]
+        for i in range(n+1): dp[i][0][0] = 1
+        for i in range(1, n+1):
+            for j in range(1, k+1):
+                for t in range(target+1):
+                    dp[i][j][t] = 0
+                    if t >= A[i-1]:
+                        dp[i][j][t] = dp[i-1][j-1][t-A[i-1]]
+                    dp[i][j][t] += dp[i-1][j][t]
+        return dp[n][k][target] 
+```
+
+**[k-sum II](https://www.lintcode.com/problem/90/): find all combinations** 
+
+```python
+# Method 1: brute force subset
+class Solution:  
+    """
+    @param A: an integer array
+    @param k: a postive integer <= length(A)
+    @param target: an integer
+    @return: A list of lists of integer
+    """
+    def kSumII(self, A, k, target):
+        # write your code here
+        res = []
+        n = len(A)
+        A.sort()
+        def dfs(i, tmp, sum_):
+            if len(tmp) == k:
+                if sum_ == target:
+                    res.append(tmp)
+                return
+            if i == n or sum_ > target:
+                return
+            for j in range(i, n):
+                if A[j] > target: break
+                dfs(j+1, tmp + [A[j]], sum_ + A[j])
+        dfs(0, [], 0)
+        return res
+
+# Method 2: recursive k-sum (layer by layer, reduce to 2 sum)  O(Nk)
+class Solution:
+    """
+    @param A: an integer array
+    @param k: a postive integer <= length(A)
+    @param target: an integer
+    @return: A list of lists of integer
+    """
+    def kSumII(self, A, k, target):
+        # write your code here
+        A.sort()
+        return self.ksum(A, k, target)
+
+    def ksum(self, A, k, target):
+        res = []
+        if k == 1:
+            return [] if target not in A else [[target]]
+        if k == 2:
+            return self.twosum(A, target)
+        # pruning trick: if smallest value is too larget or largest value too smaller, just break
+        # if A[0] * k > target or A[-1] * k < target:
+        #     return []
+        for i in range(0, len(A) - k + 1):
+            if i > 0 and A[i] == A[i-1]: continue
+            subset = self.kSumII(A[i+1:], k - 1, target - A[i])
+            for sub in subset:
+                res.append([A[i]] + sub)
+        return res
+
+    def twosum(self, nums, target):  
+        # assume sorted nums, allows duplicate
+        # returns twosum combinations
+        res = []
+        s , e = 0, len(nums) - 1
+        while s < e:
+            if nums[s] + nums[e] == target:
+                res.append([nums[s], nums[e]])
+                s += 1
+                e -= 1
+                while nums[s] == nums[s-1]: s += 1
+                while nums[e] == nums[e+1]: e -= 1
+            elif nums[s] + nums[e] < target:
+                s += 1
+            else:
+                e -= 1
+        return res
+```
 
 ## Jump Game
 
