@@ -203,7 +203,7 @@ def subsetSum(nums, S):
 
 
 
-## Back Tracking
+## DFS, Back Tracking
 
 ```python
 # backtracking
@@ -342,9 +342,7 @@ def solveNQueens(self, n: int) -> List[List[str]]:
 
 
 
-## DFS
-
-binary tree traversal 
+## DFS, Tree traversal
 
 ```python
 def inorder(root):
@@ -413,7 +411,7 @@ def postorder(root):
   return res
 ```
 
-
+## 
 
 [Lint \551. Nested List Weight Sum](https://www.lintcode.com/problem/nested-list-weight-sum/description)
 
@@ -526,6 +524,42 @@ def inorderSuccessor(self, root, p):
                     ans = root
                     root = root.left
             return None
+```
+
+[\99. Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def recoverTree(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        pred = None
+        wrong = [None] * 2
+        def inorder(root):
+            nonlocal pred, wrong
+            if not root: return
+            # traverse tree and set predecessor
+            left = inorder(root.left)
+            # login goes here
+            # if we don't have more mistakes in the following traversal, then pred and root are both wrong
+            # else, only pred is wrong
+            if pred and pred.val >= root.val:  
+                if wrong[0] and wrong[1]:
+                    wrong[1] = root
+                else:
+                    wrong = [pred, root]  
+            pred = root
+            right = inorder(root.right)
+        
+        inorder(root)
+        wrong[0].val, wrong[1].val = wrong[1].val, wrong[0].val
 ```
 
 
