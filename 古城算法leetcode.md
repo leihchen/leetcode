@@ -1675,6 +1675,12 @@ bucket sort 451
 
 dijkstra algo
 
+## Random Useful Hard
+
+https://leetcode.com/problems/closest-subsequence-sum/
+
+Meet in the middle: (brute force on first and second half of a list, find result by binary searching)
+
 ## Ignored Hard
 
 352 Data Stream as Disjoint Intervals [扫描线](https://www.youtube.com/watch?v=ihf8JjQdta0&t=1221s)
@@ -1689,5 +1695,21 @@ dijkstra algo
 
 1168 
 
+## Language Specific Structures 
 
+**SortedDict**(): sorted dict inherits from dict to store items and maintains a sorted list of keys
+
+Special method: 
+
+​	peekitem(*index*=-1), popitem(*index*=-1)  -> (k, v) pair sorted by k at *index*.
+
+**Bisect.bisect_left**(*a*, *x*, *lo*=0, *hi*=len(a)): Locate the insertion point for *x* in *a* to maintain sorted order
+
+​	The parameters *lo* and *hi* may be used to specify a subset of the list which should be considered; by default the entire list is used. If *x* is already present in *a*, the insertion point will be before (to the left of) any existing entries. The return value is suitable for use as the first parameter to `list.insert()` assuming that *a* is already sorted.
+
+​	The returned insertion point *i* partitions the array *a* into two halves so that `all(val < x for val in a[lo : i])` for the left side and `all(val >= x for val in a[i : hi])` for the right side.
+
+**Itertools.groupby**()
+
+​	`subcnt = [c, len(list(g)) for c, g in groupby(str)]`
 
