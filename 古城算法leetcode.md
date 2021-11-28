@@ -617,7 +617,7 @@ def topologicalSort(graph dag):
     q.add([i for i in indegree if indegree[i] == 0])
     while q:
         cur = q.popleft()
-        for nei in cur.n eighbor():
+        for nei in cur.neighbor():
             indegree[nei] -= 1
             if indegree[nei] == 0:
             	t.append(nei)
@@ -710,15 +710,15 @@ class DisjointSet():
         return self.parent[x]
    	def union(self, x, y):   
         # weight optimized: to reduce the number of parent changing in path compression, always merge small subtree into large one
-        self.parent[self.find(x)] = self.find(y)
         rootx , rooty = self.find(x), self.find(y)
-        if rootx == rooty: return
+        if rootx == rooty: return False  # x and y already in one set, loop detected
         if self.size[rooty] <= self.size[rootx]:
             self.parent[rooty] = rootx
             self.size[rootx] += self.size[rooty]
         else:
             self.parent[rootx] = rooty
             self.size[rooty] += self.size[rootx]
+        return True  #x and y unioned successfully
 ```
 
 Each Find and Union has O(log* n) runtime, where n is the size of union find. Log* is iterative logarithm, which is close to amortized O(1). 
@@ -751,6 +751,39 @@ class DSU:
     def union(self,x , y):
         self.p[self.find(x)] = self.find(y)
     
+```
+
+[261. Graph Valid Tree](https://leetcode-cn.com/problems/graph-valid-tree/)
+
+```python
+class DisjointSet():
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+        self.size = [1] * n
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    def union(self, x, y):
+        rootx, rooty = self.find(x), self.find(y)
+        if rootx == rooty: return False
+        if self.size[rooty] <= self.size[rootx]:
+            self.parent[rooty] = rootx
+            self.size[rootx] += self.size[rooty]
+        else:
+            self.parent[rootx] = rooty
+            self.size[rooty] += self.size[rootx]
+        return True
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        ds = DisjointSet(n)
+        for u, v in edges:
+            if not ds.union(u, v):
+                return False
+        root = ds.find(0)
+        return all([ds.find(i) == root for i in range(1, n)])
 ```
 
 
@@ -955,7 +988,7 @@ c^crit = log_b(a)
 
 ## Sliding Windows
 
-Sliding Windows? Yes & No: 209 <=> 862
+**Sliding Windows? Yes & No: 209 <=> 862**
 
 https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/ 
 
@@ -979,9 +1012,70 @@ If P[y] - P[x] >= k, then P[y] - P[in] also >= k. But min(y-x, y-in) = y-in, the
 
 Situation 
 
+**Sliding Windows? Yes & No: 2062 <=> [subarray with elements occuring at least twice](https://www.geeksforgeeks.org/count-subarrays-having-each-distinct-element-occurring-at-least-twice/)**
 
+![2cd3551e-c4de-46c8-98af-f323fb7574f8_1636260773.946565](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/2cd3551e-c4de-46c8-98af-f323fb7574f8_1636260773.946565-8057584.png)
 
+```python
+# given a string containing only vowels
+# for each ending points of a valid subarray, we can always define a right bound st s[i:j] is valid subarray
+# where i in [0, bound]
+class Solution:
+    def countVowelSubstrings(self, word: str) -> int:
+        v = set('aeiou')
+        def valid(d):
+            return all([d[vv] >= 1 for vv in v])
+        def allfive(word):
+            res = left = 0
+            n = len(word)
+            d = defaultdict(int)
+            for i in range(n):
+                d[word[i]] += 1
+                while d[word[left]] > 1:   
+                    d[word[left]] -= 1
+                    left += 1
+                if valid(d): 
+                    res += left + 1
+            return res  
+        
+        ans = 0
+        prev = -1
+        for i in range(len(word)):
+            if word[i] not in v:
+                if prev == -1:
+                    prev = i
+                    continue
+                else:
+                    ans += allfive(word[prev+1: i])
+                    prev = i
+        ans += allfive(word[prev+1: len(word)])
+        return ans
+```
 
+```python
+# Sliding window not applicable 
+# weak optimization from O(N^3) -> O(N^2)
+
+# given a string containing only elements with cnt > 2
+# for ending points of a valid subarray, a bound could not be defined
+# Ex: 2 3 3 3 2;    2 3 3 3 2
+#       ^   ^ 		^       ^
+#       |   |       |       |
+# left pointer don't behave like sliding window
+from collections import defaultdict
+def func(A):
+    result = 0
+    for i in range(0,len(A)):
+        counter = 0
+        hashmap = defaultdict(int)
+        for j in range (i, len(A)):
+            hashmap[A[j]] += 1
+            if hashmap[A[j]] == 2:
+                counter += 1
+            if counter != 0 and counter == len(hashmap):
+                result += 1
+    return result
+```
 
 Nature of sliding windows is two ptr, where one part don';'t need to reset to 0 index
 
@@ -1058,11 +1152,7 @@ def getModifiedArray(self, length, updates):
         return res
 ```
 
-### sliding window
 
-### monotonic queue
-
-## 
 
 ## Tree
 
@@ -1712,4 +1802,24 @@ Special method:
 **Itertools.groupby**()
 
 ​	`subcnt = [c, len(list(g)) for c, g in groupby(str)]`
+
+**Zip, transpose, rotate**
+
+​	**zip(*iterables)**: `[ [iter[0][0], iter[1][0], ...], [iter[0][1], iter[1][1]]]`
+
+```
+number_list = [1, 2, 3]
+str_list = ['one', 'two', 'three']
+zip(number_list, str_list)
+> [(1, 'one'), (2, 'two'), (3, 'three')]
+```
+
+​	**zip(*matrix)**: transpose matrix	
+
+​	**zip(*matrix)[::-1]**: rotate matrix (90 degree counter-clockwise). Reversing after transposing is rotating
+
+​	To get list out of iterable: use `list(zip(*board))[::-1] `
+
+
+
 
