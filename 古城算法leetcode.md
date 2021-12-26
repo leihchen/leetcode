@@ -46,6 +46,7 @@ def Solution():
 
 ```python
 # kadane algo
+# 53. Maximum Subarray
 init:
   max_so_far = -inf
  	max_ending_here = -inf
@@ -680,6 +681,8 @@ while(s <= e):
 
 [410. Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum/) **HARD** 二分法猜答案
 
+[300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence)  bisect 构造
+
 ## Disjoint set/union find
 
 Tree like structure that only cares about parent (group).
@@ -915,6 +918,37 @@ def maxSlidingWindow(nums, k):
             return res
 ```
 
+```python
+# 队列的最大值
+# https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/
+# design a queue with offer, pop, and get_max in O(1) 
+# get_max returns the max value in queue
+class MaxQueue:
+
+    def __init__(self):
+        self.queue = collections.deque([])
+        self.max_queue = collections.deque([])
+
+    def max_value(self) -> int:
+        if not self.max_queue:
+            return -1- 
+        return self.max_queue[0]
+
+    def push_back(self, value: int) -> None:
+        self.queue.append(value)
+        while self.max_queue and self.max_queue[-1] < value:
+            self.max_queue.pop()
+        self.max_queue.append(value)
+
+    def pop_front(self) -> int:
+        if not self.queue:
+            return -1
+        if self.max_queue[0] == self.queue[0]:
+            self.max_queue.popleft()
+        return self.queue.popleft()
+
+```
+
 
 
 
@@ -1106,6 +1140,7 @@ def lengthOfLongestSubstringKDistinct(s: str, k: int) -> int:
       left += 1
     res = max(res, i - left + 1)  # <- record the result here 'while invalid trim'
   return res
+# follow up: https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/discuss/80044/Java-O(nlogk)-using-TreeMap-to-keep-last-occurrence-Interview-%22follow-up%22-question!
 ```
 
 1.  exact K -> atMost(K) - atMost(K-1), handles duplicates well
@@ -1368,6 +1403,7 @@ def numIslands(grid: List[List[str]]) -> int:
 
 ```python
 # sort to sovle duplicates
+# + two pointer
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         # faster than hashset, easier to deduplicate
@@ -1645,6 +1681,29 @@ https://leetcode.com/problems/non-overlapping-intervals/
 
 Suppose current earliest end time of the rest intervals is `x`. Then available time slot left for other intervals is `[x:]`. If we choose another interval with end time `y`, then available time slot would be `[y:]`. Since `x ≤ y`, there is no way `[y:]` can hold more intervals then `[x:]`. 
 
+```python
+# 1024 AND 1326
+class Solution:
+    def videoStitching(self, clips: List[List[int]], time: int) -> int:
+        res = st = curEnd = 0
+        clips.sort()
+        n = len(clips)
+        i = 0
+        while i < n:
+            if st >= time:
+                return res
+            if clips[i][0] > st:
+                return -1
+            while i < n and clips[i][0] <= st:
+                curEnd = max(curEnd, clips[i][1])
+                i += 1
+            res += 1
+            st = curEnd
+        return res if st >= time else -1
+```
+
+
+
 ## 信息传递
 
 backtracking is similar to DFS, one kind of brute force. (ex Nqueen problem). Usually its helper function returns void (no early quit in order to brute force all); and stores information in nonlocal variables.
@@ -1820,6 +1879,9 @@ zip(number_list, str_list)
 
 ​	To get list out of iterable: use `list(zip(*board))[::-1] `
 
+**Count substring in string:**
 
+​	Overlapping: `re.findall(f"(?={pattern})", word)`
 
+​	Non-overlapping: `word.count(pattern)`
 
