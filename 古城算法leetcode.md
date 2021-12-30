@@ -694,14 +694,38 @@ Used in dynamic connectivity problem.
 class DisjointSet():
     def __init__(self, n):
         self.parent = [i for i in range(n)]
-    def find(x):
+    def find(self, x):
         if self.parent[x] != x:
             # simple path compression
             self.parent[x] = self.find(self.parent[x])
         return x
-   	def union(x, y):   
+   	def union(self, x, y):   
         parent[self.find(x)] = self.find(y)
+
+# union by rank; worst case tree height is O(logN)
+# runtime is O(log*N)
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+        self.rank = [1] * n
         
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return x
+   	
+    def union(self, x, y) -> bool:
+        rootx, rooty = self.find(x), self.finb(y)
+        if rootx == rooty: return False
+        if self.rank[rootx] < self.rank[rooty]:
+            self.parent[rootx] = self.parent[rooty]
+       	elif self.rank[rootx] > self.rank[rooty]:
+            self.parent[rooty] = self.parent[rootx]
+        else:
+            self.parent[rootx] = rooty
+            self.rank[rooty] += 1
+        return True
+    
 class DisjointSet():
     def __init__(self, n):
         self.parent = [i for i in range(n)]
@@ -1670,6 +1694,8 @@ Inorder traveral of a BST is an ASC sorted array
 ```
 
 Magic: 334. [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/) https://leetcode-cn.com/problems/increasing-triplet-subsequence/solution/pou-xi-ben-zhi-yi-wen-bang-ni-kan-qing-t-3ye2/
+
+Magic: [31. Next Permutation](https://leetcode.com/problems/next-permutation) ![next-permutation-algorithm](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/next-permutation-algorithm.svg)
 
 ## Greedy Examples
 

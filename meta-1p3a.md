@@ -89,7 +89,7 @@ next permutation
 
 [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string)  no cheating
 
-[529. Minesweeper](https://leetcode.com/problems/minesweeper)
+⚠️ [529. Minesweeper](https://leetcode.com/problems/minesweeper)
 
 類似 舞餓酒 但分三階段
 第一階段 給三個數 長L 寬W 地雷數M 輸出一個 L*W的board 裡面隨機共有M個地雷
