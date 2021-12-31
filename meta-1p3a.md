@@ -89,7 +89,7 @@ next permutation
 
 [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string)  no cheating
 
-⚠️ [529. Minesweeper](https://leetcode.com/problems/minesweeper)
+[529. Minesweeper](https://leetcode.com/problems/minesweeper)
 
 類似 舞餓酒 但分三階段
 第一階段 給三個數 長L 寬W 地雷數M 輸出一個 L*W的board 裡面隨機共有M個地雷
@@ -97,3 +97,24 @@ next permutation
 第三階段 在全部隱藏的情況下 在這個board上面任意踩一個點 如果是地雷或數字就打開該格子 如果是0的話就把週邊都打開到不能開為止
 第三階段沒時間作完 只把想法跟一些comment給了考官 用BFS
 
+
+
+2101
+
+23
+
+
+
+[692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words)
+
+⚠️ https://leetcode.com/submissions/detail/463781790/
+
+⚠️ [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists) Merge sort
+
+⚠️ [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers)
+
+⚠️ [139. Word Break](https://leetcode.com/problems/word-break)
+
+⚠️ \311. Sparse Matrix Multiplication
+
+⚠️ [689. Maximum Sum of 3 Non-Overlapping](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays)
