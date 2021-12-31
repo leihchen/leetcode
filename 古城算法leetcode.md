@@ -700,6 +700,7 @@ class DisjointSet():
             self.parent[x] = self.find(self.parent[x])
         return x
    	def union(self, x, y):   
+        if self.find(x) == self.find(y): return
         parent[self.find(x)] = self.find(y)
 
 # union by rank; worst case tree height is O(logN)
@@ -776,6 +777,7 @@ class DSU:
             self.p[x] = self.find(self.p[x])
         return self.p[x]
     def union(self,x , y):
+        if self.find(x) == self.find(y): return
         self.p[self.find(x)] = self.find(y)
     
 ```
