@@ -391,14 +391,14 @@ def preorder(root):
   return res
 
 def inorder(root):  # inorder of BST is sorted ASC
-  res, stack = [], []
-	while root or stack:
-    while root: 
-      stack.append(root.left)
-      root = root.left
-	root = stack.pop()
-  res.appned(root.val)
-  root = root.right
+    res, stack = [], []
+    while root or stack:
+        while root: 
+            stack.append(root)
+            root = root.left
+        root = stack.pop()
+        res.appned(root.val)
+        root = root.right
 
 def postorder(root):  
   # the post order is done by a reverse trick, following preorder way

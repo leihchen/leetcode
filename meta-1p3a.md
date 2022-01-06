@@ -53,7 +53,7 @@
 
 
 
-
+[⚠️ 29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers)
 
 ⚠️[378. Kth Smallest Element in a Sorted Ma](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix)
 
@@ -97,11 +97,15 @@ next permutation
 第三階段 在全部隱藏的情況下 在這個board上面任意踩一個點 如果是地雷或數字就打開該格子 如果是0的話就把週邊都打開到不能開為止
 第三階段沒時間作完 只把想法跟一些comment給了考官 用BFS
 
+[366. Find Leaves of Binary Tree](https://leetcode.com/problems/find-leaves-of-binary-tree)
+
 
 
 2101
 
 23
+
+489
 
 
 
@@ -118,3 +122,6 @@ next permutation
 ⚠️ \311. Sparse Matrix Multiplication
 
 ⚠️ [689. Maximum Sum of 3 Non-Overlapping](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays)
+
+⚠️ [825. Friends Of Appropriate Ages](https://leetcode.com/problems/friends-of-appropriate-ages)
+
