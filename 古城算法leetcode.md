@@ -192,6 +192,48 @@ def subsetSum(nums, S):
     return dp[-1]
 ```
 
+```python
+# Coin Change MinCount
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [float('inf')] * (amount+1)
+        dp[0] = 0
+        for coin in coins:      
+            if coin < amount: dp[coin] = 1
+            for i in range(1, amount+1):
+                if i - coin >= 0:
+                    dp[i] = min(dp[i], dp[i-coin] + 1)
+        return dp[-1] if dp[-1] != float('inf') else -1
+```
+
+```python
+# 518. Coin Change 2 
+# Coin Change Combinations
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        dp = [0] * (amount + 1)
+        dp[0] = 1
+        for coin in coins:					# <-- the order
+            for i in range(1, amount + 1):  # <--
+                if i - coin >= 0:
+                    dp[i] += dp[i-coin]
+        return dp[-1]
+```
+
+```python
+# Coin Change Permutation
+class Solution:
+    def combinationSum4(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        dp = [0] * (target + 1)
+        dp[0] = 1
+        for i in range(1, target+1):		# <-- the order
+            for num in nums:				# <--
+                if i - num >= 0:
+                    dp[i] += dp[i-num]
+        return dp[-1]
+```
+
 ## DP 7 坐标类
 
 
@@ -713,7 +755,7 @@ class DisjointSet:
     def find(self, x):
         if self.parent[x] != x:
             self.parent[x] = self.find(self.parent[x])
-        return x
+        return self.parent[x]
    	
     def union(self, x, y) -> bool:
         rootx, rooty = self.find(x), self.finb(y)
@@ -1743,6 +1785,64 @@ backtracking is similar to DFS, one kind of brute force. (ex Nqueen problem). Us
 **Backtracking** (top down) 信息简单地自上而下传递
 
 ## Graph
+
+### Undirected Cycle Detection
+
+[261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree)
+
+```python
+# Method 1: Union Find
+# Graph format: edge list
+# Ex: 
+def validTree(n, edges):
+    dsu = DSU(n)
+    for edge in edges:
+        if not dsu.union(edge[0], edge[1]): 
+            return False
+    return len(edges) == n-1
+
+# Method 2: dfs, find back edge
+# Graph format: adjacency list
+def isCyclic(graph: defaultdict(list)):
+    n = len(graph)
+    visited = [False] * n
+    for v in graph:
+        if not visited[v]:
+            if isCyclicUtil(i, -1):
+                return True
+    
+    def isCyclicUtil(cur, parent):
+        visited[cur] = True
+        for nei in graph[cur]:
+            if not visited[nei]:
+                if isCyclicUtil(nei, cur):
+                    return True
+            else:
+                if nei != parent:  # ignore trivial back edge between parent and cur 0 <-> 1
+                    return True
+    
+```
+
+### Directed Cycle Dectection (DAG)
+
+```python
+# topological sort with DFS
+def isDAG(n, graph):
+    visited = [0] * n
+    for v in range(vertice):
+        if visited[v] == 0:
+            if not dfs(v):
+                return False
+def dfs(v):
+    visited[v] = 1 # 1=visiting
+    for nei in graph[v]:
+        if visited[nei] == 1:
+            return False
+        if visited[nei] == 0:  #0=unvisited
+            dfs(nei)
+    visited[v] = 2  # 2=visited    
+# topological sort with BFS (kahn's algo 入度表)
+```
 
 ### MST
 
