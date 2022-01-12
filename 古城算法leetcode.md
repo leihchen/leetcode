@@ -336,7 +336,7 @@ def subsets(nums):
                 tmp.pop()
         bt([], used_)
         return res
-# combination, similar to permuation. only that require k elements instead
+# combination, similar to subset?. only that require k elements instead
     def combine(self, n: int, k: int) -> List[List[int]]:
         res = []
         def bt(start, tmp):
@@ -740,7 +740,7 @@ class DisjointSet():
         if self.parent[x] != x:
             # simple path compression
             self.parent[x] = self.find(self.parent[x])
-        return x
+        return self.parent[x]
    	def union(self, x, y):   
         if self.find(x) == self.find(y): return
         parent[self.find(x)] = self.find(y)
@@ -898,7 +898,7 @@ def countOfAirplanes(self, airplanes):
 
 ![lc1272-1](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/lc1272-1-4097246.png)
 
-```
+```python
 # VIP 1272 remove interval
 def removeInterval(intervals, toBeRemoved):
   res = []
@@ -979,8 +979,8 @@ def maxSlidingWindow(nums, k):
             q = collections.deque([])  # index
             res = []
             for i in range(n):
-                while q and i - q[0] >= k: q.pop()  # lazy remove
-                while q and nums[q[-1]] <= nums[i]: q.popleft()
+                while q and i - q[0] >= k: q.popleft()  # lazy remove
+                while q and nums[q[-1]] <= nums[i]: q.pop()
                 q.append(i)
                 if i - k + 1 >= 0: res.append(nums[q[0]])
             return res
@@ -1196,11 +1196,10 @@ def lengthOfLongestSubstringKDistinct(s: str, k: int) -> int:
   hashmap = dict()
   left, res = 0, 0
   for i in range(len(s)):  
-    # <- record the result here 'while valid trim to minimize'
     c = s[i]
     if c in hashmap: hashmap[c] += 1
     else: hashmap[c] = 1
-    while invalid(hashmap, k):
+    while invalid(hashmap, k):     # <- record the result here 'while valid trim to minimize'
       left_c = s[left]
       hashmap[left_c] -= 1
       if hashmap[left_c] == 0:
