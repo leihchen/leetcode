@@ -10,62 +10,39 @@ https://www.1point3acres.com/bbs/thread-805484-1-1.html
 
 https://www.1point3acres.com/bbs/thread-713177-1-1.html
 
-https://www.1point3acres.com/bbs/thread-713177-1-1.html
-
 https://www.1point3acres.com/bbs/thread-804792-1-1.html
-
-https://www.1point3acres.com/bbs/thread-804792-1-1.html
-
-https://www.1point3acres.com/bbs/thread-713177-1-1.html
-
-8 ?
-
-9 ?
-
-10 postconditions
-
-11 dag
-
-13 parent child share address space ? 
-
-14 ?
-
-15 func(0,3)
-
-16 subproblem combined
-
-
-
-
 
 
 
 https://www.1point3acres.com/bbs/thread-805484-1-1.html
 
-**Monte-Carlo: randomized quicksort**
-**Runbook: respond to alarm**
-**Assertions: postcondition**
+Monte-Carlo: edge contaction
+Runbook: respond to alarm
+
+I think the selected **option 4 is correct because** Runbooks are created for **t**he purpose of walking someone through the steps necessary for accomplishing a specific task and this option is correct for syncing with the data models.
+
+Assertions: postcondition
 Topological sort: DAG
-**Fork: return process ID**
-**GraphQLvsRest: fetch multiple resources.**
+Fork: return process ID
+GraphQLvsRest: fetch multiple resources.
 Dispatch : func(0,3)
 Dp vs dc: overlap
-**Nginx: pre-directory**
+Nginx: pre-directory
 Null: java
-**Composition vs inheritance: delegation**
+Composition vs inheritance: embedded 
 Skip list: BST
 Plug-in: thrid-party
-**Deamon: fork once, fork twice**
+Deamon: fork once, fork twice
 Used index: Select
 Stable sort: preserve order
 Reba‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌se vs merge: rebase rewrites history
 +Stack heap: stack faster
-**+Eventual consistency : part of ACID**
++Eventual consistency : part of ACID
 Min heap: [5,10]
-**-Tail recursive : binary search , quicksort**
+-Tail recursive : binary search , quicksort
 Serverless cons: infrequently used-> slower
-***-Just in time: statically typed***
-**Caching header: cache control**
+-Just in time: statically typed
+Caching header: cache control
 
 intersect: assumes sorted
 
@@ -83,7 +60,7 @@ more than one key hashes into one bucket: hash collisions
 
 P-complete
 
-Big O
+Big Theta
 
 
 
@@ -110,6 +87,47 @@ minValue = array[i]
 result_array.push(value)
 
 
+
+profile: memo
+
+**X LoadValueButtonClicked: correcly load**
+
+const f = n => n <= 1 ? 1 : n * f(n-1); g=24
+
+get newly created resource: Location
+
+```js
+var obj = {
+    prop: 'a',
+    undefined: [ {prop: 'b'} ],
+}
+var logProp = function(obj){
+    console.log(obj.prop)
+}
+var a = obj
+[a].forEach(logProp)
+// prints b
+```
+
+gc reference count: cycle
+
+rebasing is less likely to result in a conflict is wrong
+
+result |= num > 0
+
+OLAP: complex read queries
+
+```ruby
+def func(s)
+    s << "a"
+    s = s + "b"
+    s << "c"
+end 
+s = ""
+func(s)
+puts(s)
+# a
+```
 
 
 
