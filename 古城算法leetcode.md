@@ -664,6 +664,7 @@ def topologicalSort(graph dag):
             indegree[nei] -= 1
             if indegree[nei] == 0:
             	t.append(nei)
+                q.append(nei)
 	return t  # if len(t) != dag.vertex() then some cycle of isolated component exists
 ```
 
