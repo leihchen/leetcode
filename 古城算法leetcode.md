@@ -868,7 +868,7 @@ sort airplanes based on start time (in some problem end time/ start ASC end DESC
 
 zigzag traverse the up/down list
 
-```
+```python
 # https://www.lintcode.com/problem/number-of-airplanes-in-the-sky/
 def countOfAirplanes(self, airplanes):
     # write your code here

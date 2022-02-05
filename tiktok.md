@@ -4,18 +4,17 @@
 33
 
 2. 汇率转换。给你a种钱,问可以换多少的b种钱。然后有一个table是显示每个之间汇率的。
-  e.x.
-  data = [("USD", "JPY", 110), ("USD", "AUD", 1.45), ("JPY", "GBP", 0.0070)]
-  我们的任务是写出getRatio( data,"JPY", "AUD”,1)。 用bfs解决。
-  bq (vo）
+    e.x.
+    data = [("USD", "JPY", 110), ("USD", "AUD", 1.45), ("JPY", "GBP", 0.0070)]
+    我们的任务是写出getRatio( data,"JPY", "AUD”,1)。 用bfs解决。
+    bq (vo）
 
-3. 
-     给予一个排序数组和整数k和x, 求k个最接近x的数。658
+3. 给予一个排序数组和整数k和x, 求k个最接近x的数。658
      闯关模式的面经
-
+     
 4.  shuffle array + random pick,
 
-     ---------
+    ---------
 
 5.    median in data stream
 
@@ -24,17 +23,19 @@
 7. SD: Trending tags
 
 8. Project Deep Dive + B‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌Q
-  722
-  473
-  39
-  1004
+    **722**
+    **473**
+    39
+    1004
 
-9. Sliding Window Median
+    -------
+    
+9. **Sliding Window Median**
 
 10. Verifying an Alien Dictionary
 
 11. Leftmost Column with at Least a One
-      489
+      **489**
       total 三面 第一面就掛了
       Hackerank 45 mins
       流程:
@@ -60,7 +61,7 @@ Leetcode:
 93 Restore IP Addresses
 102 Binary Tree Level Order Traversal
 105 Construct Binary Tree from Preorder and Inorder Traversal 124 Binary Tree Maximum Path Sum
-163 Missing Ranges
+**163 Missing Ranges**
 207 Course schedule 有向圖找環
 224 Basic Calculator + 變形 可以有 invalid input ex: “3 2” 227 Basic Calculator II
 236 (就是求二叉树两点之间最短路径，本质其实就是二三流)
@@ -97,7 +98,9 @@ golang concurrency实现方式
 353
 面试小姑娘人很好。做了两个题，都很简单。
 第一个：binary tree maximum path sum，应该是leetcode原题，不记得题号了。
-第二个：word search，应该也是原题，但不记得题号了。经典的‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌DFS
+第二个：word search，应该也
+
+3. 是原题，但不记得题号了。经典的‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌DFS
 2021.11.29 一面：算法题（LeetCode 341），聊简历
 2021.12.09 二面：算法题（CCF201812-3 CIDR合并），聊简历
 1352

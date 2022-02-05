@@ -122,7 +122,7 @@
 #     return n + f(int(n/2))
 # print(f(4))
 
-
+from typing import *
 def subStrHash(s: str, power: int, modulo: int, k: int, hashValue: int) -> str:
     def c2v(c):
         return 1 + ord(c) - ord('a')
@@ -144,6 +144,7 @@ def subStrHash(s: str, power: int, modulo: int, k: int, hashValue: int) -> str:
 # print(subStrHash('fbxzaad', 31, 100, 3, 32))
 
 from collections import defaultdict, deque
+from itertools import *
 class Solution:
     def __init__(self, exchanges):
         graph = defaultdict(list)
@@ -168,7 +169,80 @@ class Solution:
 
 data = [("USD", "JPY", 115.08), ("USD", "AUD", 1.42), ("JPY", "GBP", 0.0065), ("RMB", "USD", 0.16), ]
 soln = Solution(data)
-print(soln.getExchangeRatio("JPY", "AUD"), 0.012)
-print(soln.getExchangeRatio("GBP", "AUD"), 1.90)
-print(soln.getExchangeRatio("RMB", "AUD"), 0.22)
+# print(soln.getExchangeRatio("JPY", "AUD"), 0.012)
+# print(soln.getExchangeRatio("GBP", "AUD"), 1.90)
+# print(soln.getExchangeRatio("RMB", "AUD"), 0.22)
 
+
+class TreeNode:
+    def __init__(self, x, left=None, right=None):
+        self.val = x
+        self.left = left
+        self.right = right
+
+def numberTreePathSum(root: TreeNode):
+    res = 0
+    def dfs(node, num):
+        nonlocal res
+        if not node.left and not node.right:
+            res += num * 10 + node.val
+        if node.left:
+            dfs(node.left, num * 10 + node.val)
+        if node.right:
+            dfs(node.right, num * 10 + node.val)
+    dfs(root, 0)
+    return res
+
+test = TreeNode(4)
+test.left = TreeNode(5, left=TreeNode(6), right=TreeNode(7))
+test.right = TreeNode(0)
+# print(numberTreePathSum(test))
+def isAlienSorted(words: List[str], order: str) -> bool:
+    d = {c: i for i, c in enumerate(order)}
+    alien_words = [[d[c] for c in word] for word in words]
+    print(alien_words)
+    return all(alien_words[i - 1] <= alien_words[i] for i in range(1, len(words)))
+isAlienSorted(["hello","leetcode"], "hlabcdefgijkmnopqrstuvwxyz")
+print([0, 6, 1, 1, 14] < [1, 6, 6, 19, 4, 14, 5, 6])
+
+
+def countBinarySubstrings(s: str) -> int:
+    subcnt = [len(list(g)) for _, g in groupby(s)]
+    n = len(subcnt)
+    res = 0
+    for i in range(1, n):
+        res += min(subcnt[i - 1], subcnt[i])
+    return res
+
+class Solution:
+    i = 0
+    def calculate(self, s: str) -> int:
+        s.replace(' ', '')
+        sign = '+'
+        num = 0
+        stack = []
+        if not s: return 0
+        while self.i < len(s):
+            c = s[self.i]
+            self.i += 1
+            if c.isdigit():
+                num = 10 * num + int(c)
+            if c == '(':
+                num = self.calculate(s)
+            if not c.isdigit() or self.i >= len(s):
+                if sign == '+':
+                    stack.append(num)
+                if sign == '-':
+                    stack.append(-num)
+                if sign == '*':
+                    stack.append(stack.pop() * num)
+                if sign == '/':
+                    stack.append(int(stack.pop() / num))
+                num = 0
+                sign = c
+
+            if c == ')':
+                break
+        return sum(stack)
+# soln = Solution()
+# print(soln.calculate("1 + 1"))
