@@ -364,11 +364,8 @@ class Solution {
 //            }).start();
 //        });
 //        System.out.println(q.take());
-
-    }
-    public static void func(int a, List<Integer> b){
-        a += 1;
-        b.add(1);
+        int[] l = {1};
+        System.out.println(Arrays.binarySearch(l, -1));
     }
 //    public static void main(String[] args) throws IOException {
 //        int a = 0;
@@ -526,6 +523,51 @@ class Solution {
 ////        System.out.println(globalMaximum(new int[] {1,2,3,4}, 3));
 //
 //    }
+    public List<String> topKFrequent(String[] words, int k) {
+        List<String> res = new LinkedList<>();
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String word: words){
+            map.put(word, map.getOrDefault(word, 0) + 1);
+        }
+        PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>((a, b)-> a.getValue() == b.getValue() ? b.getKey().compareTo(a.getKey()) : a.getValue() - b.getValue());
+        for (Map.Entry<String, Integer> entry : map.entrySet()){
+            pq.offer(entry);
+            if (pq.size() > k)
+                pq.poll();
+
+        }
+        while(!pq.isEmpty())
+            res.add(0, pq.poll().getKey());
+        return res;
+    }
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()){
+            int cnt = q.size();
+            for (int i = 0; i < cnt; i++){
+                TreeNode cur = q.poll();
+                if (i == cnt - 1) res.add(cur.val);
+                if (cur.left != null) q.offer(cur.left);
+                if (cur.right != null) q.offer(cur.right);
+            }
+        }
+        return res;
+    }
 }
 
 //import java.io.*;
