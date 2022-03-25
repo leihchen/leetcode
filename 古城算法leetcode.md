@@ -1986,6 +1986,10 @@ Special method:
 
 ​	The returned insertion point *i* partitions the array *a* into two halves so that `all(val < x for val in a[lo : i])` for the left side and `all(val >= x for val in a[i : hi])` for the right side.
 
+**Bisect.bisect_right**
+
+The returned insertion point *i* partitions the array *a* into two halves so that `all(val <= x for val in a[lo : i])` for the left side and `all(val > x for val in a[i : hi])` for the right side.
+
 **Itertools.groupby**()
 
 ​	`subcnt = [c, len(list(g)) for c, g in groupby(str)]`
