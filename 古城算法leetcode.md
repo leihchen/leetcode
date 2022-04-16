@@ -1986,9 +1986,7 @@ Special method:
 
 ​	The returned insertion point *i* partitions the array *a* into two halves so that `all(val < x for val in a[lo : i])` for the left side and `all(val >= x for val in a[i : hi])` for the right side.
 
-`bisect_left( [0, 1, 1, 3], 1) # 1 ` bisect_left  return first occurence if exists else index after insort
 
-`bisect_right([0, 1, 1, 3], 1) # 3 ` bisect_right return first larger's index
 
 
 **Bisect.bisect_right**
@@ -1997,7 +1995,9 @@ The returned insertion point *i* partitions the array *a* into two halves so tha
 
 `bisect_left( [0, 1, 1, 3], 1) # 1 ` bisect_left  return first occurence if exists else index after insort
 
-`bisect_right([0, 1, 1, 3], 1) # 3 ` bisect_right return first larger's index
+`bisect_left( [0, 1, 1, 3], 1) # 1 ` bisect_left  search for first larger's index (non-strictly)
+
+`bisect_right([0, 1, 1, 3], 1) # 3 ` bisect_right search for first larger's index (strictly)
 
 
 **Itertools.groupby**()
