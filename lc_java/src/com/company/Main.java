@@ -364,8 +364,11 @@ class Solution {
 //            }).start();
 //        });
 //        System.out.println(q.take());
-        int[] l = {1};
-        System.out.println(Arrays.binarySearch(l, -1));
+//        int[] l = {1};
+//        System.out.println(Arrays.binarySearch(l, -1));
+        Syntax.MyHashMap<Integer, Integer> map = new Syntax.MyHashMap<>();
+        map.put(1,1);
+        System.out.println(map.get(1));
     }
 //    public static void main(String[] args) throws IOException {
 //        int a = 0;

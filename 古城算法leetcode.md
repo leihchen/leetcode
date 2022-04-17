@@ -70,9 +70,9 @@ f[i][j] =
 97 Interleaving String
 
 ```python
-f[i][j] =  	f[i-1][j] if 	s1[i-1] == s3[i+j-1]
-						f[i][j-1] if 	s2[j-1] == s3[i+j-1]
-  					otherwise			False
+# transition function: f[i][j] =    f[i-1][j] if s1[i-1] == s3[i+j-1]
+#                                   f[i][j-1] if s2[j-1] == s3[i+j-1]
+#                                   False otherwise
 ```
 
 72 Edit Distance (Converting word1 to word2, this operation is sysmetric)

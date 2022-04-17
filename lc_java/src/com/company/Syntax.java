@@ -197,5 +197,96 @@ public class Syntax {
         }
         return lis.size();
     }
+    static class MyHashMap<K, V> {
+
+        final int size = 10000;
+        class Node<K,V>{
+            final K key;
+            V value;
+            public Node(K key, V value){
+                this.key = key;
+                this.value = value;
+            }
+            public K getKey(){
+                return key;
+            }
+            public V getValue(){
+                return value;
+            }
+            public void setValue(V value){
+                this.value = value;
+            }
+        }
+        List<List<Node<K,V>>> bucket;
+        public MyHashMap() {
+            bucket = new ArrayList<>();
+            for (int i = 0; i < size; i++){
+                bucket.add(new LinkedList<>());
+            }
+        }
+
+        public void put(K key, V value) {
+            int idx = bucketHash(key);
+            for (int i = 0; i < bucket.get(idx).size(); i++){
+                if (bucket.get(idx).get(i).getKey() == key){
+                    bucket.get(idx).get(i).setValue(value);
+                    return;
+                }
+            }
+            bucket.get(idx).add(new Node(key, value));
+        }
+
+        public V get(K key) {
+            int idx = bucketHash(key);
+            for (int i = 0; i < bucket.get(idx).size(); i++){
+                if (bucket.get(idx).get(i).getKey() == key){
+                    return bucket.get(idx).get(i).getValue();
+                }
+            }
+            return null;
+        }
+
+        public void remove(K key) {
+            int idx = bucketHash(key);
+            for (int i = 0; i < bucket.get(idx).size(); i++){
+                if (bucket.get(idx).get(i).getKey() == key){
+                    bucket.get(idx).remove(i);
+                    return;
+                }
+            }
+        }
+
+        private int bucketHash(K key){
+            return key.hashCode() % size;
+        }
+    }
+    public int minCostII(int[][] costs) {
+        int n = costs.length;
+        int k = costs[0].length;
+        int[] dp = new int[k];
+        for (int j = 0; j < k; j++){
+            dp[j] = costs[0][j];
+        }
+        for (int i = 1; i < n; i++){
+            int[] dpNew = new int[k];
+            for (int c = 0; c < k; c++){
+                int min_ = Integer.MAX_VALUE;
+                for(int j = 0; j < k; j++){
+                    if (c != j) min_ = Math.min(min_, costs[i-1][j]);
+                }
+                dpNew[c] = min_ + costs[i][c];
+            }
+            dp = dpNew;
+        }
+        return Arrays.stream(dp).min().getAsInt();
+    }
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * MyHashMap obj = new MyHashMap();
+ * obj.put(key,value);
+ * int param_2 = obj.get(key);
+ * obj.remove(key);
+ */
 
 }
