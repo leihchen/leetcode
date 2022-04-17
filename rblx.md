@@ -175,10 +175,13 @@ peak finding problem
 
 elevator problem
 
+longest time player
 
-
+Connect Four problem
 
 
 open-end problem:
 
 improve elevator  
+
+design parking lot
