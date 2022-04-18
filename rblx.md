@@ -161,9 +161,48 @@ parallel bfs topological sort, many machine
     obstacles what's heuristic
     ```
 
-10. 
+10. combination sum
+
+636
+
+top k quick select
+
+```
+We want to know what the Top Game is, defined by: The Top Game is the game users spent the most time in.
+Each line of the file has the following information (comma separated):
+- timestamp in seconds (long)
+- user id (string)
+- game id (int)
+- action (string, either "join" or "quit")
+e.g.
+[
+"1000000000,user1,1001,join", // user 1 joined game 1001
+"1000000005,user2,1002,join", // user 2 joined game 1002
+"1000000010,user1,1001,quit", // user 1 quit game 1001 after 10 seconds
+"1000000020,user2,1002,quit", // user 2 quit game 1002 after 15 seconds
+];
+In this log,
+The total time spent in game 1001 is 10 seconds.
+The total time spent in game 1002 is 15 seconds.
+Hence game 1002 is the Top Game. -> 1002
+This file could be missing some lines of data (e.g. the user joined, but then the app crashed).
+If data for a session (join to quit) is incomplete, please discard the session.
+To recover some data, we attempt to estimate session length with this rule:
+  If a user joined a game but did not leave, assume they spent the minimum of
+    - time spent before they joined a different game; and
+    - average time spent across the same user's gaming sessions (from j‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌oin to leave)
+    e.g.
+    "1500000000,user1,1001,join"
+    "1500000010,user1,1002,join"
+    "1500000015,user1,1002,quit"
+    The user spent 5 seconds in game 2, so we assume they spent 5 seconds in game 1.
+Write a function that returns the top game ID, given an array of strings representing
+each line in the log file.
+```
 
 
+
+valid sudoku
 
 
 
@@ -175,13 +214,57 @@ peak finding problem
 
 elevator problem
 
-longest time player
+OOP longest time player
 
-Connect Four problem
+OOP Connect Four problem  class supporting drop(col), check(row, col) APIs.
 
 
-open-end problem:
 
-improve elevator  
+
+open-end problem: (经典system design的开放问题)
+
+Give you Three Elevators for a 10-floor office building， how would you design the system such that all/most of the people in the office building are happy
+
+楼主提出了5点possible idea,包括: 让elevators尽可能隔开， improve interior 和 exterior， provide a person to push the buttons for you etc.
+
+如何了解用户对system的满意程度
+
+There are many criteria we could consider: the number of passengers delivered to their destination, the time a passenger waits for an elevator to arrive, the time spent inside the elevator, the cost of the power consumed by the system, the wear and tear from moving and reversing directions, etc (or the resulting time and money spent on maintenance).
+
+Fast(min time in elevator, min waiting time)
+
+Interactiveness (display showing current location on each floor, predictable behaviour)
 
 design parking lot
+
+design match making system
+
+該怎麽降低 1. 小朋友偷家長信用卡充值， 2. 某些人偷別人信用卡充值
+
+
+
+
+
+BQ:
+
+不在简历上最精彩的经历
+
+最骄傲的事
+
+最后悔的事
+
+what would you do if you gonna die
+
+what's the hardest decision you ever made
+
+one experience working with other people
+
+one experience learning something in a unstructured way
+
+what's the most proud project you have ever worked on?
+
+what's the hardest decision I have made.
+
+最糟糕的team work經歷
+
+的最难的课和不同寻常的经历
