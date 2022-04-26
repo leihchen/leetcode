@@ -14,7 +14,7 @@ parallel bfs topological sort, many machine
 
     
 
-2. Random Pick with Weight
+2. Random Pick with Weight https://leetcode.com/problems/random-pick-with-weight/
 
     ```python
     i  0, 1, 2
@@ -38,14 +38,14 @@ parallel bfs topological sort, many machine
     ex: rand = 4, find the next non-strictly larger number 
     ```
 
-3. word search
+3. word search https://leetcode.com/problems/word-search/
 
     ```python
     backtracking O(N^2 * 4^L) where N= number of cells, L=len(word)
     (dfs O(N^2), backtracking choice^pathLen)
     ```
 
-4. peak index
+4. peak index https://leetcode.com/problems/find-peak-element/
 
     ```python
     # 853, yhc's note 
@@ -66,7 +66,7 @@ parallel bfs topological sort, many machine
     
     ```
 
-5. course schedule II
+5. course schedule II https://leetcode.com/problems/course-schedule-ii/
 
     ```python
     cycle detection problem in a graph (to be more specific, it is a directed graph)
@@ -92,7 +92,7 @@ parallel bfs topological sort, many machine
     3. bfs: visit each node exactly one time, every time move it from cantake to taken O(V+E) 
     ```
 
-6. 206 reserved linked list
+6. 206 reserved linked list https://leetcode.com/problems/reverse-linked-list/
 
     ```python
     iteravitve: 
@@ -190,7 +190,7 @@ If data for a session (join to quit) is incomplete, please discard the session.
 To recover some data, we attempt to estimate session length with this rule:
   If a user joined a game but did not leave, assume they spent the minimum of
     - time spent before they joined a different game; and
-    - average time spent across the same user's gaming sessions (from j‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌oin to leave)
+    - average time spent across the same user's gaming sessions (from join to leave)
     e.g.
     "1500000000,user1,1001,join"
     "1500000010,user1,1002,join"
@@ -254,6 +254,12 @@ BQ:
 最后悔的事
 
 what would you do if you gonna die
+
+If you live each day as if it was your last, someday you’ll most certainly be right.
+
+dead soon is the most important tool I’ve ever encountered to help me make the big choices in life
+
+Because almost everything — all external expectations, all pride, all fear of embarrassment or failure — these things just fall away in the face of death, leaving only what is truly important. There is no reason not to follow your heart.
 
 what's the hardest decision you ever made
 
