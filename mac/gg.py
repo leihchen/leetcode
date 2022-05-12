@@ -196,5 +196,10 @@ def findMaximums(nums: List[int]) -> List[int]:
     for i in range(n-2, -1, -1):
         dp[i] = max(dp[i], dp[i+1])
     return dp
-print(findMaximums([0,1,2,4]))
-print(findMaximums([1,2,5,1]))
+# print(findMaximums([0,1,2,4]))
+# print(findMaximums([1,2,5,1]))
+
+for row in [[-1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1], [0, -1, -1, -1, -1, -1]]:
+    print(row)
+for row in [[1,1,0,3,1,1],[0,1,0,1,1,0],[3,3,1,3,1,1],[0,3,2,2,0,0],[1,0,1,2,3,0]]:
+    print(row)

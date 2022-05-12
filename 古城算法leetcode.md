@@ -1903,11 +1903,66 @@ Kruscal (; UnionFind)
 
 Sort all edges. Add edges from smallest weight. Ignore unnecessary edges (ie edges that connects node in the same Union Set)
 
+### Dijikstra
 
+SSSP:
 
+​	BFS/DFS unweighted graph
 
+​	Dijikstra 非负edge, weighted graph
 
+​	Dijikstra 非负edge, pq优化
 
+​	Bellman-Ford 负edge
+
+​	~~Bellman-Ford 负edge, pq优化~~
+
+MSSP:
+
+​	Floyd-Warshall
+
+Graph with V vertices has at most V * (V-1) / 2. In dense graph, E ~ V^2
+
+Dijikstra: array O(V^2); priority queue O(ElogV); Fibonacci heap O(E + VlogV)
+
+```python
+# vertex按distance顺序被visited，visited后distance就确定了
+# 当发现一个vertex的distance减少时，vertex会重复进pq，此时distance较小的会先被visit，较大的会被跳过
+def dijikstra(graph,s, n):
+    visited = [False] * n
+    distance = [float('inf')] * n
+    distance[s] = 0
+    pq = []
+    heappush(pq, (distance[s], s))
+    while pq:
+        dist, node = heappop(pq)
+        if visited[node]: continue
+        visited[node] = True   
+        for nei, w in graph[node]:
+            if not visited[nei] and dist + w < distance[nei]:
+                distance[nei] = dist + w
+                heappush(pq, (distance[nei], nei))
+```
+
+Bellman-Ford
+
+![img](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/KMNzoaKqTdFr3GL_ebFdO3chuTsiQM0HqGUllAPQufJVFl6pFbFpUd7dz1Vuk6Tq79d3ic3yEKJGoDoam5Sru_J6UTmFCJ182akzL-mP2xVB8jHfSuZbnbo0rxoS7Co2ZAM5c2c6KgcE6cjEzFvA.png)
+
+Floyd-Warshall
+
+![img](/Users/harddrive/Documents/GitHub/leetcode/古城算法leetcode.assets/h-dem9TgIhvzT3so6G5Y-1CRb3azuF2_HsDObW1vvX1FuR-24GOPidETk0_joQ5h1zWcgETuvWQyhdHPir9UtNjcm2aTB0pky3OT0s3Vashof7La-rXqK_IyjPbfT5JkZ2njjd8a6r20ZHaoKnow.png)
+
+**Shortest path on graph:** 
+
+Is DAG? 
+
+​	-Yes-> DAG with edge relaxation
+
+​	-No->  Contains negative edges? 
+
+​				-No-> Dijisktra
+
+​				-Yes-> Bellman-Ford
 
 ## Parentheses
 
