@@ -1,5 +1,13 @@
 from tqdm import  tqdm
 from typing import *
+from collections import *
+import math
+from bisect import bisect_left, bisect_right
+import random
+from random import randint
+from copy import deepcopy
+from heapq import heappush, heappop, heapify
+from itertools import combinations
 def longest_list(n):
     sum_ = 0
     res = []
@@ -198,8 +206,46 @@ def findMaximums(nums: List[int]) -> List[int]:
     return dp
 # print(findMaximums([0,1,2,4]))
 # print(findMaximums([1,2,5,1]))
+#
+class Employee:
+    def __init__(self, name, reporters):
+        self.name = name
+        self.reporters = reporters
 
-for row in [[-1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1], [0, -1, -1, -1, -1, -1]]:
-    print(row)
-for row in [[1,1,0,3,1,1],[0,1,0,1,1,0],[3,3,1,3,1,1],[0,3,2,2,0,0],[1,0,1,2,3,0]]:
-    print(row)
+def CEOToEmployee(employees, e):
+    manager = {}
+    for ee, reporters in employees:
+        for reporter in reporters:
+            manager[reporter] = ee
+    person = e
+    path = []
+    while person in manager:  # while person is not ceo
+        path.append(person)
+        person = manager[person]
+    path.append(person)
+    print(path[::-1])
+    return path[::-1]
+# CEOToEmployee([['a', ['b']], ['b', ['c']], ['c', ['d']],], 'd')
+
+# print(bisect_left([1,1,2,2,2,3], 2))
+import collections
+def f(l):
+    for i in l:
+        if isinstance(i, collections.Iterable) and not isinstance(i, str):
+            # print('---', i)
+            yield from f(i)
+        else:
+            yield i
+
+i = 4
+def foo(x: Iterable[int]):
+    global i
+    def bar():
+        print(i, end='')
+    # ...
+    # A bunch of code here
+    # ...
+    for i in x:  # Ah, i *is* local to foo, so this is what bar sees
+        print(i, end='')
+    bar()
+foo([1,2,3])
