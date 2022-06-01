@@ -917,6 +917,42 @@ def removeInterval(intervals, toBeRemoved):
 
 TODO: 1229, 986, 759
 
+**Google VO 4 questions** : 
+
+My Calendar 1,2,3: TreeMap(BST) + 扫描线
+
+[729. My Calendar I](https://leetcode.com/problems/my-calendar-i)
+
+[731. My Calendar II](https://leetcode.com/problems/my-calendar-ii)
+
+[732. My Calendar III](https://leetcode.com/problems/my-calendar-iii)
+
+```python
+from sortedcontainers import SortedDict
+class MyCalendarThree:
+
+    def __init__(self):
+        self.planes = SortedDict()
+
+    def book(self, start: int, end: int) -> int:
+        if start not in self.planes:
+            self.planes[start] = 0
+        if end not in self.planes:
+            self.planes[end] = 0
+        self.planes[start] += 1
+        self.planes[end] -= 1
+        cnt = 0
+        res = 0
+        for val in self.planes.values():
+            cnt += val
+            res = max(res, cnt)
+        return res
+```
+
+Immutable meeting k rooms, [O(N) + O(T) prefixsum +  扫描线 if T fits memory] OR [O(N^2) + O(N) TreeMap(BST) + 扫描线] len(Intervals) = len(ask) = N, time range = T
+
+[1897 · Meeting Room III](https://www.lintcode.com/problem/1897/description) == https://leetcode.com/discuss/interview-question/613816/Google-or-Onsite-or-Meeting-Rooms-3
+
 ## Monotonic Stack
 
 [402 remove K digit](https://leetcode.com/problems/remove-k-digits/): **"从左到右 选大的删除"**
@@ -1882,8 +1918,8 @@ def lazyPrim(graph, n, start=0) -> int:
 		visited.add(node)
         # iterate all outgoing edges of node
         for nei in graph[node]:
-		if nei not in visited:
-        	heappush(pq, (nei[1], node, nei[0]))
+            if nei not in visited:
+                heappush(pq, (nei[1], node, nei[0]))
 	addEdge(start)
   	mstEdges = []  # should be of size |V| - 1
   	mstCost = 0

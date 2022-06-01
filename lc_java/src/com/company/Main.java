@@ -351,7 +351,27 @@ class Solution {
         }
     return start;
     }
-    public static void main(String[] args) throws InterruptedException{
+
+    public static String domino(String[] A){
+        Set<String> seen = new HashSet<>();
+        for (String a : A){
+            seen.add(a);
+            seen.add(String.valueOf(a.charAt(2)) + '-' + a.charAt(0));
+        }
+        for (int i = 0; i <= 6; i++){
+            for (int j = 0; j <= i; j++){
+                String result1 = Integer.toString(i) + '-' + j;
+
+                System.out.println(result1);
+                if (!seen.contains(result1)){
+                    return result1;
+                }
+            }
+        }
+        return "";
+    }
+
+    public static void main(String[] args){
 //        BlockingDeque<Integer> q = new LinkedBlockingDeque<>();
 //        Arrays.asList(3,2,1).forEach((d)->{
 //            new Thread( () -> {
@@ -366,9 +386,11 @@ class Solution {
 //        System.out.println(q.take());
 //        int[] l = {1};
 //        System.out.println(Arrays.binarySearch(l, -1));
-        Syntax.MyHashMap<Integer, Integer> map = new Syntax.MyHashMap<>();
-        map.put(1,1);
-        System.out.println(map.get(1));
+//        Syntax.MyHashMap<Integer, Integer> map = new Syntax.MyHashMap<>();
+//        map.put(1,1);
+//        System.out.println(map.get(1));
+       System.out.println(domino(new String[] {"0-0", "1-1", "2-2", "3-3", "4-4", "5-5", "6-6", "0-1", "2-3"}));
+
     }
 //    public static void main(String[] args) throws IOException {
 //        int a = 0;

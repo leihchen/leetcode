@@ -21,7 +21,43 @@ def minCutGcd(nums):
                 dp[i] = min(dp[i], (dp[j-1] + 1) if j-1 >= 0 else 1)
     return dp[-1]
 
-print(minCutGcd([2,3,3,2,3,3]))
-print(minCutGcd([4,5,6,7,7,9]))
+# print(minCutGcd([2,3,3,2,3,3]))
+# print(minCutGcd([4,5,6,7,7,9]))
 
+# print(max_matching([[0,1],[1,3], [2,3]], 4))
+
+def max_network_rank(starts: List[int], ends: List[int], n: int) -> int:
+    adj = [0] * (n + 1)
+
+    for a, b in zip(starts, ends):
+        adj[a] += 1
+        adj[b] += 1
+
+    max_rank = 0
+
+    for a, b in zip(starts, ends):
+        max_rank = max(max_rank, adj[a] + adj[b] - 1)
+
+    return max_rank
+
+# print(max_network_rank([1,2,4,5], [2,3,5,6], 6))
+
+def largest_square(a, b):
+    shorter, longer = sorted((a, b))
+    if longer // 4 >= shorter:
+        return longer // 4
+    if longer // 3 >= shorter:
+        return shorter
+    if shorter // 2 < longer // 3:
+        return longer // 3
+    return shorter // 2
+
+
+
+# print(largest_square(10, 21))
+# print(largest_square(13, 11))
+# print(largest_square(2, 1))
+# print(largest_square(1, 8))
+# print(largest_square(5, 17))
+# print(largest_square(10, 8))
 

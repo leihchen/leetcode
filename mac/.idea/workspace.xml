@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48aa49eb-7fb0-4def-bd2d-b4655707555b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/CallableDriver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/DriverChoiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/Solution$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/Solution$TreeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/Syntax.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/Syntax.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/src/com/company/DriverChoiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/src/com/company/DriverChoiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/src/com/company/Syntax.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/src/com/company/Syntax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gg.py" beforeDir="false" afterPath="$PROJECT_DIR$/gg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msft.py" beforeDir="false" afterPath="$PROJECT_DIR$/msft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../古城算法leetcode.md" beforeDir="false" afterPath="$PROJECT_DIR$/../古城算法leetcode.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,14 +25,26 @@
     <favorites_list name="leetcode" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.52735096">
+    <splitter split-orientation="horizontal" split-proportion="0.758118">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test.py">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/gg.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="171">
-                  <caret line="29" selection-start-line="29" selection-end-line="29" />
+                <state relative-caret-position="666">
+                  <caret line="659" column="57" selection-start-line="659" selection-start-column="57" selection-end-line="659" selection-end-column="57" />
+                  <folding>
+                    <element signature="e#0#22#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/instacart.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1653">
+                  <caret line="95" column="14" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
                   <folding>
                     <element signature="e#0#20#0" expanded="true" />
                   </folding>
@@ -31,34 +53,37 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/roblox.py">
+            <entry file="file://$PROJECT_DIR$/cisco.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret selection-end-line="2" selection-end-column="35" />
-                  <folding>
-                    <element signature="e#0#29#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="2071">
+                  <caret line="109" column="39" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/gg.py">
+            <entry file="file://$PROJECT_DIR$/codesignal.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="751">
-                  <caret line="251" selection-start-line="251" selection-end-line="251" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="76">
+                  <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/nvda.py">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="171">
-                  <caret line="9" column="12" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="12" />
+                <state relative-caret-position="95">
+                  <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/flexport.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="874">
+                  <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
                 </state>
               </provider>
             </entry>
@@ -78,8 +103,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2128">
-                  <caret line="511" column="50" selection-start-line="511" selection-start-column="50" selection-end-line="511" selection-end-column="50" />
+                <state relative-caret-position="2698">
+                  <caret line="541" column="26" selection-start-line="541" selection-start-column="16" selection-end-line="541" selection-end-column="26" />
                   <folding>
                     <element signature="n#!!doc" />
                     <element signature="e#748#1131#0" />
@@ -184,7 +209,6 @@
                     <element signature="e#13648#13837#0" />
                     <element signature="e#13690#13756#0" />
                     <element signature="e#13783#13837#0" />
-                    <element signature="e#15123#15182#0" />
                     <element signature="e#15329#15667#0" />
                     <element signature="e#15699#16233#0" />
                     <element signature="e#15797#16208#0" />
@@ -408,35 +432,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/uber_tag_type.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret selection-end-line="9" />
-                  <folding>
-                    <element signature="e#0#20#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/msft.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="494">
-                  <caret line="26" selection-start-line="26" selection-end-line="26" />
-                  <folding>
-                    <element signature="e#0#20#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/instacart.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2090">
-                  <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+                <state relative-caret-position="633">
+                  <caret line="41" selection-start-line="41" selection-end-line="41" />
                   <folding>
                     <element signature="e#0#20#0" expanded="true" />
                   </folding>
@@ -457,9 +457,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>p</find>
-      <find>s</find>
-      <find>minMeetingRooms</find>
       <find>math</find>
       <find>closest</find>
       <find>clos</find>
@@ -475,7 +472,6 @@
       <find>key</find>
       <find>lambda</find>
       <find>sorted</find>
-      <find>tree</find>
       <find>typ</find>
       <find>grid</find>
       <find>dfs</find>
@@ -484,6 +480,13 @@
       <find>bal</find>
       <find>balances</find>
       <find>minTransfers</find>
+      <find>active</find>
+      <find>Tree</find>
+      <find>tree</find>
+      <find>treeNode</find>
+      <find>fun</find>
+      <find>tqdm</find>
+      <find>startswith</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -518,17 +521,17 @@
         <option value="$PROJECT_DIR$/uber_tag.py" />
         <option value="$PROJECT_DIR$/instacart.py" />
         <option value="$PROJECT_DIR$/uber_tag_type.py" />
+        <option value="$PROJECT_DIR$/nvda.py" />
         <option value="$PROJECT_DIR$/msft.py" />
         <option value="$PROJECT_DIR$/gg.py" />
-        <option value="$PROJECT_DIR$/nvda.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="11" />
-    <option name="y" value="29" />
-    <option name="width" value="2536" />
-    <option name="height" value="1347" />
+    <option name="x" value="-1892" />
+    <option name="y" value="166" />
+    <option name="width" value="1911" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -575,7 +578,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.nvda">
+  <component name="RunManager" selected="Python.gg">
     <configuration name="_pydev_execfile" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="leetcode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -710,10 +713,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.nvda" />
-        <item itemvalue="Python._pydev_execfile" />
         <item itemvalue="Python.gg" />
         <item itemvalue="Python.msft" />
+        <item itemvalue="Python.nvda" />
+        <item itemvalue="Python._pydev_execfile" />
         <item itemvalue="Python.instacart" />
       </list>
     </recent_temporary>
@@ -952,7 +955,26 @@
       <workItem from="1652457305836" duration="652000" />
       <workItem from="1652577185951" duration="89000" />
       <workItem from="1652665823301" duration="1548000" />
-      <workItem from="1652708309620" duration="1077000" />
+      <workItem from="1652708309620" duration="3649000" />
+      <workItem from="1652793001314" duration="995000" />
+      <workItem from="1652830434792" duration="276000" />
+      <workItem from="1652884469951" duration="116000" />
+      <workItem from="1652895633933" duration="1110000" />
+      <workItem from="1653018546444" duration="521000" />
+      <workItem from="1653077220827" duration="556000" />
+      <workItem from="1653111087352" duration="186000" />
+      <workItem from="1653158423004" duration="2089000" />
+      <workItem from="1653232185200" duration="1946000" />
+      <workItem from="1653313246006" duration="164000" />
+      <workItem from="1653403968346" duration="490000" />
+      <workItem from="1653490783802" duration="186000" />
+      <workItem from="1653620255518" duration="168000" />
+      <workItem from="1653774736776" duration="4154000" />
+      <workItem from="1653832591263" duration="171000" />
+      <workItem from="1653930919451" duration="3265000" />
+      <workItem from="1654005762776" duration="797000" />
+      <workItem from="1654030265171" duration="3232000" />
+      <workItem from="1654102344266" duration="623000" />
     </task>
     <servers />
   </component>
@@ -971,20 +993,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="366420000" />
+    <option name="totallyTimeSpent" value="390037000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="475" y="195" width="1536" height="1055" extended-state="0" />
+    <frame x="-1920" y="166" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49942988" visible="true" weight="0.16070223" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49942988" visible="true" weight="0.19356568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5005701" side_tool="true" weight="0.55007255" />
       <window_info id="DB Browser" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2707889" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.42217484" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1641791" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35408247" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1058,6 +1080,11 @@
           <line>217</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lc.py</url>
+          <line>1939</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -1075,7 +1102,7 @@
     <SUITE FILE_PATH="coverage/leetcode$Schlumberger.coverage" NAME="Schlumberger Coverage Results" MODIFIED="1623103705184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$cisco.coverage" NAME="cisco Coverage Results" MODIFIED="1639346578922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mac$tiktokVO.coverage" NAME="tiktokVO Coverage Results" MODIFIED="1643925073932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/mac$gg.coverage" NAME="gg Coverage Results" MODIFIED="1652668316196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mac$gg.coverage" NAME="gg Coverage Results" MODIFIED="1654102466033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$lc.coverage" NAME="lc Coverage Results" MODIFIED="1637514622764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$tiktokVO.coverage" NAME="tiktokVO Coverage Results" MODIFIED="1643667079172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$_1_Two_Sum.coverage" NAME="[1]Two Sum Coverage Results" MODIFIED="1637008442783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/var/folders/0c/w48nkkfd227d26ml9j54rvth0000gn/T/leetcode/editor/cn" />
@@ -1088,7 +1115,7 @@
     <SUITE FILE_PATH="coverage/leetcode$tiktok.coverage" NAME="tiktok Coverage Results" MODIFIED="1637966937480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mac$uber.coverage" NAME="uber Coverage Results" MODIFIED="1651246969084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$pytest_in_flexport_py.coverage" NAME="pytest in flexport.py Coverage Results" MODIFIED="1643397623114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/mac$msft.coverage" NAME="msft Coverage Results" MODIFIED="1652419619993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mac$msft.coverage" NAME="msft Coverage Results" MODIFIED="1653237046805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
@@ -1164,13 +1191,6 @@
     <entry file="file://$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.56 AM.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cisco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2071">
-          <caret line="109" column="39" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snowflake.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2166">
@@ -1189,27 +1209,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 3.06.01 PM.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codesignal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flexport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/meta.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1242,10 +1241,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uber_tag_type.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="9" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="1938">
+          <caret line="122" selection-start-line="122" selection-end-line="126" selection-end-column="28" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -1254,11 +1270,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/roblox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" selection-end-column="35" />
+        <state relative-caret-position="456">
+          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvda.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instacart.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1653">
+          <caret line="95" column="14" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cisco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2071">
+          <caret line="109" column="39" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codesignal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flexport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1274,8 +1335,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2128">
-          <caret line="511" column="50" selection-start-line="511" selection-start-column="50" selection-end-line="511" selection-end-column="50" />
+        <state relative-caret-position="2698">
+          <caret line="541" column="26" selection-start-line="541" selection-start-column="16" selection-end-line="541" selection-end-column="26" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#748#1131#0" />
@@ -1380,7 +1441,6 @@
             <element signature="e#13648#13837#0" />
             <element signature="e#13690#13756#0" />
             <element signature="e#13783#13837#0" />
-            <element signature="e#15123#15182#0" />
             <element signature="e#15329#15667#0" />
             <element signature="e#15699#16233#0" />
             <element signature="e#15797#16208#0" />
@@ -1593,30 +1653,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uber_tag_type.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="9" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/instacart.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2090">
-          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/msft.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="633">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -1625,25 +1665,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="751">
-          <caret line="251" selection-start-line="251" selection-end-line="251" />
+        <state relative-caret-position="666">
+          <caret line="659" column="57" selection-start-line="659" selection-start-column="57" selection-end-line="659" selection-end-column="57" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nvda.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
