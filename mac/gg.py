@@ -656,3 +656,477 @@ def meeting_room_i_i_i(intervals: List[List[int]], rooms: int, ask: List[List[in
     for s, e in ask:
         res.append(preavail[e - 1] - preavail[s - 1] >= e - s)
     return res
+
+# points = [(0,1), (0,-1),(1,0), (1,1), (1,2), (1,-1),(1,-2), (2,1), (2,2), (2,-1),(-1,0),(-1,1),(-1,2),(-1,-1),(-1,-2),(-2,1),(-2,-1)]
+# def countSquare(points):
+#     res = 0
+#     seen = set()
+#     for x1,y1 in points:
+#         seen.add((x1,y1))
+#         for x2,y2 in points:
+#             if x1 != x2 and y1 != y2 and abs(x1-x2) == abs(y1-y2):
+#                 if (x2, y1) in seen and (x1, y2) in seen:
+#                     res += 1
+#     return res
+
+# print(countSquare(points))
+
+
+class Solution:
+    i = 0
+    def calculate(self, s: str) -> int:
+        s = s.replace(' ', '')
+        sign = '+'
+        num = 0
+        stack = []
+        if not s: return 0
+        while self.i < len(s):
+            c = s[self.i]
+            self.i += 1
+            if c.isdigit():
+                num = num * 10 + int(c)
+            if c == '(':
+                num = self.calculate(s)
+            if not c.isdigit() or self.i == len(s):
+                if sign == '+':
+                    stack.append(num)
+                if sign == '-':
+                    stack.append(-num)
+                if sign == '*':
+                    stack.append(stack.pop() * num)
+                if sign == '/':
+                    stack.append(int(stack.pop() / num))
+                num = 0
+                sign = c
+            if c == ')':
+                break
+        return sum(stack)
+# Solution().calculate("(4+5)-3")
+
+def longestWordDictAnywhere(words):
+    # graph on the run
+    # space O(N) and time O(N)
+    len2wordset = defaultdict(set)
+    for w in words:
+        len2wordset[len(w)].add(w)
+    graph = defaultdict(list)
+    indegree = Counter()
+    for word in words:
+        new_word = word[:-1]
+        if new_word in len2wordset[len(new_word)]:
+            graph[new_word].append(word)
+            indegree[word] += 1
+    q = deque([(chr(ord('a') + i), 1) for i in range(26)])
+    parent = {}
+    longest = 0
+    candidate = []
+    while q:
+        node, level = q.popleft()
+        if level > longest:
+            longest = level
+            candidate.clear()
+        if level == longest:
+            candidate.append(node)
+        for nei in graph[node]:
+            indegree[nei] -= 1
+            if indegree[nei] == 0:
+                parent[nei] = node
+                q.append((nei, level + 1))
+
+
+    res = []
+    # print(graph)
+    # print(candidate)
+    for c in candidate:
+        tmp = []
+        while c in parent:
+            tmp.append(c)
+            c = parent[c]
+        res.append(tmp[:] + [c])
+    print(res)
+    return res
+
+# longestWordDictAnywhere(["o", "or", "ord", "word", "world"])
+# longestWordDictAnywhere(["o", "or", "ord", "word", "world", "p", "ap", "ape", "appe", "apple"])
+
+
+
+# 给input一堆time blocks （person_id， start_day, end_day），代表一个人在这个time block里unavailable。
+# 第一问求有哪些天是所有人都available的， return list of days。
+# 第二问，现在不用所有人了，只要有K个人available就行，return list of days for K people。
+# TODO 第三问，现在要相同的K个人，在连续的d天里都available，return list of day ranges for a same K people。
+def kPeopleFreeTime(schedule, k):
+    actions = Counter()
+
+    for s in schedule:
+        for start, end in s:
+            actions[start] -= 1
+            actions[end] += 1
+    free = len(schedule)
+    res = []
+    start = float('-inf')
+    times = sorted(actions.keys())
+    for t in times:
+        action = actions[t]
+        free += action
+        if free >= k:
+            start = min(start, t)
+        if free < k:
+            if start < t:
+                res.append([start, t])
+            start = float('inf')
+    if start != float('inf'):
+        res.append([start, t])
+    if res[0][1] == times[0]:
+        del res[0]
+    else:
+        res[0][0] = times[0]
+    # print(res)
+
+    return res
+
+# kPeopleFreeTime([[[1,3],[6,7]],[[2,4]],[[2,5],[9,12]]], 1)
+# kPeopleFreeTime([[[1,2],[5,6]],[[1,3]],[[4,10]]], 2)
+
+
+def kPeopleDContFreeTime(schedule, k):
+    actions = Counter()
+
+    for s in schedule:
+        for start, end in s:
+            actions[start] -= 1
+            actions[end] += 1
+    free = len(schedule)
+    res = []
+    start = float('-inf')
+    times = sorted(actions.keys())
+    for t in times:
+        action = actions[t]
+        free += action
+        if free >= k:
+            start = min(start, t)
+        if free < k:
+            if start < t:
+                res.append([start, t])
+            start = float('inf')
+    if start != float('inf'):
+        res.append([start, t])
+    if res[0][1] == times[0]:
+        del res[0]
+    else:
+        res[0][0] = times[0]
+    # print(res)
+
+    return res
+
+# kPeopleDContFreeTime([[[1,3],[6,7]],[[2,4]],[[2,5],[9,12]]], 1)
+# kPeopleDContFreeTime([[[1,2],[5,6]],[[1,3]],[[4,10]]], 2)
+# 3. （感觉是30岁左右的欧洲人小哥，可能是东欧）
+# 这轮非常奇怪，一上来就开始讲故事。。。讲了一个很长的故事之后，题目大概是给三个quiz bucket，一个 total num of qu‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌estions，
+# 和三个bucket的比例，实现不放回随机抽样生成一份考卷。
+# 给的例子是
+# total 13， ratio 0.5， 0.3， 0.2
+# total 5， ratio 2， 1， 1
+# 注意ratio并不一定add up to something。
+# 这题说难也不难。。不知道是在考察什么，面试官一直给提示，让我挺慌的。。。
+# 4. （国人大哥）
+# 经典面经题 778，包装了一个红绿灯的皮，其实本质是一样的。binary search秒了，最后写了三份代码，讲了其他所有做法的思路和trade off，
+# 还剩下十分钟聊天。。
+
+
+# TODO 5月20号第三轮，印度小哥哥，感觉人也蛮好，很nice。题目是给一个类似于｛｛ab ｛c｝d｛｛e｝｝f｝}的字符串，要求输出需要最少数量的括号可以使得表达式依然有效。
+# 譬如上面的例子正确的结果是：｛ab ｛c｝d｛e｝f｝。用stack可以解决哦。这个题答的小哥哥非常满意。
+# 5月19号，onsite第一轮，这天状态不好，早晨起来喉咙疼破天了，头也嗡嗡嗡嗯。第一轮是个不开摄像头的家伙，so也不知道是啥人。上来就做题目。题目是给一个类
+# ，类中是一个目录结构，就是有文件夹，有文件，这个类中有getDirectory方法，isDirectory方法，delete方法。现在让我设计一个方法来删除某个目录。
+# 我先澄清了一下删除过程是否是文件为空的时候才能删除，回答是是的。那我很快用递归解决了这个问题，followup是问我递归会出现什么问题，
+# 改为非递归的话应该怎么写，写完非递归（那个出口条件小哥提醒了下）又followup问了下时间和空间复杂度。
+# 5月3号电面第二轮。华人小哥哥。人超级nice。第一问：给我一个arr，判断arr中某个数字连续出现最长的子串的长度；
+# followup是：再给一个target arr，判断所有在target array中每个元素联系出现最长的子串的长度，
+
+# t = '{{ab {c} d {{e}} f}}'
+# def removeBrackets(s)
+# 64, 1631
+
+# 没见过的题，但感觉挺有趣，有点类似Tic Tac Toe找winner
+# 两位玩家，桌上一共有12张卡片 - 3绿3白3黄3黑。
+# 玩家每轮需要进行一次combine把两摞卡牌叠在一起，两位玩家交替操作。
+# combine的两个条件：   
+#     a. 如果两摞卡片高度一致，可以combine
+#     b. 如果两摞卡片顶端的卡片颜色一致，可以combine
+# 如果当前玩家无法进行combine操作，则另一名玩家获胜。
+# Perfect play：100%的玩家获胜概率，即在这条路线‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌中不存在另一名玩家获胜的结果
+# 题目需要写一个function，输入为player 1或player 2并默认此player是先手，输出为bool判断此player能否有perfect play。
+
+# 在一个2d空间中，有一些Vampire和mirror，input是这些vampire和镜子的row, column 坐标和镜子方向（东南西北），设定是vampire在同一行或同一列面对自己的镜子中看到自己会embarrassed。 要求return 所有embarrassed vampire的坐标以及embarrassed的方向。比如如果vampire在左边的镜子中看到自己，embarrassed方向就是西边。vampire对同类来说是透明的。如果面向vampire的镜子被另‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‍‍‌一面相反方向的镜子挡住vampire就不会看到自己。这题最后没写完，思路理得不太清楚，求大佬指点。
+
+def setClock(dst, options):
+    q = deque([0])
+    visited = set()
+    level = 0
+    while q:
+        for _ in range(len(q)):
+            node = q.popleft()
+            if node == dst:
+                return level
+            for option in options:
+                new_node = (node + option) % 1440
+                if new_node not in visited:
+                    visited.add(new_node)
+                    q.append(new_node)
+        level += 1
+    return -1
+
+# print(setClock(7, (16, -9)))
+
+def setClock2(dst, options):
+    jump = defaultdict(lambda: float('inf'))
+    jump[0] = 0
+    q = deque([0])
+    while q:
+        pos = q.popleft()
+        for option in options:
+            if -1440 < pos + option < 1440 and jump[pos + option] > jump[pos] + 1:
+                q.append(pos + option)
+                jump[pos + option] = jump[pos] + 1
+    return jump[dst]
+# print(setClock2(7, (16, -9)))
+
+# print(bisect_right([0, 1, 1, 3], 0))
+
+
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices  # No. of vertices
+
+        # dictionary containing adjacency List
+        self.graph = defaultdict(list)
+
+    # function to add an edge to graph
+    def addEdge(self, u, v, w):
+        self.graph[u].append((v, w))
+
+    def shortestPath(self, s):
+        q = deque([s])
+        visited = {s}
+        distance = [float('inf')] * self.V
+        distance[s] = 0
+        while q:
+            u = q.popleft()
+            for v, wUV in self.graph[u]:
+                if distance[v] > distance[u] + wUV:
+                    distance[v] = distance[u] + wUV
+                if v not in visited:
+                    visited.add(v)
+                    q.append(v)
+        for i in range(self.V):
+            print(("%d" % distance[i]) if distance[i] != float("Inf") else "Inf", end=" ")
+
+
+# g = Graph(6)
+# g.addEdge(0, 1, 5)
+# g.addEdge(0, 2, 3)
+# g.addEdge(1, 3, 6)
+# g.addEdge(1, 2, 2)
+# g.addEdge(2, 4, 4)
+# g.addEdge(2, 5, 2)
+# g.addEdge(2, 3, 7)
+# g.addEdge(3, 4, -1)
+# g.addEdge(4, 5, -2)
+#
+# source = 1
+# s = 1
+# print("Following are shortest distances from source %d " % s)
+# g.shortestPath(s)
+
+
+
+def intervlOverlopWithkey(d, q):
+    planes = [d[qq] for qq in q]
+    counter = Counter()
+    k = len(planes)
+    for start, end in planes:
+        counter[start] += 1
+        counter[end] -= 1
+    start = float('-inf')
+    onair = 0
+    res = []
+    for t, action in sorted(counter.items()): # secondary key?
+        onair += action
+        if onair == k:
+            start = min(start, t)
+        if onair < k:
+            if t > start:
+                res.append((start, t))
+            start = float('inf')
+    if start != float('inf') and t > start:
+        res.append((start, t))
+    return res
+
+t = {'A': [1, 8],
+'B': [3, 16],
+'C': [5, 7],
+}
+
+# print(intervlOverlopWithkey(t, ['A', 'B']))
+# print(intervlOverlopWithkey(t, ['A', 'C']))
+# print(intervlOverlopWithkey(t, ['A', 'B', 'C']))
+
+def tableJustification(strings, width):
+    n = len(strings)
+    left = 1
+    right = n
+    def valid(col):
+        matrix = []
+        for i in range(math.ceil(n / col)):
+            matrix.append(strings[col * i: col * i + col])
+        # print(matrix, col, len(matrix))
+        widthneed = 0
+        for j in range(col):
+            max_ = max(len(matrix[i][j]) for i in range(len(matrix)-1))
+            if j <= len(matrix[-1]) - 1:
+                max_ = max(max_, len(matrix[i][j]))
+            widthneed += max_
+        widthneed += col
+        # print(widthneed <= width)
+        return widthneed <= width
+    while left <= right:
+        mid = (left + right) // 2
+        if valid(mid):
+            left = mid + 1
+        else:
+            right = mid - 1
+    return right
+# print(tableJustification(['foo','bar','a','b','cdefg','h','i','j','k', 'abcdefghich'], 14))
+# print(tableJustification(['foo','bar','a','b','cdefg','h','i','j','k', 'i'], 14))
+
+def reversedRecipe(recipes, menu):
+    graph = defaultdict(list)
+    raws = set()
+    indegree = Counter()
+    for dish, intermediate, raw in recipes:
+        for ingredient in intermediate + raw:
+            graph[dish].append(ingredient)
+            indegree[ingredient] += 1
+        raws |= set(raw)
+    q = deque(menu)
+    visited = set(q)
+    while q:
+        node = q.popleft()
+        for nei in graph[node]:
+            # indegree[nei] -= 1
+            # if indegree[nei] == 0:
+            if nei not in visited:
+                q.append(nei)
+                visited.add(nei)
+    return visited & raws
+
+# print(reversedRecipe([
+#     ['Pizza', [], ['flour','cheese','ketchup','Suger']],
+#     ['Steak', ['Bread', 'Salad'], ['Beef', 'oil']],
+#     ['Bread', [], ['flour', 'Suger', 'oil']],
+#     ['Salad', [], ['veg', 'egg', 'sauce']],
+#     ['sandwich', [], ['flour', 'Suger', 'oil', 'Beef']]
+# ], ['Pizza', 'Steak'])
+# )
+# 输入大概这样 (id, displayName, parent)
+# folder(1,"folder1",-1)
+# folder(2,"folder2",1)
+# folder(4,"folder4",2)
+# folder(3,"folder3",-1)
+# 输出就是"folder1","folder1/folder2","folder1/folder2/folder4","folder3"
+
+# def rpcTimeout(logs, timeout):
+#     heapify(logs)
+#     ended = set()
+#     while logs:
+#         time, taskid, action = heappop(logs)
+#         if action == 's':
+#             heappush(logs, [time + timeout, taskid, 't'])
+#             # print(time, ended)
+#         if action == 't' and taskid not in ended:
+#             return time, taskid
+#         if action == 'e':
+#             ended.add(taskid)
+#     return -1, -1
+
+# print('-')
+# print(rpcTimeout([[0,0,'s'], [1,1,'s'], [2,0,'e'], [4,1,'e'], [6,2,'s']], 3))
+
+
+def rpcTimeout(logs, timeout):
+    # running = {}  # taskid -> starttime
+    # restime, restask = float('inf'), -1
+    # for taskid, time, action in logs:
+    #     if action == 's':
+    #         running[taskid] = time
+    #     if action == 'e':
+    #         if time - running[taskid] > timeout:
+    #             restime, restask = running[taskid] + timeout, taskid
+    #             break
+    #         del running[taskid]
+    # print(restime, restask)
+    # if not running:
+    #     return restime, restask
+    # else:
+    #     pendingtime, pendingtask = min((v + timeout, k) for k, v in running.items())
+    #     print(pendingtime, pendingtask)
+    #     if pendingtime < restime:
+    #         return pendingtime, pendingtask
+    #     else:
+    #         return restime, restask
+    # optimal soln: hashmap + DLinkedList
+    class Task:
+        def __init__(self, id, endtime):
+            self.id = id
+            self.endtime = endtime
+    running = deque([])
+    id2task = {}
+    for taskid, time, action in logs:
+        if action == 'e':
+            task = id2task[taskid]
+            if task.endtime < time:
+                return task.endtime, taskid
+        if running:
+            if running[0].endtime < time:
+                return running[0].endtime.endtime, running[0].endtime.taskid
+        if action == 's':
+            task = Task(taskid, time + timeout)
+            running.append(task)
+            id2task[taskid] = task
+
+start = 's'
+end = 'e'
+# print('-')
+# print('rpc', rpcTimeout([(1, 0, start),(2,1,start),(1,2,end),(3,10,start), (3,20,end)], 3))
+
+def majhong(cards):
+    c = Counter(cards)
+    res = []
+    for i in sorted(c):
+        if c[i] > 0:
+            straight = True
+            need = c[i]
+            for j in range(3):
+                if c[i + j] < need:
+                    straight = False
+            if straight:
+                res.append( (str(i) + str(i+1) + str(i+2)) * need)
+                for j in range(3):
+                    c[i + j] -= need
+    pairs = 0
+    for i in c:
+        if i % 3 == 0:
+            res.append(str(i) * (i // 3) * 3)
+            c[i] = 0
+        elif i % 3 == 2:
+            res.append(str(i) * (i // 3) * 3)
+            res.append(str(i) * 2)
+            c[i] = 0
+            pairs += 1
+
+    print(c)
+    print(res)
+
+    return pairs >= 1
+
+majhong([1,1,1,2,3,4,6,6,7,7,8,8,9,9])

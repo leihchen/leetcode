@@ -51,9 +51,6 @@ def largest_square(a, b):
     if shorter // 2 < longer // 3:
         return longer // 3
     return shorter // 2
-
-
-
 # print(largest_square(10, 21))
 # print(largest_square(13, 11))
 # print(largest_square(2, 1))

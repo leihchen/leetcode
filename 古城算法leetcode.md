@@ -1,3 +1,5 @@
+[TOC]
+
 Java: [LRU cache](https://medium.com/@krishankantsinghal/my-first-blog-on-medium-583159139237)
 
 Python: [OrderDict](https://docs.python.org/3/library/collections.html#ordereddict-objects)
@@ -166,7 +168,18 @@ int knapsack(int val[], int wt[], int n, int W)
 }
 ```
 
-**0-1 knapsack: solves # of sub-arrays summing up to a value**
+**0-1 knapsack: solves ways to get 'sub-set summing up to a value'**
+
+```python
+# 0-1 knapsack
+for i in [1..N]:
+	for w in [1..W]:
+		dp[i][w] = max(
+			dp[i-1][w], 
+			dp[i-1][w-weights[i-1]] + values[i-1]
+		)
+return dp[N][W]
+```
 
 ```java
 // find number of subset of an unordered list s.t. sum(subset) = target
@@ -192,6 +205,21 @@ def subsetSum(nums, S):
     return dp[-1]
 ```
 
+**完全背包 infinite knapsack**
+
+You can use each element infinite number of times
+
+```python
+# infinite knapsack
+for i in [1..N]:
+	for w in [1..W]:
+		dp[i][w] = max(
+			dp[i-1][w], 
+			dp[i][w-weights[i-1]] + values[i-1] # <- note dp[i] different from 01 knapsack 
+		)
+return dp[N][W]
+```
+
 ```python
 # Coin Change MinCount
 class Solution:
@@ -213,8 +241,8 @@ class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         dp = [0] * (amount + 1)
         dp[0] = 1
-        for coin in coins:					# <-- the order
-            for i in range(1, amount + 1):  # <--
+        for coin in coins:					
+            for i in range(1, amount + 1):  # <-- the order
                 if i - coin >= 0:
                     dp[i] += dp[i-coin]
         return dp[-1]
@@ -233,6 +261,98 @@ class Solution:
                     dp[i] += dp[i-num]
         return dp[-1]
 ```
+
+01 backpack
+
+maximize subset reward with constraint
+
+ \416. Partition Equal Subset Sum
+
+```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        # 给一个可装载重量为 sum / 2 的背包和 N 个物品，每个物品的重量为 nums[i]。现在让你装物品，是否存在一种装法，能够恰好将背包装满？
+        sum_ = sum(nums)
+        if sum_ % 2 == 1:
+            return False
+        sum_ //= 2
+        dp = [False] * (sum_+1)
+        dp[0] = True
+        for num in nums:
+            for i in range(1+sum_)[::-1]:
+                if i-num >= 0: 
+                    dp[i] |= dp[i-num]   # T/F
+        return dp[-1]
+```
+
+[1049. Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii)
+
+```python
+class Solution:
+    def lastStoneWeightII(self, stones: List[int]) -> int:
+        # s1 - s2 = res
+        # s1 + s2 = sum
+        # 2 * s1 = sum + res
+        # res = sum - 2 * s1  (minimize)
+        sum_ = sum(stones)
+        dp = [False] * (sum_+1)  # dp[i] if possible to reach subset sum of i
+        dp[0] = True
+        for stone in stones:
+            for j in range(sum_+1)[::-1]:
+                if j - stone >= 0:
+                    dp[j] |= dp[j-stone]
+        # find smallest res
+        res = float('inf')
+        for j in range(1, sum_+1):
+            if dp[j] and 2 * j - sum_ >= 0:
+                res = min(res, 2 * j - sum_)
+        return res
+```
+
+
+
+```python
+# find number of subset of an unordered list s.t. sum(subset) = target
+def subsetSum(nums, S):
+    dp = [0] * (S+1)  # dp[i] is the max number of ways to reach i
+    dp[0] = 1
+    for n in nums:
+        for j in range(S + 1)[::-1]:
+            if j - n >= 0:
+                dp[j] += dp[j - n]  # the new way to get sum of j is to include n; and there're d[j - n] number of ways to do this # <- n_ways
+    return dp[-1]
+```
+
+
+
+474 [Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/), reward = len, cost=[cnt_0, cnt_1]
+
+```python
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        dp = [[0] * (n+1) for _ in range(m+1)]  # dp: m * n. max # of strs picked with 0's-space m and 1's-space n
+        for s in strs:
+            zero, one = s.count('0'), s.count('1')
+            for i in range(m+1)[::-1]:
+                for j in range(n+1)[::-1]:
+                    if i-zero >= 0 and j-one >= 0:
+                        dp[i][j] = max(dp[i][j], dp[i-zero][j-one]+1)  # max subset len
+        return dp[m][n]
+```
+
+```python
+# 01 knapsack
+	for j in reversed order:
+		dp[j] += dp[j - nums[i]]   # number of ways
+		dp[j] |= dp[j - nums[i]]   # can get to value j
+		
+# infinite knapsack
+	for j in order:
+		dp[j] += dp[j - nums[i]]   # coin change combination
+		dp[j] = min(dp[j], dp[j - nums[i]] + 1)   # min coin change
+```
+
+
 
 ## DP 7 坐标类
 
