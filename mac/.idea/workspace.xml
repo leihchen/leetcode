@@ -2,14 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48aa49eb-7fb0-4def-bd2d-b4655707555b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/msft_vo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lc_java/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/src/com/company/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/akuna.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gg.py" beforeDir="false" afterPath="$PROJECT_DIR$/gg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msft.py" beforeDir="false" afterPath="$PROJECT_DIR$/msft.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uber_tag_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/uber_tag_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../古城算法leetcode.md" beforeDir="false" afterPath="$PROJECT_DIR$/../古城算法leetcode.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schlumberger.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/Schlumberger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/amazon_oa.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/amazon_oa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/census.csv" beforeDir="false" afterPath="$PROJECT_DIR$/2022/census.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cisco.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/cisco.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codesignal.py" beforeDir="false" afterPath="$PROJECT_DIR$/codesignal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/2022/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empty_vo.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/empty_vo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flexport.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/flexport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gg.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/gg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instacart.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/instacart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karat.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/karat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lc.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/lc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/meta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msft.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/msft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msft_vo.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/msft_vo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nvda.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/nvda.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roblox.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/roblox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.33 AM.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.33 AM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.47 AM.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.47 AM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.56 AM.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.56 AM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 3.06.01 PM.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 3.06.01 PM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/lexicograhical_merge0.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/lexicograhical_merge0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/lexicograhical_merge1.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/lexicograhical_merge1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/lexicograhical_merge2.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/lexicograhical_merge2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/watering_garden.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/watering_garden.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snowflake.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/snowflake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiktok.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/tiktok.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiktokVO.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/tiktokVO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/2022/tmp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twilio.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/twilio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/twitter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/uber.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_tag.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/uber_tag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uber_tag_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/uber_tag_type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,29 +52,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/akuna.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="80" selection-start-line="80" selection-end-line="80" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/empty_vo.py">
+        <entry file="file://$PROJECT_DIR$/codesignal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="342">
+              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amazon_oa.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge0.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
+        <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge2.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 3.06.01 PM.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.33 AM.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.47 AM.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.56 AM.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2022/screenshot/watering_garden.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2022/utils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
               <caret line="10" selection-start-line="10" selection-end-line="10" />
@@ -66,7 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>math</find>
       <find>closest</find>
       <find>clos</find>
       <find>clo</find>
@@ -96,6 +157,7 @@
       <find>tqdm</find>
       <find>startswith</find>
       <find>sort</find>
+      <find>vowel</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -113,7 +175,6 @@
         <option value="$PROJECT_DIR$/Schlumberger.py" />
         <option value="$PROJECT_DIR$/twitter.py" />
         <option value="$PROJECT_DIR$/sexp.java" />
-        <option value="$PROJECT_DIR$/codesignal.py" />
         <option value="$PROJECT_DIR$/twilio.py" />
         <option value="$PROJECT_DIR$/cisco.py" />
         <option value="$PROJECT_DIR$/snowflake.py" />
@@ -129,7 +190,6 @@
         <option value="$PROJECT_DIR$/uber_tag.py" />
         <option value="$PROJECT_DIR$/instacart.py" />
         <option value="$PROJECT_DIR$/nvda.py" />
-        <option value="$PROJECT_DIR$/tiktok.py" />
         <option value="$PROJECT_DIR$/gg.py" />
         <option value="$PROJECT_DIR$/uber_tag_type.py" />
         <option value="$PROJECT_DIR$/msft.py" />
@@ -137,14 +197,18 @@
         <option value="$PROJECT_DIR$/screenshot/utils.py" />
         <option value="$PROJECT_DIR$/amazon_oa.py" />
         <option value="$PROJECT_DIR$/empty_vo.py" />
+        <option value="$PROJECT_DIR$/tiktok.py" />
+        <option value="$PROJECT_DIR$/codesignal.py" />
+        <option value="$PROJECT_DIR$/akuna.py" />
+        <option value="$PROJECT_DIR$/2022/codesignal.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="547" />
-    <option name="y" value="25" />
-    <option name="width" value="1306" />
-    <option name="height" value="993" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="489" />
+    <option name="y" value="83" />
+    <option name="width" value="1120" />
+    <option name="height" value="1353" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -152,7 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,10 +223,16 @@
               <item name="mac" type="b2602c69:ProjectViewProjectNode" />
               <item name="mac" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mac" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mac" type="462c0819:PsiDirectoryNode" />
+              <item name="2022" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -176,6 +245,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/2022" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/screenshot" />
     </key>
@@ -192,7 +262,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.empty_vo">
+  <component name="RunManager" selected="Python.akuna">
+    <configuration name="akuna" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="leetcode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/akuna.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="codesignal" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="leetcode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/codesignal.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="empty_vo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="leetcode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -206,7 +320,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/empty_vo.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2022/empty_vo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -228,7 +342,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gg.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2022/gg.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -250,29 +364,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/karat.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="msft" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="leetcode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/msft.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2022/karat.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -294,29 +386,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/msft_vo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="nvda" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="leetcode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nvda.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2022/msft_vo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -327,11 +397,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.akuna" />
+        <item itemvalue="Python.codesignal" />
         <item itemvalue="Python.empty_vo" />
         <item itemvalue="Python.msft_vo" />
         <item itemvalue="Python.gg" />
-        <item itemvalue="Python.msft" />
-        <item itemvalue="Python.nvda" />
       </list>
     </recent_temporary>
   </component>
@@ -620,6 +690,12 @@
       <workItem from="1660189362920" duration="1097000" />
       <workItem from="1660233291814" duration="216000" />
       <workItem from="1660272723612" duration="54000" />
+      <workItem from="1660771497188" duration="3726000" />
+      <workItem from="1660852894418" duration="267000" />
+      <workItem from="1660854075218" duration="1551000" />
+      <workItem from="1660874832670" duration="3673000" />
+      <workItem from="1660925152571" duration="280000" />
+      <workItem from="1661116701690" duration="230000" />
     </task>
     <servers />
   </component>
@@ -638,18 +714,19 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="443167000" />
+    <option name="totallyTimeSpent" value="452894000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="547" y="25" width="1306" height="993" extended-state="0" />
+    <frame x="0" y="25" width="2560" height="1353" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49942988" visible="true" weight="0.2773781" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49942988" visible="true" weight="0.150499" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5005701" side_tool="true" weight="0.55007255" />
       <window_info id="DB Browser" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37785387" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35598704" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33387226" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -679,58 +756,58 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>5</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>75</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>257</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <condition expression="grid[i][j] == '1'" language="Python" />
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>608</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>1426</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>1439</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>1434</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>1449</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tiktokVO.py</url>
+          <url>file://$PROJECT_DIR$/2022/tiktokVO.py</url>
           <line>217</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/lc.py</url>
+          <url>file://$PROJECT_DIR$/2022/lc.py</url>
           <line>1939</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gg.py</url>
+          <url>file://$PROJECT_DIR$/2022/gg.py</url>
           <line>677</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -745,11 +822,13 @@
     <SUITE FILE_PATH="coverage/mac$karat.coverage" NAME="karat Coverage Results" MODIFIED="1651083774886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mac$msft_vo.coverage" NAME="msft_vo Coverage Results" MODIFIED="1655261991028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$screenOCR.coverage" NAME="screenOCR Coverage Results" MODIFIED="1612100419161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mac$akuna.coverage" NAME="akuna Coverage Results" MODIFIED="1660877082177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mac$_pydev_execfile.coverage" NAME="_pydev_execfile Coverage Results" MODIFIED="1652725017756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps" />
     <SUITE FILE_PATH="coverage/mac$uber_tag.coverage" NAME="uber_tag Coverage Results" MODIFIED="1651251553638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$codesignal.coverage" NAME="codesignal Coverage Results" MODIFIED="1638145887330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mac$test.coverage" NAME="test Coverage Results" MODIFIED="1650038537455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$flexport.coverage" NAME="flexport Coverage Results" MODIFIED="1643513688934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mac$codesignal.coverage" NAME="codesignal Coverage Results" MODIFIED="1660796979858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$Schlumberger.coverage" NAME="Schlumberger Coverage Results" MODIFIED="1623103705184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode$cisco.coverage" NAME="cisco Coverage Results" MODIFIED="1639346578922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mac$tiktokVO.coverage" NAME="tiktokVO Coverage Results" MODIFIED="1643925073932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -813,7 +892,7 @@
     <entry file="file:///var/folders/0c/w48nkkfd227d26ml9j54rvth0000gn/T/leetcode/editor/cn/[1]Two Sum.py" />
     <entry file="file://$PROJECT_DIR$/grabbed.png" />
     <entry file="file://$PROJECT_DIR$/sexp.java" />
-    <entry file="file://$PROJECT_DIR$/twitter.py">
+    <entry file="file://$PROJECT_DIR$/2022/twitter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2945">
           <caret line="160" column="26" selection-start-line="160" selection-start-column="26" selection-end-line="160" selection-end-column="26" />
@@ -823,45 +902,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twilio.py">
+    <entry file="file://$PROJECT_DIR$/2022/twilio.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/watering_garden.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.33 AM.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.47 AM.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.56 AM.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snowflake.py">
+    <entry file="file://$PROJECT_DIR$/2022/snowflake.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2166">
           <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/lexicograhical_merge0.png">
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/lexicograhical_merge1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/lexicograhical_merge2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 3.06.01 PM.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meta.py">
+    <entry file="file://$PROJECT_DIR$/2022/meta.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="31" selection-start-line="31" selection-end-line="32" selection-end-column="29" />
@@ -871,14 +929,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Schlumberger.py">
+    <entry file="file://$PROJECT_DIR$/2022/Schlumberger.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1539">
           <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tiktokVO.py">
+    <entry file="file://$PROJECT_DIR$/2022/tiktokVO.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4712">
           <caret line="248" selection-start-line="248" selection-end-line="248" />
@@ -892,7 +950,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/2022/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1938">
           <caret line="122" selection-start-line="122" selection-end-line="126" selection-end-column="28" />
@@ -902,7 +960,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/roblox.py">
+    <entry file="file://$PROJECT_DIR$/2022/roblox.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
@@ -912,14 +970,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nvda.py">
+    <entry file="file://$PROJECT_DIR$/2022/nvda.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instacart.py">
+    <entry file="file://$PROJECT_DIR$/2022/instacart.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1653">
           <caret line="95" column="14" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
@@ -929,17 +987,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tiktok.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4617">
-          <caret line="248" column="32" selection-start-line="248" selection-start-column="32" selection-end-line="248" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gg.py">
+    <entry file="file://$PROJECT_DIR$/2022/gg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10830">
           <caret line="580" column="18" selection-start-line="580" selection-end-line="581" />
@@ -956,28 +1004,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codesignal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data.txt">
+    <entry file="file://$PROJECT_DIR$/2022/data.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flexport.py">
+    <entry file="file://$PROJECT_DIR$/2022/flexport.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="874">
           <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/karat.py">
+    <entry file="file://$PROJECT_DIR$/2022/karat.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5434">
           <caret line="288" column="14" selection-start-line="288" selection-start-column="14" selection-end-line="288" selection-end-column="14" />
@@ -987,7 +1028,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lc.py">
+    <entry file="file://$PROJECT_DIR$/2022/lc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2698">
           <caret line="541" column="26" selection-start-line="541" selection-start-column="16" selection-end-line="541" selection-end-column="26" />
@@ -1280,7 +1321,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uber_tag.py">
+    <entry file="file://$PROJECT_DIR$/2022/uber_tag.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1463">
           <caret line="83" selection-start-line="83" selection-end-line="83" />
@@ -1290,7 +1331,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uber.py">
+    <entry file="file://$PROJECT_DIR$/2022/uber.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2907">
           <caret line="157" column="27" selection-start-line="157" selection-start-column="27" selection-end-line="157" selection-end-column="27" />
@@ -1300,7 +1341,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/msft.py">
+    <entry file="file://$PROJECT_DIR$/2022/msft.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="988">
           <caret line="60" selection-start-line="60" selection-end-line="60" />
@@ -1310,7 +1351,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/msft_vo.py">
+    <entry file="file://$PROJECT_DIR$/2022/msft_vo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="974">
           <caret line="56" selection-start-line="56" selection-end-line="56" />
@@ -1320,21 +1361,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp.cpp">
+    <entry file="file://$PROJECT_DIR$/2022/tmp.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="23" selection-start-line="23" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cisco.py">
+    <entry file="file://$PROJECT_DIR$/2022/cisco.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1126">
           <caret line="109" column="39" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uber_tag_type.py">
+    <entry file="file://$PROJECT_DIR$/2022/uber_tag_type.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="10" />
@@ -1344,7 +1385,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/empty_vo.py">
+    <entry file="file://$PROJECT_DIR$/2022/empty_vo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
@@ -1354,20 +1395,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amazon_oa.py">
+    <entry file="file://$PROJECT_DIR$/2022/amazon_oa.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="703">
           <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
+    <entry file="file://$PROJECT_DIR$/2022/tiktok.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4655">
+          <caret line="250" column="17" selection-start-line="250" selection-start-column="17" selection-end-line="250" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/datetime.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="242" column="8" selection-start-line="242" selection-start-column="8" selection-end-line="242" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akuna.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="80" selection-start-line="80" selection-end-line="80" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.8/_strptime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10602">
+          <caret line="567" selection-start-line="567" selection-end-line="567" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 3.06.01 PM.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.33 AM.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.47 AM.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.56 AM.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/watering_garden.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codesignal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
         </state>
       </provider>
     </entry>

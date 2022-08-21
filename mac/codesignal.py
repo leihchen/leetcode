@@ -173,84 +173,166 @@ print(solution(directions))
 # a = [100, 180, 200]
 # b = [102, 105, 110, 115, 120, 125, 130, 131, 135, 140, 145, 150, 155, 160, 165, 170, 173, 175, 185, 190, 195, 205, 210, 215, 220, 225, 230, 235, 240, 241, 245, 446, 471]
 
-from collections import Counter
-from copy import deepcopy
 
+
+
+
+
+# A sawtooth sequence is a sequence of numbers that alternate between increasing and decreasing. In other words, each element is either strictly greater than its neighbouring elements or strictly less than its neighbouring elements.
+#
+# examples
+#
+# Given an array of integers arr, your task is to count the number of contiguous subarrays that represent a sawtooth sequence of at least two elements.
+#
+# Example
+#
+# For arr = [9, 8, 7, 6, 5], the output should be solution(arr) = 4.
+#
+# Since all the elements are arranged in decreasing order, it won't be possible to form any sawtooth subarrays of length 3 or more. There are 4 possible subarrays containing two elements, so the answer is 4.
+#
+# For arr = [10, 10, 10], the output should be solution(arr) = 0.
+#
+# Since all of the elements are equal, none of subarrays can be sawtooth, so the answer is 0.
+#
+# For arr = [1, 2, 1, 2, 1], the output should be solution(arr) = 10.
+#
+# All contiguous subarrays containing at least two elements satisfy the condition of problem. There are 10 possible contiguous subarrays containing at least two elements, so the answer is 10.
+#
+# Input/Output
+#
+# [execution time limit] 4 seconds (py3)
+#
+# [input] array.integer arr
+#
+# An array of integers.
+#
+# Guaranteed constraints:
+# 2 ≤ arr.length ≤ 105,
+# -109 ≤ arr[i] ≤ 109.
+#
+# [output] integer64
+#
+# Return the number of sawtooth subarrays.
+# sawtooth subarray
 
 def solution(arr):
-    nums = []
     n = len(arr)
+    start = 0
+    end = 1
+    res = 0
+    while end < n:
+        sign = arr[start] - arr[end]
+        while end < n and arr[end] != arr[end - 1] and (arr[end - 1] - arr[end]) * sign > 0:
+            end += 1
+            sign *= -1
 
-    def divide(arr, dall):
-        if not arr:
-            return
-        if all(i >= 2 for i in dall.values()):
-            nums.append(arr)
-            return
-        d = Counter()
-        last = 0
-        for i in range(len(arr)):
-            if dall[arr[i]] == 1:
-                divide(arr[last:i], d)
-                last = i + 1
-            elif i == len(arr) - 1 and last < i:
-                nums.append(arr[last: len(arr)])
-            d[arr[i]] += 1
+        length = end - start
+        res += length * (length - 1) / 2
+        if end < n and arr[end - 1] == arr[end]:  # avoid inf loop at equal
+            start = end
+        else:
+            start = end - 1
+        end = start + 1
+    return res
 
-    cnt = Counter(arr)
-    divide(arr, cnt)
+# You are given an array of non-negative integers numbers. You are allowed to choose any number from this array and swap any two digits in it. If after the swap operation the number contains leading zeros, they can be omitted and not considered (eg: 010 will be considered just 10).
+#
+# Your task is to check whether it is possible to apply the swap operation at most once, so that the elements of the resulting array are strictly increasing.
+#
+# Example
+#
+# For numbers = [1, 5, 10, 20], the output should be solution(numbers) = true.
+#
+# The initial array is already strictly increasing, so no actions are required.
+#
+# For numbers = [1, 3, 900, 10], the output should be solution(numbers) = true.
+#
+# By choosing numbers[2] = 900 and swapping its first and third digits, the resulting number 009 is considered to be just 9. So the updated array will look like [1, 3, 9, 10], which is strictly increasing.
+#
+# For numbers = [13, 31, 30], the output should be solution(numbers) = false.
+#
+# The initial array elements are not increasing.
+# By swapping the digits of numbers[0] = 13, the array becomes [31, 31, 30] which is not strictly increasing;
+# By swapping the digits of numbers[1] = 31, the array becomes [13, 13, 30] which is not strictly increasing;
+# By swapping the digits of numbers[2] = 30, the array becomes [13, 31, 3] which is not strictly increasing;
+# So, it's not possible to obtain a strictly increasing array, and the answer is false.
+#
+# Input/Output
+#
+# [execution time limit] 4 seconds (py3)
+#
+# [input] array.integer numbers
+#
+# An array of non-negative integers.
+#
+# Guaranteed constraints:
+# 1 ≤ numbers.length ≤ 103,
+# 0 ≤ numbers[i] ≤ 103.
+#
+# [output] boolean
+#
+# Return true if it is possible to obtain a strictly increasing array by applying the digit-swap operation at most once, and false otherwise.
+def swap2(num):
+    res = []
+    l = list(str(num))
+    for i in range(len(l) - 1):
+        for j in range(i+1, len(l)):
+            l[i], l[j] = l[j], l[i]
+            res.append(int(''.join(l)))
+            l[i], l[j] = l[j], l[i]
 
-    def count_valid(doubles):
-        res = 0
-        for i in range(len(doubles)):
-            for j in range(i + 1, len(doubles) + 1):
-                if all(v >= 2 for v in Counter(doubles[i:j]).values()):
-                    res += 1
-        return res
-
-    return sum([count_valid(num) for num in nums])
-
-n, m = 3, 5
-for s in range(n + m - 1):
-    for j in range(m):
-        i = s - j
-        if 0 <= i < n and 0 <= j < m:
-            print((i, j))
-a = [["a","b","c","d"],
- ["a","c","d","e"],
- ["a","e","c","a"]]
-import itertools
-print(list(itertools.chain(*a)))
-
-
-n,m = 4, 5
-flati = 0
-b = [[0 for _ in range(m)] for _ in range(n)]
-for s in range(m + n - 1):
-    for i in range(n):
-        j = s - i
-        if 0 <= i < n and 0 <= j < m:
-            b[i][j] = flati + 1
-            flati += 1
-for row in b:
-    print(row[::-1])
+    return res
 
 
 def solution(numbers):
-    change_idx = None
+    # sorted except one
     n = len(numbers)
-    for i in range(1, n):
-        if numbers[i] <= numbers[i-1]:
-            if change_idx:
+    if n == 1: return True
+    k = -1
+
+    def swap2(num):
+        res = []
+        l = list(str(num))
+        for i in range(len(l) - 1):
+            for j in range(i + 1, len(l)):
+                l[i], l[j] = l[j], l[i]
+                res.append(int(''.join(l)))
+                l[i], l[j] = l[j], l[i]
+
+        return res
+    for i in range(n - 1):
+        if numbers[i] >= numbers[i + 1]:
+            if k != -1:
                 return False
-            change_idx = i-1
-    if not change_idx:
-        return True
-    change = numbers[change_idx]
-    l = list(str(change))
-    ls = sorted([(l[i], i) for i in range(len(l))], key=lambda x: (x[0], -x[1]))
-    l[ls[0][1]], l[ls[-1][1]] = l[ls[-1][1]], l[ls[0][1]]
-    res = int(''.join(l))
-    return res < numbers[change_idx+1] and (res > numbers[change_idx-1])
+            k = i
+    if k == -1: return True
+    if k == 0:
+        for newnum in swap2(numbers[k]):
+            if newnum < numbers[k + 1]:
+                return True
+    if k + 1 == n - 1:
+        for newnum in swap2(numbers[k + 1]):
+            if numbers[k] < newnum:
+                return True
+    print(swap2(numbers[k]))
+    for newnum in swap2(numbers[k]):
+        if numbers[k - 1] < newnum < numbers[k + 1]:
+            return True
+    for newnum in swap2(numbers[k + 1]):
+        if numbers[k] < newnum < numbers[k + 2]:
+            return True
+    return False
 
 
+# print(solution([3, 900, 10]))
+
+
+# You are given a matrix of integers field of size n × m representing a game field, and also a matrix of integers figure of size 3 × 3 representing a figure. Both matrices contain only 0s and 1s, where 1 means that the cell is occupied, and 0 means that the cell is free.
+#
+# You choose a position at the top of the game field where you put the figure and then drop it down. The figure falls down until it either reaches the ground (bottom of the field) or lands on an occupied cell, which blocks it from falling further. After the figure has stopped falling, some of the rows in the field may become fully occupied.
+#
+# demonstration
+#
+# Your task is to find the dropping position such that at least one full row is formed. As a dropping position you should consider the column index of the cell in game field which matches the top left corner of the figure 3 × 3 matrix. If there are multiple dropping positions satisfying the condition, feel free to return any of them. If there are no such dropping positions, return -1.
+#
+# Note: When falling, the 3 × 3 matrix of the figure must be entirely inside the game field, even if the figure matrix is not totally occupied.
