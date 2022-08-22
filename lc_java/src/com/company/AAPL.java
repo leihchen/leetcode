@@ -2,7 +2,6 @@ package com.company;
 
 import java.io.*;
 import java.util.*;
-import javafx.util.*;
 public class AAPL {
 //    public static void main(String[] args) {
 //        ArrayList<String> strings = new ArrayList<String>();
@@ -409,26 +408,26 @@ public class AAPL {
             return res;
         }
     }
-    class UndergroundSystem {
-        private Map<String, Pair<Double, Double>> trips;
-        private Map<Integer, Pair<String, Integer>> checkins;
-        public UndergroundSystem() {
-            trips = new HashMap<>();
-            checkins = new HashMap<>();
-        }
-
-        public void checkIn(int id, String stationName, int t) {
-
-        }
-
-        public void checkOut(int id, String stationName, int t) {
-
-        }
-
-        public double getAverageTime(String startStation, String endStation) {
-
-        }
-    }
+//    class UndergroundSystem {
+////        private Map<String, Pair<Double, Double>> trips;
+////        private Map<Integer, Pair<String, Integer>> checkins;
+////        public UndergroundSystem() {
+////            trips = new HashMap<>();
+////            checkins = new HashMap<>();
+//        }
+//
+//        public void checkIn(int id, String stationName, int t) {
+//
+//        }
+//
+//        public void checkOut(int id, String stationName, int t) {
+//
+//        }
+//
+//        public double getAverageTime(String startStation, String endStation) {
+//
+//        }
+//    }
 
 }
 

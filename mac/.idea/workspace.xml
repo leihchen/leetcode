@@ -2,44 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48aa49eb-7fb0-4def-bd2d-b4655707555b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/akuna.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lc_java/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/AAPL.class" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/out/production/leetcode/com/company/AAPL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/src/LockThreadConcurrency.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/src/LockThreadConcurrency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lc_java/src/com/company/AAPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lc_java/src/com/company/AAPL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schlumberger.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/Schlumberger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amazon_oa.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/amazon_oa.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/census.csv" beforeDir="false" afterPath="$PROJECT_DIR$/2022/census.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cisco.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/cisco.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codesignal.py" beforeDir="false" afterPath="$PROJECT_DIR$/codesignal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/2022/data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empty_vo.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/empty_vo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexport.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/flexport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gg.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/gg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instacart.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/instacart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karat.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/karat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lc.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/lc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/meta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msft.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/msft.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msft_vo.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/msft_vo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvda.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/nvda.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roblox.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/roblox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.33 AM.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.33 AM.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.47 AM.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.47 AM.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 11.16.56 AM.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 11.16.56 AM.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/Screen Shot 2021-11-27 at 3.06.01 PM.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/Screen Shot 2021-11-27 at 3.06.01 PM.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/lexicograhical_merge0.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/lexicograhical_merge0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/lexicograhical_merge1.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/lexicograhical_merge1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/lexicograhical_merge2.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/lexicograhical_merge2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/watering_garden.png" beforeDir="false" afterPath="$PROJECT_DIR$/2022/screenshot/watering_garden.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snowflake.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/snowflake.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tiktok.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/tiktok.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tiktokVO.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/tiktokVO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/2022/tmp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twilio.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/twilio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/twitter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uber.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/uber.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uber_tag.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/uber_tag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uber_tag_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/uber_tag_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/2022/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../古城算法leetcode.md" beforeDir="false" afterPath="$PROJECT_DIR$/../古城算法leetcode.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,26 +21,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/akuna.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="80" selection-start-line="80" selection-end-line="80" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/codesignal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="509">
+              <caret line="306" column="11" lean-forward="true" selection-start-line="306" selection-start-column="11" selection-end-line="306" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge0.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge1.png">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
@@ -198,16 +163,16 @@
         <option value="$PROJECT_DIR$/amazon_oa.py" />
         <option value="$PROJECT_DIR$/empty_vo.py" />
         <option value="$PROJECT_DIR$/tiktok.py" />
-        <option value="$PROJECT_DIR$/codesignal.py" />
         <option value="$PROJECT_DIR$/akuna.py" />
         <option value="$PROJECT_DIR$/2022/codesignal.py" />
+        <option value="$PROJECT_DIR$/codesignal.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="489" />
-    <option name="y" value="83" />
-    <option name="width" value="1120" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1126" />
+    <option name="y" value="25" />
+    <option name="width" value="1546" />
     <option name="height" value="1353" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -245,8 +210,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/2022" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/2022" />
       <recent name="$PROJECT_DIR$/screenshot" />
     </key>
   </component>
@@ -695,7 +660,7 @@
       <workItem from="1660854075218" duration="1551000" />
       <workItem from="1660874832670" duration="3673000" />
       <workItem from="1660925152571" duration="280000" />
-      <workItem from="1661116701690" duration="230000" />
+      <workItem from="1661116701690" duration="3116000" />
     </task>
     <servers />
   </component>
@@ -714,13 +679,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="452894000" />
+    <option name="totallyTimeSpent" value="455780000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="2560" height="1353" extended-state="6" />
+    <frame x="1126" y="25" width="1546" height="1353" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49942988" visible="true" weight="0.150499" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49942988" visible="true" weight="0.25285044" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5005701" side_tool="true" weight="0.55007255" />
       <window_info id="DB Browser" order="3" />
@@ -915,9 +880,6 @@
           <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge1.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/2022/meta.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1433,7 +1395,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/2022/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/2022/screenshot/lexicograhical_merge2.png">
@@ -1454,20 +1429,10 @@
     <entry file="file://$PROJECT_DIR$/2022/screenshot/watering_garden.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/2022/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/codesignal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="509">
+          <caret line="306" column="11" lean-forward="true" selection-start-line="306" selection-start-column="11" selection-end-line="306" selection-end-column="11" />
         </state>
       </provider>
     </entry>

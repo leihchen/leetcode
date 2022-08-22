@@ -1073,6 +1073,29 @@ Immutable meeting k rooms, [O(N) + O(T) prefixsum +  扫描线 if T fits memory]
 
 [1897 · Meeting Room III](https://www.lintcode.com/problem/1897/description) == https://leetcode.com/discuss/interview-question/613816/Google-or-Onsite-or-Meeting-Rooms-3
 
+**Codesignal** 
+
+minimum number of distinct intervals to cover all query intervals
+
+```python
+# query里面的每个int[] -> 代表的是left & right。你要做的是，找到最小的number个数，使得它们都可以包含在所有的int[] 里面。
+def findMinimumNumber(intervals):
+    intervals.sort(key=lambda x: (x[0], -x[1]))
+    start, end = intervals[0]
+    res = []
+    for i in range(1, len(intervals)):
+        if intervals[i][0] < end:
+            start = intervals[i][0]
+            end = min(end, intervals[i][1])
+        else:
+            res.append((start, end ))
+            start, end = intervals[i]
+    res.append((start, end))
+   	return res
+```
+
+
+
 ## Monotonic Stack
 
 [402 remove K digit](https://leetcode.com/problems/remove-k-digits/): **"从左到右 选大的删除"**

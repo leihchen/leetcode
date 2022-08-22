@@ -1,4 +1,4 @@
-
+from typing import *
 # hchen gmail 1
 # illinois 5
 # redhat
@@ -284,6 +284,76 @@ def swap2(num):
     return res
 
 
+
+
+# print(solution([3, 900, 10]))
+
+
+# You are given a matrix of integers field of size n × m representing a game field, and also a matrix of integers figure of size 3 × 3 representing a figure. Both matrices contain only 0s and 1s, where 1 means that the cell is occupied, and 0 means that the cell is free.
+#
+# You choose a position at the top of the game field where you put the figure and then drop it down. The figure falls down until it either reaches the ground (bottom of the field) or lands on an occupied cell, which blocks it from falling further. After the figure has stopped falling, some of the rows in the field may become fully occupied.
+#
+# demonstration
+#
+# Your task is to find the dropping position such that at least one full row is formed. As a dropping position you should consider the column index of the cell in game field which matches the top left corner of the figure 3 × 3 matrix. If there are multiple dropping positions satisfying the condition, feel free to return any of them. If there are no such dropping positions, return -1.
+#
+# Note: When falling, the 3 × 3 matrix of the figure must be entirely inside the game field, even if the figure matrix is not totally occupied.
+
+
+# 2 sum mod k
+from collections import Counter
+def solution(a, k):
+    m = Counter()
+    res = 0
+    for elem in a:
+        if k - elem % k in m:
+            res += m[k - elem % k]
+        if elem % k == 0 and 0 in m:
+            res += m[0]
+        m[elem % k] += 1
+    return res
+
+
+# 第二题是给一个string数组代表一串unix的指令，可能出现的指令ls,mv,cp,!index，其中index是数字,
+# 代表执行index-1th的指令。例如{”ls“,"cp","mv","!3'}，那!3需要执行的就是元素commands[2]，即mv.。结果要返回ls，cp，mv分别执行多少次的数组。
+def unix():
+    pass
+
+
+
+# print
+def rotatedRectSum(matrix: List[List[int]], a: int, b: int) -> int:
+    m = len(matrix)  # 4
+    n = len(matrix[0])  # 5
+    maxSum = float('-inf')
+    # If we make a diagnoal line at the current index a and b represents
+    # the number of element we can to include with respect to that line.
+    # Since we have at least 1 element by being on an index, we subtract
+    # 1 from both a and b to represent the index
+    for x, y in ((a - 1, b - 1), (b - 1, a - 1)):  # (1,2), (2,1)
+        # Slide through possible rectangles
+        for row_min in range(0, m - x - y):  # 4 - 1 - 2 = 1
+            for col_min in range(0, n - x - y): # 5 - 1 - 2 = 2
+                # Find sum of rectangle
+                rec_sum = matrix[row_min][col_min + x]
+                corner_left = [row_min + x, col_min]
+                corner_right = [row_min + y, col_min + x + y]
+                j_min_step = -1
+                j_max_step = 1
+                # Start with top corner
+                prev_index_left = prev_index_right = [row_min, col_min + x]
+                for i in range(row_min + 1, row_min + x + y + 1):
+                    j_min_step = j_min_step * -1 if prev_index_left == corner_left else j_min_step
+                    j_max_step = j_max_step * -1 if prev_index_right == corner_right else j_max_step
+                    j_min = prev_index_left[1] + j_min_step
+                    j_max = prev_index_right[1] + j_max_step
+                    for j in range(j_min, j_max + 1):
+                        rec_sum += matrix[i][j]
+                    prev_index_left = [i, j_min]
+                    prev_index_right = [i, j_max]
+                maxSum = rec_sum if rec_sum > maxSum else maxSum
+
+    return maxSum
 def solution(numbers):
     # sorted except one
     n = len(numbers)
@@ -322,17 +392,3 @@ def solution(numbers):
         if numbers[k] < newnum < numbers[k + 2]:
             return True
     return False
-
-
-# print(solution([3, 900, 10]))
-
-
-# You are given a matrix of integers field of size n × m representing a game field, and also a matrix of integers figure of size 3 × 3 representing a figure. Both matrices contain only 0s and 1s, where 1 means that the cell is occupied, and 0 means that the cell is free.
-#
-# You choose a position at the top of the game field where you put the figure and then drop it down. The figure falls down until it either reaches the ground (bottom of the field) or lands on an occupied cell, which blocks it from falling further. After the figure has stopped falling, some of the rows in the field may become fully occupied.
-#
-# demonstration
-#
-# Your task is to find the dropping position such that at least one full row is formed. As a dropping position you should consider the column index of the cell in game field which matches the top left corner of the figure 3 × 3 matrix. If there are multiple dropping positions satisfying the condition, feel free to return any of them. If there are no such dropping positions, return -1.
-#
-# Note: When falling, the 3 × 3 matrix of the figure must be entirely inside the game field, even if the figure matrix is not totally occupied.
