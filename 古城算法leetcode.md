@@ -574,6 +574,111 @@ def postorder(root):
   return res
 ```
 
+```python
+# O(1) traversal with TreeNode with parent pointer
+class Node:
+    def __init__(self, val, left=None, right=None, parent=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.parent = parent
+
+root = Node(2)
+n3 = Node(3, parent=root)
+n9 = Node(9, parent=root)
+root.left = n3
+root.right = n9
+n3.right = Node(32, parent=n3)
+n21 = Node(21, parent=n3)
+n3.left = n21
+n16 = Node(16, parent=n21)
+n21.right = n16
+n16.left = Node(4,parent=n16)
+n16.right = Node(5, parent=n16)
+
+def preorder(root: Node):
+    def next(node):
+        if not node: return None
+        if node.left: return node.left
+        if node.right: return node.right
+        p = node.parent
+        while p and p.right == node:
+            node = p
+            p = p.parent
+        if not p: return None
+        return p.right
+
+    next_node = root
+    while next_node:
+        print(next_node.val)
+        next_node = next(next_node)
+
+def preorder_naive(root):
+    if not root:
+        return
+    print(root.val)
+    preorder_naive(root.left)
+    preorder_naive(root.right)
+
+
+
+def inorder(root: Node):
+    def next(node):
+        if not node: return None
+        if node.right:
+            node = node.right
+            while node.left:
+                node = node.left
+            return node
+        p = node.parent
+        while p and p.right == node:
+            node = p
+            p = p.parent
+        return p
+
+    next_node = root
+    while next_node.left:
+        next_node = next_node.left
+    while next_node:
+        print(next_node.val)
+        next_node = next(next_node)
+
+def inorder_naive(root):
+    if not root: return
+    inorder_naive(root.left)
+    print(root.val)
+    inorder_naive(root.right)
+
+
+def postorder(root):
+    def next(node):
+        if not node: return None
+        p = node.parent
+        if not p: return None
+        if p.right == node:
+            return p
+        current = p.right
+        while current and not (current.left == None and current.right == None):
+            if current.left: current = current.left
+            else: current.right: current = current.right
+        return current
+    next_node = root
+    while next_node and not (next_node.left == None and next_node.right == None):
+        if next_node.left: next_node = next_node.left
+        else: next_node = next_node.right
+    while next_node:
+        print(next_node.val)
+        next_node = next(next_node)
+
+def postorder_naive(root):
+    if not root: return
+    postorder_naive(root.left)
+    postorder_naive(root.right)
+    print(root.val)
+```
+
+
+
 ##
 
 [Lint \551. Nested List Weight Sum](https://www.lintcode.com/problem/nested-list-weight-sum/description)

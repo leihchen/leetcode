@@ -371,6 +371,75 @@ class Solution {
         return "";
     }
 
+//    //parking lot
+//    class Ticket{}
+//
+//    Ticket park(String vehicleType){}
+//
+//    Ticket exit(Ticket ticket){}
+//
+//    class ParkingLot {
+//        Map<String, ParkingSpot> largetSpotMap = new HashMap<>();
+//
+//        Map<String, ParkingSpot> compactSpotMap = new HashMap<>();
+//
+//        Map<String, Ticket> ticketMap = new HashMap<>();
+//
+//        int availableLargeSpot = 100;
+//
+//        int availableCompactSpot = 100;
+//
+//        int largeId = 0;
+//
+//        int compactId = 0;
+//
+//        public Ticket park(String vehicleType) throws Exception{
+//            // 1. check for full
+////            if (checkFull(vehicleType)){
+////                throw new ParkingFullException();
+////            }
+//        }
+//
+//        public Ticket exit(Ticket ticket){
+//
+//        }
+//
+//        public boolean checkFull(String vehcileType) throws Exception{
+//            if (vehcileType.equals("large")){
+//                return availableLargeSpot <= 0;
+//            }else if (vehcileType.equals("compact")){
+//                return availableCompactSpot <= 0;
+//            }
+//            throw new Exception("Invalid type");
+//        }
+//    }
+//    public abstract class ParkingSpot {
+//        public String parkingLocation;
+//
+//        public float hourlyRatio;
+//
+//        public abstract void park(ParkingLot parkingLot, ParkingSpot compactSpot);
+//
+//        public abstract void exit(ParkingLot parkingLot, ParkingSpot compactSpot);
+//    }
+//
+//
+//    public class CompactSpot extends ParkingSpot {
+//        public CompactSpot(){
+//            this.hourlyRatio = 5;
+//        }
+//
+//        @Override
+//        public void park(ParkingLot parkingLot, ParkingSpot compactSpot){
+//            parkingLot.compactId ++;
+//            this.parkingLocation = "" + parkingLot.compactId;
+//        }
+//
+//        @Override
+//        public void exit(ParkingLot parkingLot, ParkingSpot compactSpot) {
+//
+//        }
+//    }
     public static void main(String[] args){
 //        BlockingDeque<Integer> q = new LinkedBlockingDeque<>();
 //        Arrays.asList(3,2,1).forEach((d)->{
@@ -389,9 +458,53 @@ class Solution {
 //        Syntax.MyHashMap<Integer, Integer> map = new Syntax.MyHashMap<>();
 //        map.put(1,1);
 //        System.out.println(map.get(1));
-       System.out.println(domino(new String[] {"0-0", "1-1", "2-2", "3-3", "4-4", "5-5", "6-6", "0-1", "2-3"}));
-
+//       System.out.println(domino(new String[] {"0-0", "1-1", "2-2", "3-3", "4-4", "5-5", "6-6", "0-1", "2-3"}));
+       System.out.println(imbalanceCount(new int[] {4,1,5,3,2}));
     }
+    public static int imbalanceCount(int[] nums) {
+        int n = nums.length;
+        int[] indexArr = new int[n + 1];
+        for (int i = 0; i < n; i++) {
+            indexArr[nums[i]] = i;
+        }
+        int[] left = new int[n], right = new int[n];
+        int[] maxStack = new int[n]; // monotonic-stack
+        int index = -1;
+        for (int i = 0; i < n; i++) {
+            while (index >= 0 && nums[maxStack[index]] < nums[i]) {
+                index--;
+            }
+            left[i] = index < 0 ? -1 : maxStack[index];
+            maxStack[++index] = i;
+        }
+        index = -1;
+        for (int i = n - 1; i >= 0; i--) {
+            while (index >= 0 && nums[maxStack[index]] < nums[i]) {
+                index--;
+            }
+            right[i] = index < 0 ? n : maxStack[index];
+            maxStack[++index] = i;
+        }
+        System.out.print(Arrays.toString(left));
+        System.out.print(Arrays.toString(right));
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] < n - 1) {
+                int addOneIdx = indexArr[nums[i] + 1];
+                if (addOneIdx > i) {
+                    count += (i + 1) * (addOneIdx - right[i]);
+                    if (left[i] >= 0) {
+                        count += (left[i] + 1) * (right[i] - i);
+                    }
+                } else {
+                    count += (left[i] - addOneIdx) * (n - i);
+                    if (right[i] < n) {
+                        count += (i - left[i]) * (n - right[i]);
+                    }
+                    } }
+            }
+            return count;
+        }
 //    public static void main(String[] args) throws IOException {
 //        int a = 0;
 //        List<Integer> b = new ArrayList<>();
