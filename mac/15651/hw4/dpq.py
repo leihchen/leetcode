@@ -61,8 +61,8 @@ class SegTree:
     #     return self.A[i + self.n - 1:j + self.n - 1]
 
 
-MOD1 = 7949
-MOD2 = 8537
+MOD1 = 840991
+MOD2 = 919349
 # MOD = 1000000007
 radix = 62
 

@@ -61,7 +61,7 @@ class SegTree:
     #     return self.A[i + self.n - 1:j + self.n - 1]
 
 
-MOD1 = 963779
+MOD1 = 909259097
 # MOD2 = 97
 # MOD = 1000000007
 radix = 62
@@ -159,10 +159,10 @@ def execute_test(file=sys.stdin):
 
 
 if __name__ == '__main__':
-    execute_test()
+    # execute_test()
 
-    # for i in range(1, 16):
-    #     print('Test {}'.format(i))
-    #     with open('hw4/small-tests/{}.in'.format(str(i).zfill(2)), 'r') as f:
-    #         log = execute_test(f)
-    #     assert log == open('hw4/small-tests/{}.out'.format(str(i).zfill(2)), 'r').read().strip().split('\n')
+    for i in range(1, 16):
+        print('Test {}'.format(i))
+        with open('hw4/small-tests/{}.in'.format(str(i).zfill(2)), 'r') as f:
+            log = execute_test(f)
+        assert log == open('hw4/small-tests/{}.out'.format(str(i).zfill(2)), 'r').read().strip().split('\n')
