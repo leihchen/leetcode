@@ -163,9 +163,10 @@ outside literal:
     '--'
     '
 inside literal
-    ' 
+    '
     escape char \
 """
+# assume, valid escape: 1. no \ before regular char, 2. even number of \
 def sqlComment(raw_str):
     source = raw_str.split('\n')
     res, buffer, open_literal = [], '', False
@@ -356,6 +357,26 @@ def postorder_naive(root):
 # block list string
 import llist
 from llist import sllist
+
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+#
+# class sllist:
+#     def __init__(self, list):
+#
+#     def nodeat(self, val):
+#         pass
+#
+#     def appendleft(self, node):
+#
+#
+#     def pop(self):
+#
+#
+#     def insertbefore(self, node):
+
 class NewString:
     def __init__(self, n):
         self.index2block = {}
@@ -467,6 +488,12 @@ class NewString:
 # print(ns.index2block)
 
 # todo snapshot set
+# history log for each values
+# append only log for value tracking, we can't remove it,
+# copy on write record,
+# edit within snapshot boundary
+# copy when accessed across boundary
+
 class SnapshotIterator:
     def __init__(self, snapshot_set, snapshot_size, snapshot_id):
         self.snapshot_set = snapshot_set
