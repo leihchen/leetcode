@@ -1363,7 +1363,7 @@ def mergeCount(arr, l, m, r):
 T(n) = a T(n/b) + O(n^c)
 c^crit = log_b(a)
 1. c < c_crit, leaf-heavy => O(n^c_crit)
-2. c = c_crit, comparable -> rewrite f(n) part into O(n^c log^k n) => O(n^crit log^(k+1) n)
+2. c = c_crit, comparable -> rewrite f(n) part into O(n^c log^k n) => O(n^crit log^(k+1) n ,)
 3. c > c_crit, root_heavy => O(n^c)
 
 1.T(n) = 8T(n/2) + 1000n^2 => O(n^3)
@@ -2247,6 +2247,339 @@ Is DAG?
 ​				-No-> Dijisktra
 
 ​				-Yes-> Bellman-Ford
+
+## Google
+
+### String: 
+
+1.   DP on graph https://leetcode.com/problems/longest-string-chain/  (longest sequence, longest path in DAG)
+
+2.   Anagram/fingerprint with Counter, tuple, bitmask https://leetcode.com/problems/count-words-obtained-after-adding-a-letter/ 
+
+     If all char in word are unique, bitmask could be used instead of tuple
+
+3.   Rolling hash, when no prefix involved https://leetcode.com/problems/strings-differ-by-one-character/
+
+4.   Greedy, subsquence matching https://leetcode.com/problems/number-of-matching-subsequences/
+
+     isSubsequence(long, short) is greedy, use dict to parallelize pointer movement
+
+5.   
+
+### Graph: 
+
+#### Shortest Path (SSSP): 
+
+1.   **On DAG**: no loop -> bfs with distance memo
+
+     ```python
+     class Graph:
+         def __init__(self, vertices):
+             self.V = vertices  # No. of vertices
+             # dictionary containing adjacency List
+             self.graph = defaultdict(list)
+         # function to add an edge to graph
+         def addEdge(self, u, v, w):
+             self.graph[u].append((v, w))
+         def shortestPath(self, s):
+             q = deque([s])
+             visited = {s}
+             distance = [float('inf')] * self.V
+             distance[s] = 0
+             while q:
+                 u = q.popleft()
+                 for v, wUV in self.graph[u]:
+                     if distance[v] > distance[u] + wUV:
+                         distance[v] = distance[u] + wUV
+                     if v not in visited:
+                         visited.add(v)
+                         q.append(v)
+             for i in range(self.V):
+                 print(("%d" % distance[i]) if distance[i] != float("Inf") else "Inf", end=" ")
+     ```
+
+     
+
+2.   **BFS**: if cost is manhattan distance (level of a bfs)
+
+     Ex: [Shortest Path in a Grid with Obstacles Elimination](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination)
+
+3.   **Dijisktra**: if weighted graph (some cost based on cell value/cell transition) 
+
+     Ex: [Minimum Obstacle Removal to Reach Corner](https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner/) in grid -> weight = grid\[i\]\[j\], cost: dV = dU + w(V, U)
+
+     Ex: [Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort) -> weight = abs(grid\[x\]\[y\], grid\[x + dx\]\[y + dy\] ), cost: dU = max(dV, w(V,U))
+
+     Ex: [Path With Maximum Minimum Value](https://leetcode.com/problems/path-with-maximum-minimum-value)-> weight = -grid\[x\]\[y\], cost: dU = max(dV, w(V,U))
+
+     ```python
+         # Dijisktra
+         def minimumObstacles(self, grid: List[List[int]]) -> int:
+             def getNext(i, j):
+                 x, y = i, j
+                 for dx, dy in [[0,1], [1,0], [0,-1], [-1,0]]:
+                     newx, newy = dx + x, dy + y
+                     if 0 <= newx < n and 0 <= newy < m:
+                         yield newx, newy, grid[newx][newy]
+             n,m=len(grid), len(grid[0])
+             distance = [[float('inf')] * m for _ in range(n)]
+             distance[0][0] = grid[0][0]
+             visited = set()
+             pq = [(grid[0][0], 0, 0)]
+             while pq:
+                 du, x, y = heappop(pq)
+                 if x == n - 1 and y == m - 1: break
+                 if (x,y) in visited: continue
+                 visited.add((x, y))
+                 for newx, newy, w in getNext(x, y):
+                     if (newx, newy) not in visited and distance[newx][newy] > du + w:
+                         distance[newx][newy] = du + w
+                         heappush(pq, (distance[newx][newy], newx, newy))
+             return distance[-1][-1]
+     ```
+
+     	Ex: 
+     
+     ```python
+     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+             graph = defaultdict(list)
+             for s, d, price in flights:
+                 graph[s].append((d, price))
+                 
+             distance = [float('inf')] * n
+             visited_stops = [float('inf')] * n
+             distance[src] = 0
+             visited_stops[src] = 0
+     
+             pq = [(0, 0, src, [src])]  # total price, stops, node
+             while pq:
+                 price, stop, node, path = heappop(pq)
+                 if node == dst:
+                     print(path)
+                     return price
+                 if stop == k + 1:  # <- if short path excesses number of stops
+                     continue
+                 for nei, w in graph[node]:
+                     if price + w < distance[nei]:
+                         distance[nei] = price + w
+                         heappush(pq, (w + price, stop + 1, nei, path + [nei]))
+                         visited_stops[nei] = stop
+                     elif stop < visited_stops[nei]:
+                         heappush(pq, (w + price, stop + 1, nei, path + [nei])) # <- allow fall back to costly path with less stops
+             return -1 if distance[dst] == float("inf") else distance[dst]
+     ```
+
+#### Longest Path: 
+
+1.   **DAG**: max level in a topological sort 
+
+     Ex: Longest Increasing Path in a Matrix
+
+2.   **non-DAG**: NP-Hard 
+
+#### SCC 
+
+1.   Undirected graph
+
+     Cycle detection with + Tarjan (a cycle is SCC of a graph)
+
+     Ex: [1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network)
+
+     ```python
+         def criticalConnections(n: int, connections: List[List[int]]) -> List[List[int]]:
+             graph = defaultdict(list)
+             for a, b in connections:
+                 graph[a].append(b)
+                 graph[b].append(a)
+             res = []
+             id_ = 0
+             low = [None] * n 
+             dfn = [-1] * n
+             
+             def dfs(node, parent):
+                 nonlocal id_
+                 dfn[node] = id_
+                 low[node] = id_
+                 id_ += 1 
+                 for nextVertex in graph[node]:
+                     if nextVertex == parent:
+                         continue  # trivial cycle in undirected graph
+                     if dfn[nextVertex] == -1:
+                         dfs(nextVertex, node)
+                     low[node] = min(low[node], low[nextVertex])  # <- low setting in undirected
+                     if low[nextVertex] > dfn[node]:
+                         res.append([node, nextVertex])
+             dfs(0, -1)
+             return res
+     ```
+
+     1.   Articulation point 割点  
+
+          u is root of DFS tree and it has at least two children.  **u is dfs root and len(u.children) > 1**
+
+          u is not root of DFS tree and it has a child v such that no vertex in subtree rooted with v has a back edge to one of the ancestors (in DFS tree) of u. => **ANY low[v] >= dfn[u] where v = u.children**
+
+     2.   Bridge 桥 
+
+          Given a edge x <-> y (dfs direction x -> y), after the low of x and y are set (at callback of dfs(y)). SCC id of y is different than dfn of x: **low[y] > dfn[x]**
+
+2.   Directed graph
+
+     Low setting is more complex
+
+     ```python
+     def TarjanSCC(graph):
+         n = len(graph)
+         id_ = 0
+         sccCount = 0
+         ids = [-1] * n
+         low_link = [0] * n
+         onStack = [False] * n
+         stack = []
+     
+         def dfs(node):
+             nonlocal id_, sccCount
+             stack.append(node)
+             onStack[node] = True
+             ids[node] = id_
+             low_link[node] = id_
+             id_ += 1
+             for nei in graph[node]:
+                 if ids[nei] == -1:
+                     dfs(nei)
+                 elif onStack[nei]:  # ids[nei] != -1: back edge && onStack[nei]: nei is part of this scc
+                     low_link[node] = low_link[nei]
+             if ids[node] == low_link[node]:  # pop all nodes in this scc
+                 while stack and stack[-1] != node:
+                     member = stack.pop()
+                     onStack[member] = False
+                     low_link[member] = ids[node]
+                 sccCount += 1
+         for i in range(n):
+             if ids[i] == -1:
+                 dfs(i)
+     ```
+
+#### Eulerian path
+
+a trail in a finite graph that visits every edge exactly once (allowing for revisiting vertices)
+
+Existence problem: at most one vertex has outdegree - indegree = 1 (it's the start point) and at most one vertex has indegree-outdegree = 1 (it's the end point) and all other vertices has equal in/out degrees. 
+
+Ex: [332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary)
+
+```python
+        res = deque([])
+        def dfs(node):
+            while graph[node]:
+                dfs(graph[node].pop())  # order could be greedy based on question
+            else:
+                res.appendleft(node)
+```
+
+#### Traveling Salesman Problem
+
+find the shortest path in this graph which visits every node exactly once. The graph is densely connected
+
+But in this example, we don't need to return to start point
+
+\943. Find the Shortest Superstring 
+
+```python
+class Solution:
+    def shortestSuperstring(self, words: List[str]) -> str:
+        def getDistance(w1, w2):
+            for i in range(1, len(w1)):
+                if w2.startswith(w1[i:]):
+                    return len(w1) - i
+            return 0
+        n = len(words)
+        graph = [[0] * n for _ in range(n)]
+        for i in range(n):
+            for j in range(i+1, n ):
+                graph[i][j] = getDistance(words[i], words[j])
+                graph[j][i] = getDistance(words[j], words[i])
+                
+        def pathToStr(path):
+            res = words[path[0]]
+            for i in range(1, len(path)):
+                res += words[path[i]][graph[path[i-1]][path[i]]:]
+            return res
+        d = [[float('-inf')] * n for _ in range(1<<n)]
+        q = deque([(i, 1 << i, [i], 0) for i in range(n)])
+        for i in range(n):
+            d[1<<i][i] = 0
+        l = -1
+        P = []
+        while q:
+            node, mask, path, dis = q.popleft()
+            if dis < d[mask][node]:
+                continue
+            if mask == (1 << n) - 1 and dis > l:
+                P, l = path, dis
+                continue
+            for i in range(n):
+                nex_mask = mask | ( 1<<i)
+                if nex_mask != mask and d[mask][node] + graph[node][i] > d[nex_mask][i]:  # <- prevent vertice revisiting AND dp better path
+                    d[nex_mask][i] = d[mask][node] + graph[node][i]
+                    q.append((i, nex_mask, path+[i], d[nex_mask][i]))
+        return pathToStr(P)
+        
+```
+
+#### shortest path that visits every node allowing revisit and reuse
+
+```python
+class Solution:
+    def shortestPathLength(self, graph: List[List[int]]) -> int:  # edgeList no self loop
+        n = len(graph)
+        q = deque([(i, 1 << i, 0) for i in range(n)])
+        d = [[-1] * n for _ in range(1 << n)]
+        for i in range(n):
+            d[1<<i][i] = 0
+        while q:
+            node, mask, dis = q.popleft()
+            if mask == (1 << n) - 1:
+                return dis  # shortest path is ensured with bfs
+            for nei in graph[node]:
+                next_mask = mask | (1 << nei)
+                # if next_mask == mask:  # <- don't add this, allow revisiting vertex
+                #     continue 
+                if d[next_mask][nei] != -1:   # <- dp infinite loop
+                    continue
+                d[next_mask][nei] = dis + 1   # shortest path is ensured with bfs
+                q.append((nei, next_mask, dis + 1))
+        return -1
+```
+
+
+
+### Heap, Queues
+
+#### task processing server
+
+```python
+class Solution:
+    def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:
+        active = []
+        for server, w in enumerate(servers):
+            heappush(active, (w, server, 0))
+        
+        res = []
+        working = []
+        ts = 0
+        for i, tasktime in enumerate(tasks):
+            ts = max(ts, i)
+            while working and working[0][0] <= ts or not active:
+                time, weight, s = heappop(working)
+                if not active:
+                    ts = max(ts, time)
+                heappush(active, (weight, s, time))
+            weight, server, time = heappop(active)
+            res.append(server)
+            heappush(working, (ts+tasktime, weight, server))
+        return res
+```
 
 ## Parentheses
 

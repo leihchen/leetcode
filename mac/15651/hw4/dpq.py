@@ -1,3 +1,4 @@
+import argparse
 import math
 import sys
 
@@ -159,10 +160,13 @@ def execute_test(file=sys.stdin):
 
 
 if __name__ == '__main__':
-    execute_test()
-
-    # for i in range(1, 16):
-    #     print('Test {}'.format(i))
-    #     with open('hw4/small-tests/{}.in'.format(str(i).zfill(2)), 'r') as f:
-    #         log = execute_test(f)
-    #     assert log == open('hw4/small-tests/{}.out'.format(str(i).zfill(2)), 'r').read().strip().split('\n')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--test', action='store_true')
+    if not parser.parse_args().test:
+        execute_test()
+    else:
+        for i in range(1, 16):
+            print('Test {}'.format(i))
+            with open('small-tests/{}.in'.format(str(i).zfill(2)), 'r') as f:
+                log = execute_test(f)
+            assert log == open('small-tests/{}.out'.format(str(i).zfill(2)), 'r').read().strip().split('\n')

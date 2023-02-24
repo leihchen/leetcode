@@ -1,59 +1,127 @@
-import numpy as np
-from scipy import spatial
+from functools import lru_cache as cache
 
-z1 = np.array([0.16, -0.26, -1.12, 0.01],)
-z2 = np.array([1.08,-1.14,0.8,-0.8],)
-z3 = np.array([1.94,0.08,1.83,0.17],)
-z4 = np.array([-0.88,-1.01,1.36,-0.07])
+from utils import *
 
 
-# z1 = np.array([1, -1, -1, 1],)
-# z2 = np.array([1,-1,1,-1],)
-# z3 = np.array([1,1,1,1],)
-# z4 = np.array([-1,-1,1,-1])
+def reach(nums):
+    num2idx = defaultdict(list)
+    for i, num in enumerate(nums):
+        num2idx[num].append(i)
+    # print(num2idx)
+    n = len(nums)
+    q = deque([0])
+    visited = set()
+    visited.add(0)
+    level = 0
+    while q:
+        sz = len(q)
+        for _ in range(sz):
+            node = q.popleft()
+            if node == n - 1:
+                return level
+            for next_idx in num2idx[nums[node]] + [node - 1, node + 1]:
+                if 0 <= next_idx < n and next_idx not in visited:
+                    q.append(next_idx)
+                    visited.add(next_idx)
+        level += 1
+    return -1
+
+# print(reach([1, 2, 3, 10, 11, 12, 1, 2, 3]))
+# print(reach([1, 8, 5, 7, 3, 8, 12, 15, 0, 3]))
+# print(reach([1, 8, 4, 6, 11, 32, 3, 8, 5, 7, 3, 7, 8, 12, 15, 0, 3]))
 
 
-x = np.array([3,4,5,6])
-y = np.array([4,3,2,1])
+# todo leaderboard
+class Leaderboard:
+    def __init__(self):
+        self.time2record = SortedDict()
+        self.id2record = defaultdict(lambda : [0,0,0])
+    def submission(self, sid, iscorrect, time):
+        ncorrect, ntotal, time_total = self.id2record[sid]
+        self.id2record[sid][0] += iscorrect
+        self.id2record[sid][1] += 1
+        self.id2record[sid][2] += time
 
-xp = np.zeros(4)
-yp = np.zeros(4)
-for i, z in enumerate([z1, z2, z3, z4]):
-    xp[i] = np.dot(z, x) >= 0
-    yp[i] = np.dot(z, y) >= 0
-    # if i == 0:
-    #     print('***', xp[0], yp[0])
+        if ntotal > 0:
+            avg_old = time_total / ntotal
+            self.leaderboard_remove(sid, avg_old)
+        avg_new = (time_total + time) / (ntotal + 1)
+        self.leaderboard_add(sid, avg_new)
+
+    def leaderboard_remove(self, sid, avg_old):
+        if avg_old in self.time2record and sid in self.time2record[avg_old]:
+            self.time2record[avg_old].remove(sid)
+
+    def leaderboard_add(self, sid, avg_new):
+        if avg_new not in self.time2record:
+            self.time2record[avg_new] = set()
+        self.time2record[avg_new].add(sid)
+
+    def display(self):
+        res = []
+        for avg_time in self.time2record:
+            for sid in self.time2record[avg_time]:
+
+                ncorrect, ntotal, time_total = self.id2record[sid]
+                if ncorrect / ntotal >= .75:
+                    res.append((sid, ncorrect / ntotal, time_total / ntotal))
+        return res
 
 
-# print(np.dot(x, y) / np.linalg.norm(x, ord=2) / np.linalg.norm(y, ord=2))
-# print(xp)
-# print(yp)
+# lb = Leaderboard()
+# lb.submission(0, 1, 10)
+# lb.submission(0, 0, 20)
+# lb.submission(0, 1, 10)
+# lb.submission(0, 1, 30)
+# print(lb.display())
+# lb.submission(2, 0, 2)
+# lb.submission(1, 1, 20)
+# print(lb.display())
+# lb.submission(1, 1, 1)
+# print(lb.display())
+# lb.submission(1, 0, 1)
+# print(lb.display())
+#
+#
 
-# h = sum(map(abs, xp - yp))
-# print(h)
-# dcos = spatial.distance.cosine(x, y)
-# print("dcos ", dcos)
-# print(1 - np.cos(np.pi * h / 4) - dcos)
-import math
-def sigmoid(x):
-  return 1 / (1 + math.exp(-x))
+# c=[5,6,7,8,8,10]
+# t=[1,1,1,1,1,10]
+# n = len(c)
+# @cache
+# def sufsum(i):
+#      return t[i]+sufsum(i+1) if i<len(t) else 0
+#
+# @cache
+# def f(i,j):
+#     if j+sufsum(i) < 0:
+#         return float('inf')
+#
+#     if j>=n-i:
+#         return 0
+#
+#     return min(c[i]+f(i+1,j+t[i]), f(i+1,j-1))
+# for i in range(n+5):
+#     print(sufsum(i))
+# print(f(0,0))
 
-al1 = np.array([1,2,-3,0,1,-3])
-al2 = np.array([2,1,1,1,0,2])
-al3 = np.array([3,2,2,2,2,1])
-al4 = np.array([2,0,3,1,-2,2])
-x = np.array([1,0,1,0,1,1])
 
-z = np.array([sigmoid(al1 @ x + 1), sigmoid(al2 @ x + 1), sigmoid(al3 @ x + 1), sigmoid(al4 @ x + 1)])
-print(z)
-be1 = np.array([1,2,-2,3])
-be2 = np.array([2,-1,3,1])
-be3 = np.array([3,1,-1,1])
-import scipy
-
-yhat = scipy.special.softmax(np.array([be1 @ z + 1, be2 @ z + 1, be3 @ z + 1]))
-print(yhat)
-import numpy_ml
-y = [0,0,1]
-print(numpy_ml.neural_nets.losses.CrossEntropy.loss(np.array([y]), np.array([yhat])))
-dldb = yhat - y
+def getMaxBarrier(initialEnergy, th):
+      maxEnergy = max(initialEnergy)
+      left = 0
+      right = maxEnergy
+      def getSum(barrier):
+          ans = 0
+          for i in initialEnergy:
+                    if i-barrier > 0:
+                          ans += i-barrier
+          return ans
+      while left <= right:
+          mid = (right-left)//2 +left
+          sum_m = getSum(mid)
+          if sum_m == th:
+                    return mid
+          elif sum_m > th:
+                    left = mid+1
+          else:
+                    right = mid-1
+      return right
